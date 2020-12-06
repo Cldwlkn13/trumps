@@ -140,7 +140,9 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
 
 |    Desktop   |    Tablet    |    Mobile    |
 |    :----:    |    :----:    |    :----:    |
-|[Home Page](wireframes/desktop/homepage-desktop.JPG)|[Home Page](wireframes/tablet/homepage-tablet.JPG)|[Home Page](wireframes/mobile/homepage-mobile.JPG)|
+|[Landing](wireframes/desktop/landing-desktop.JPG)|[Landing Page](wireframes/tablet/landing-tablet.JPG)|[Landing Page](wireframes/mobile/landing-mobile.JPG)|
+|[Game Start](wireframes/desktop/gamestart-desktop.JPG)|[Game Start](wireframes/tablet/gamestart-tablet.JPG)|[Game Start](wireframes/mobile/gamestart-mobile.JPG)|
+|[Gameplay](wireframes/desktop/gameplay-desktop.JPG)|[Gameplay](wireframes/tablet/gameplay-tablet.JPG)|[Gameplay](wireframes/mobile/gameplay-mobile.JPG)|
 
 ---
 
