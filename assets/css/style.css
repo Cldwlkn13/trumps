@@ -1,0 +1,50 @@
+@import url(//db.onlinewebfonts.com/c/d66fa62dabed66f2226a1b2d17da0579?family=Showcard+Gothic);
+@import url('https://fonts.googleapis.com/css?family=Roboto:600');
+
+body{
+    font-family: "Showcard Gothic", sans-serif
+}
+
+/* HEADER */
+header{
+    width: 100vw;
+	height: 8vh;
+    border-bottom: 2px solid black;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+
+.bg-header{
+    background-color: #ccff33;
+}
+
+.header-text{
+    text-align: center;
+    line-height: 8vh;
+}
+
+/*MAIN*/
+.main{
+    width: 100vw;
+	height: 88vh;
+}
+
+.bg-main{
+    background-color: #400080;
+}
+
+/* FOOTER */
+footer{
+    width: 100vw;
+	height: 4vh;
+    line-height: 4vh;
+    clear: both;
+	position: relative;
+    z-index: 2;
+}
+
+.bg-footer{
+    background-color: #100a10;
+}
