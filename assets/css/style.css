@@ -8,7 +8,7 @@ body{
 /* HEADER */
 header{
     width: 100vw;
-	height: 60px;
+    height: 60px;
     border-bottom: 2px solid black;
 	position: fixed;
 	top: 0;
@@ -16,6 +16,7 @@ header{
 	z-index: 2;
     padding-top: 5px;
     padding-bottom: 5px;
+    margin-bottom: 0px;
 }
 
 .bg-header{
@@ -24,23 +25,72 @@ header{
 
 .header-text{
     text-align: center;
-    line-height: 60px;
+    margin-top: 6px;
 }
 
 /*MAIN*/
 .main{
     width: 100vw;
 	height: 100vh;
+    margin-top: 60px;
+    display:flex; 
 }
 
 .bg-main{
     background-color: #400080;
 }
 
+/*MAIN - LANDING CARD*/
+.landing-card {
+    border: 1px solid black;
+    z-index: 1;
+    height: 50vh;
+    width: 40vh;
+    margin: 75px auto;
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px #000;
+    background-color: #ffff1a;
+    padding: 10px;
+    text-align: center;
+}
+
+.landing-card-question{
+    font-size: 10rem; 
+}
+
+.landing-card-goading{
+    font-size: 1.2rem;
+}
+
+.landing-card-prompt{
+    font-size: 1rem;
+}
+
+.landing-card > input {
+    font-size: 0.75rem;
+    margin: 3px;
+    text-align: left;
+    border-radius: 7px;
+    width: 90%;
+}
+
+.landing-card > button {
+    font-size: 0.75rem;
+    margin: 3px;
+    text-align: left;
+    background-color: #00ff00;
+    border-radius: 7px;
+    box-shadow: 3px 3px #000;
+    margin-top: 5px;
+}
+
+.landing-card > button:hover{
+    background-color: #009900;
+}
+
 /* FOOTER */
 footer{
     width: 100vw;
-	height: 60px;
     clear: both;
 	position: relative;
     z-index: 2;
@@ -54,7 +104,6 @@ footer{
 }
 
 #social-links {
-    height: 50px;
     padding-top: 15px;
     padding-bottom: 15px;
 }
