@@ -174,6 +174,7 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
 - [Javascript](https://en.wikipedia.org/wiki/JavaScript) - functional logic & gameplay
 
 **Supplementary technologies**
+- [JustInMind](https://www.justinmind.com/) wireframes and site prototype
 
 ## Testing
 
