@@ -99,7 +99,7 @@ header{
 /*MAIN - GAMESTART CARD*/
 .gamestart-card {  
     z-index: 1;
-    display: display;
+    display: none;
     background-color: #99ffff;
 }
 
@@ -123,6 +123,82 @@ header{
     font-size: 2rem;
 }
 
+/*MAIN - GAMEPLAY*/
+.gameplay{
+    display: display;
+    width: 90vw;
+    margin: 30px auto;
+}
+
+#stack-1, #stack-2, #console{
+    height: 90vh;
+}
+
+.gamecard{
+    margin: 30px auto;
+    border: 1px solid black;
+    height: 60%;
+    text-align: center;
+    border-radius: 7px;
+    box-shadow: 3px 3px #000;
+    background-color: #ffffe6;
+    overflow: auto;
+}
+
+.gamecard-name {
+    margin: 10px 10px;
+    height: 40px;
+    background-color: #003366;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 7px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid black;
+}
+
+.gamecard-img {
+    margin: 10px 10px;
+    height: 80px;
+    border-radius: 7px;
+    border: 1px solid black;
+}
+
+.gamecard-category {
+    margin: 10px 10px;
+    height: 25px;
+    border-radius: 7px;
+    border: 1px solid black;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size: 1rem;
+}
+
+#s-1-cat-1, #s-2-cat-1 {
+    background-color: #ecb3ff;
+}
+
+#s-1-cat-2, #s-2-cat-2 {
+    background-color: #99ff33;
+}
+
+#s-1-cat-3, #s-2-cat-3 {
+    background-color: #ff3300;
+}
+
+#s-1-cat-4, #s-2-cat-4 {
+    background-color: #ffff00;
+}
+
+.gamecard-img > img {
+    max-height:100%; 
+    max-width:100%;
+    object-fit: cover;
+}
+
+.cat-score{
+    font-weight: bold;
+}
 
 /* FOOTER */
 footer{
@@ -156,11 +232,18 @@ footer{
         width: 80vw;
         margin: 30px auto;
     }
+    .gameplay{
+        margin: 20px auto;
+    }
+    .gamecard{
+        margin: 20px auto;
+        height: 70%;
+    }
   }
 
 /* ----------- large mobile ----------- */
 @media only screen 
-  and (max-device-width: 736px)  { 
+  and (max-device-width: 834px)  { 
     .card-base{
         height: 90vh;
         width: 90vw;
@@ -174,24 +257,36 @@ footer{
     }
     .gamestart-card-prompt{
         font-size: 1rem; 
+    }
+    .gameplay{
+        margin: 5px auto;
+    }
+    .gamecard{
+        margin: 5px auto;
+        height: 80%;
+    }
+    .gamecard-name {
+        margin: 3px 3px;
+        height: 20px;
+        font-size: 0.75rem;
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+
+    .gamecard-img {
+        margin: 3px 3px;
+        height: 70px;
+    }
+    .gamecard-category {
+        margin: 5px 5px;
+        height: 25px;
+        padding-top: 2px;
+        padding-bottom: 2px;
     }
   }
 
 /* ----------- small mobile ----------- */
 @media only screen 
   and (max-device-width: 480px) {
-    .card-base{
-        height: 90vh;
-        width: 90vw;
-        margin: 10px auto;
-    }
-    .landing-card-goading{
-        font-size: 1rem;
-    }
-    .landing-card-prompt{
-        font-size: 1rem;
-    }
-    .gamestart-card-prompt{
-        font-size: 1rem; 
-    }
+
 }
