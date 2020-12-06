@@ -138,11 +138,11 @@ As a user, I want to be able to start a new game at any point
 
 Wireframes were designed using JustInMind and images of the slides can be viewed in the following table:
 
-|    Desktop   |    Tablet    |    Mobile    |
-|    :----:    |    :----:    |    :----:    |
-|[Landing](wireframes/desktop/landing-desktop.JPG)|[Landing Page](wireframes/tablet/landing-tablet.JPG)|[Landing Page](wireframes/mobile/landing-mobile.JPG)|
-|[Game Start](wireframes/desktop/gamestart-desktop.JPG)|[Game Start](wireframes/tablet/gamestart-tablet.JPG)|[Game Start](wireframes/mobile/gamestart-mobile.JPG)|
-|[Gameplay](wireframes/desktop/gameplay-desktop.JPG)|[Gameplay](wireframes/tablet/gameplay-tablet.JPG)|[Gameplay](wireframes/mobile/gameplay-mobile.JPG)|
+|    Wireframes   |   
+|      :----:     |    
+|[Landing](wireframes/desktop/landing.PNG)|
+|[Game Start](wireframes/desktop/gamestart-desktop.PNG)|
+|[Gameplay](wireframes/desktop/gameplay-desktop.PNG)|
 
 ---
 
