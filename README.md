@@ -27,15 +27,18 @@ If their value is higher, then they take the card from the opponent, if not then
 
 ### User Stories 
 As the site owner, I want to entice players to play a game of Trumps
+
     - Given a user has landed upon the page
     - When the page loads
     - Then the user is presented with the 'landing-card' feature
     - And the 'landing-card' feature offers them the challenge to play
     
 As the site owner, I want the design to appeal to an audience of 5+ years & adults alike
+
     - The colour palette/icons/images used are fun, but not too garish as to be unappealing to adults
     
 As the site owner, I want to personalize the experience for a player where possible
+
     - Given the 'landing-card' feature is visible
     - When the user is encouraged to enter their name to play
     - Then the name-input & submit-button are enabled and visible
@@ -59,6 +62,7 @@ As the site owner, I want to personalize the experience for a player where possi
     - They are referred to where appropriate by the name they entered
     
 As the site owner, I want users to have the option to suggest new ideas for card themes
+
     - Given the user has navigated to the site
     - When the user browses to the footer
     - Then an input-box is enabled and visible where they can provide ideas for new card themes
@@ -68,6 +72,7 @@ As the site owner, I want users to have the option to suggest new ideas for card
     - Then the site owner is emailed the contents
     
 As the site owner, I want users to be clear on the rules and gameflow of Trumps with intuitive design/prompts
+
     - Given the user is active on the site
     - When the user is unsure of the rules 
     - Then the user can click on a link that pops up a dialog to explain the rules
@@ -81,6 +86,7 @@ As the site owner, I want users to be clear on the rules and gameflow of Trumps 
     - Then the rules dialog closes.
     
 As the site owner, I want to provide links to the social media accounts associated with Trumps
+
     - Given the user has navigated to the site
     - When the user browses to the footer
     - Then links to social media accounts are visible and enabled
@@ -92,6 +98,7 @@ As the site owner, I want to provide links to the social media accounts associat
     - And the link is correct
     
 As the site owner, I want gameplay to be effective on all devices
+
     - Given the user is using a Desktop device
     - When the user is active on the site
     - Then all features are available and work correctly
@@ -105,16 +112,19 @@ As the site owner, I want gameplay to be effective on all devices
     - Then all features are available and work correctly
     
 As a user, I want to know my best score recorded
+
     - Given the user has completed a game of Trumps
     - When the user views their best score in the header element
     - Then the best score recorded on their browser session is shown
     
 As a user, I want to know the game state while playing
+
     - Given the user has started a game of Trumps
     - When the user views the page
     - Then the latest game state (player cards remaining, score, etc) is clear to them 
     
 As a user, I want to be able to start a new game at any point
+
     - Given the user has navigated beyond the landing-card
     - When a user wishes to start a new game
     - Then the user has a clickable element to do so
