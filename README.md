@@ -140,9 +140,9 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
 
 |    Wireframes   |   
 |      :----:     |    
-|[Landing](wireframes/desktop/landing.PNG)|
-|[Game Start](wireframes/desktop/gamestart-desktop.PNG)|
-|[Gameplay](wireframes/desktop/gameplay-desktop.PNG)|
+|[Landing](wireframes/landing.PNG)|
+|[Game Start](wireframes/gamestart-desktop.PNG)|
+|[Gameplay](wireframes/gameplay-desktop.PNG)|
 
 ---
 
