@@ -8,12 +8,14 @@ body{
 /* HEADER */
 header{
     width: 100vw;
-	height: 8vh;
+	height: 60px;
     border-bottom: 2px solid black;
 	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: 2;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .bg-header{
@@ -22,13 +24,13 @@ header{
 
 .header-text{
     text-align: center;
-    line-height: 8vh;
+    line-height: 60px;
 }
 
 /*MAIN*/
 .main{
     width: 100vw;
-	height: 88vh;
+	height: 100vh;
 }
 
 .bg-main{
@@ -38,13 +40,26 @@ header{
 /* FOOTER */
 footer{
     width: 100vw;
-	height: 4vh;
-    line-height: 4vh;
+	height: 60px;
     clear: both;
 	position: relative;
     z-index: 2;
+	margin-top: 0px;
+	padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .bg-footer{
     background-color: #100a10;
 }
+
+#social-links {
+    height: 50px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.footer-links {
+	text-align: left;
+}
+
