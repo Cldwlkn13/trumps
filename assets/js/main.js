@@ -1,21 +1,20 @@
-$('document').ready(function(){
-
+$('document').ready(function(){   
+    
     removeName();
     
     if(!validateNameStored()) {
-        $(".landing-card").show();
-        $(".gamestart-card").hide();
-        $(".gameplay").hide();
+        showLanding();
     }
     else {
-        $(".landing-card").hide();
-        $(".gamestart-card").show();
-        $(".gameplay").hide();
+        showGameStart();
     }
     
+    //Functions
+
     function getName() {
         let name = localStorage.getItem("name");
         console.log(name);
+        return name;
     }
 
     function storeName(name) {
@@ -24,28 +23,48 @@ $('document').ready(function(){
     }
 
     function removeName() {
-        localStorage.setItem("name", "");
+        localStorage.removeItem("name");
     }
 
     function validateNameStored() {
-        return getName() != "";
+        let storedName = getName();
+        return storedName != null && 
+            storedName.length > 0;
     }
 
-    $("card-button").click(function() {
-        
-        let name = $("landing-card-name-input").text();
+    function showLanding(){
+        $(".landing-card").show();
+        $(".gamestart-card").hide();
+        $(".gameplay").hide();
+    }
 
+    function showGameStart() {
+        $(".landing-card").hide();
+        $(".gamestart-card").show();
+        $(".gameplay").hide();
+    }
 
+    function showGamePlay() {
+        $(".landing-card").hide();
+        $(".gamestart-card").hide();
+        $(".gameplay").show();
+    }
 
-        console.log(name);
+    function setGameStartName() {
+        $(".gamestart-card-name")
+            .text(getName());
+    }
 
-        storeName(name);
+    //Events
 
-        if(validateName())
+    $(".card-button").click(function() {
+        storeName($(".landing-card-name-input")
+            .val());
+
+        if(validateNameStored())
         {
-            $(".landing-card").hide();
-            $(".gamestart-card").show();
-            $(".gameplay").hide();
+            setGameStartName();
+            showGameStart();
         }
     });
 });
