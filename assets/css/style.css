@@ -1,5 +1,4 @@
-@import url(//db.onlinewebfonts.com/c/d66fa62dabed66f2226a1b2d17da0579?family=Showcard+Gothic);
-@import url('https://fonts.googleapis.com/css?family=Roboto:600');
+@import url(https://db.onlinewebfonts.com/c/d66fa62dabed66f2226a1b2d17da0579?family=Showcard+Gothic);
 
 body{
     font-family: "Showcard Gothic", sans-serif
@@ -52,10 +51,10 @@ header{
     min-width: 150px;
     overflow: hidden;
 }
+
 /*MAIN - LANDING CARD*/
 .landing-card {  
     z-index: 1;
-    display: none;
     background-color: #ffff1a;
 }
 
@@ -99,7 +98,6 @@ header{
 /*MAIN - GAMESTART CARD*/
 .gamestart-card {  
     z-index: 1;
-    display: none;
     background-color: #99ffff;
 }
 
@@ -125,7 +123,6 @@ header{
 
 /*MAIN - GAMEPLAY*/
 .gameplay{
-    display: display;
     width: 90vw;
     margin: 30px auto;
 }

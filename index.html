@@ -15,15 +15,15 @@
         Trumps <i class="fa fa-rocket" aria-hidden="true"></i></h1>
     </header>
     <section class="main bg-main">
-        <div class="card-base landing-card">
+        <div class="card-base landing-card" id="landing-card">
             <h2 class="landing-card-question">?</h2>
             <h3 class="landing-card-goading">THINK <u>YOU</u> KNOW ENOUGH TO BEAT <u>ME</u> AT TRUMPS?</h3>
             <br>
             <p class="landing-card-prompt">Enter your name and have a go!</p>
-            <input type="text" placeholder="Enter your name here">
+            <input class="landing-card-name-input" type="text" placeholder="Enter your name here">
             <button class="card-button">Submit</button>
         </div>
-        <div class="card-base gamestart-card">
+        <div class="card-base gamestart-card" id="gamestart-card">
             <h2 class="gamestart-card-name">Name</h2>
             <br>
             <p class="gamestart-card-prompt">Are you ready?</p>
@@ -34,7 +34,7 @@
             <button class="card-button gamestart-stack-button" id="1">Choose Stack <p>1</p></button>
             <button class="card-button gamestart-stack-button" id="2">Choose Stack <p>2</p></button>
         </div>
-        <div class="gameplay">
+        <div class="gameplay" id="gameplay">
             <div class="container">
                 <div class="row">
                     <div class="col-5" id="stack-1">
@@ -116,5 +116,14 @@
             </ul>
         </div>
     </footer>
+    <!-- JQUERY -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    
+    <!-- MY SCRIPTS -->
+        <script src="assets/js/main.js"></script> 
+        
+    <!-- BOOTSTRAP SCRIPTS -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 </html>
