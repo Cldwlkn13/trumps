@@ -27,7 +27,7 @@
 		},
 		{
 			"cardId": 2,
-			"name": "Phil Babb",
+			"name": "Neil Redfearn",
             "img": "assets/images/phil-babb.jpg",
             "best" : 2,
 			"values": {
@@ -39,7 +39,7 @@
         }, 
         {
 			"cardId": 3,
-			"name": "Phil Babb",
+			"name": "Pierre-Emerick Aubameyang",
             "img": "assets/images/phil-babb.jpg",
             "best" : 2,
 			"values": {
@@ -51,7 +51,7 @@
         },
         {
 			"cardId": 4,
-			"name": "Phil Babb",
+			"name": "Harry Kane",
             "img": "assets/images/phil-babb.jpg",
             "best" : 2,
 			"values": {
@@ -63,7 +63,7 @@
         },
         {
 			"cardId": 5,
-			"name": "Phil Babb",
+			"name": "Cristiano Ronaldo",
             "img": "assets/images/phil-babb.jpg",
             "best" : 2,
 			"values": {
@@ -75,7 +75,7 @@
         },
         {
 			"cardId": 6,
-			"name": "Phil Babb",
+			"name": "Diego Maradona",
             "img": "assets/images/phil-babb.jpg",
             "best" : 2,
 			"values": {
@@ -87,7 +87,7 @@
         },
         {
 			"cardId": 7,
-			"name": "Phil Babb",
+			"name": "Gerd Muller",
             "img": "assets/images/phil-babb.jpg",
             "best" : 2,
 			"values": {
@@ -99,7 +99,7 @@
         },
         {
 			"cardId": 8,
-			"name": "Phil Babb",
+			"name": "Sergio Aguero",
             "img": "assets/images/phil-babb.jpg",
             "best" : 2,
 			"values": {
@@ -111,7 +111,7 @@
         },
         {
 			"cardId": 9,
-			"name": "Phil Babb",
+			"name": "Graeme Souness",
             "img": "assets/images/phil-babb.jpg",
             "best" : 2,
 			"values": {
@@ -123,7 +123,7 @@
         },
         {
 			"cardId": 10,
-			"name": "Phil Babb",
+			"name": "Robert Lewandowski",
             "img": "assets/images/phil-babb.jpg",
             "best" : 2,
 			"values": {
@@ -135,7 +135,7 @@
         },
         {
 			"cardId": 11,
-			"name": "Phil Babb",
+			"name": "Phil Bardsley",
             "img": "assets/images/phil-babb.jpg",
             "best" : 2,
 			"values": {
@@ -147,7 +147,7 @@
         },
         {
 			"cardId": 12,
-			"name": "Phil Babb",
+			"name": "Michael Laudrup",
             "img": "assets/images/phil-babb.jpg",
             "best" : 2,
 			"values": {
@@ -159,7 +159,7 @@
         },
         {
 			"cardId": 13,
-			"name": "Phil Babb",
+			"name": "Phil Stamp",
             "img": "assets/images/phil-babb.jpg",
             "best" : 2,
 			"values": {
@@ -171,7 +171,7 @@
         },
         {
 			"cardId": 14,
-			"name": "Phil Babb",
+			"name": "Mo Salah",
             "img": "assets/images/phil-babb.jpg",
             "best" : 2,
 			"values": {
@@ -183,7 +183,7 @@
         },
         {
 			"cardId": 15,
-			"name": "Phil Babb",
+			"name": "Gabriel Batistuta",
             "img": "assets/images/phil-babb.jpg",
             "best" : 2,
 			"values": {
@@ -195,7 +195,7 @@
         },
         {
 			"cardId": 16,
-			"name": "Phil Babb",
+			"name": "Paolo Maldini",
             "img": "assets/images/phil-babb.jpg",
             "best" : 2,
 			"values": {
@@ -207,7 +207,7 @@
         },
         {
 			"cardId": 17,
-			"name": "Phil Babb",
+			"name": "Gianluigi Buffon",
             "img": "assets/images/phil-babb.jpg",
             "best" : 2,
 			"values": {
@@ -219,7 +219,7 @@
         },
         {
 			"cardId": 18,
-			"name": "Phil Babb",
+			"name": "Thomas Muller",
             "img": "assets/images/phil-babb.jpg",
             "best" : 2,
 			"values": {
@@ -231,7 +231,7 @@
         },
         {
 			"cardId": 19,
-			"name": "Phil Babb",
+			"name": "Barry Venison",
             "img": "assets/images/phil-babb.jpg",
             "best" : 2,
 			"values": {
@@ -243,7 +243,7 @@
         },
         {
 			"cardId": 20,
-			"name": "Phil Babb",
+			"name": "Dave Beasant",
             "img": "assets/images/phil-babb.jpg",
             "best" : 2,
 			"values": {
@@ -255,7 +255,7 @@
         },
         {
 			"cardId": 21,
-			"name": "Phil Babb",
+			"name": "Vinny Samways",
             "img": "assets/images/phil-babb.jpg",
             "best" : 2,
 			"values": {
@@ -267,7 +267,7 @@
         },
         {
 			"cardId": 22,
-			"name": "Phil Babb",
+			"name": "Sadio Mane",
             "img": "assets/images/phil-babb.jpg",
             "best" : 2,
 			"values": {
@@ -279,7 +279,7 @@
         },
         {
 			"cardId": 23,
-			"name": "Phil Babb",
+			"name": "David Beckham",
             "img": "assets/images/phil-babb.jpg",
             "best" : 2,
 			"values": {
@@ -291,8 +291,8 @@
         },
         {
 			"cardId": 24,
-			"name": "Phil Babb",
-            "img": "assets/images/phil-babb.jpg",
+			"name": "Lionel Messi",
+            "img": "assets/images/lionel-messi.jpg",
             "best" : 2,
 			"values": {
 				"1": 190,
