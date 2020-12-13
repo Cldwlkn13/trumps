@@ -1,5 +1,6 @@
 $('document').ready(function(){   
     
+    storeChosenThemeInMemory("SoccerPlayers");
     removeName();
     
     if(!validateNameStored()) {
@@ -64,6 +65,14 @@ $('document').ready(function(){
     function setGameStartName(name) {
         $(".gamestart-card-name")
             .text(name);
+    }
+
+    function storeChosenThemeInMemory(theme){
+        $.getJSON(`assets/json/${theme}.json`, function(result){
+            console.log(`Storing Cards for ${theme}:`);
+            console.log(JSON.parse(JSON.stringify(result)));
+            sessionStorage.setItem("cards", JSON.stringify(result));
+        });
     }
 
     //Events
