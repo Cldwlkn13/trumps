@@ -3,56 +3,67 @@ $('document').ready(function(){
     removeName();
     
     if(!validateNameStored()) {
-        showLanding();
+        chooseCardDisplayed(1);
     }
     else {
-        showGameStart();
+        chooseCardDisplayed(2);
     }
     
     //Functions
 
     function getName() {
         let name = localStorage.getItem("name");
-        console.log(name);
+        console.log(`Retrieving locally stored name : ${name}`);
         return name;
     }
 
     function storeName(name) {
-        console.log(name);
+        console.log(`Storing name: ${name}`);
         localStorage.setItem("name", name);
     }
 
     function removeName() {
+        console.log(`Removing locally stored name value`);
         localStorage.removeItem("name");
     }
 
-    function validateNameStored() {
-        let storedName = getName();
-        return storedName != null && 
-            storedName.length > 0;
+    function validateNameStored(name) {
+        return name != null && 
+            name.length > 0;
     }
 
-    function showLanding(){
-        $(".landing-card").show();
-        $(".gamestart-card").hide();
-        $(".gameplay").hide();
+    function chooseCardDisplayed(e) {
+        switch(e)
+        {
+            case 1:
+                $(".landing-card").show();
+                $(".gamestart-card").hide();
+                $(".gameplay").hide();    
+                break; 
+
+            case 2:
+                $(".landing-card").hide();
+                $(".gamestart-card").show();
+                $(".gameplay").hide();    
+                break;   
+            
+            case 3:
+                $(".landing-card").hide();
+                $(".gamestart-card").hide();
+                $(".gameplay").show();   
+                break;  
+            
+            default:
+                $(".landing-card").show();
+                $(".gamestart-card").hide();
+                $(".gameplay").hide();  
+                break;           
+        }
     }
 
-    function showGameStart() {
-        $(".landing-card").hide();
-        $(".gamestart-card").show();
-        $(".gameplay").hide();
-    }
-
-    function showGamePlay() {
-        $(".landing-card").hide();
-        $(".gamestart-card").hide();
-        $(".gameplay").show();
-    }
-
-    function setGameStartName() {
+    function setGameStartName(name) {
         $(".gamestart-card-name")
-            .text(getName());
+            .text(name);
     }
 
     //Events
@@ -61,10 +72,11 @@ $('document').ready(function(){
         storeName($(".landing-card-name-input")
             .val());
 
-        if(validateNameStored())
+        let name = getName();
+        if(validateNameStored(name))
         {
-            setGameStartName();
-            showGameStart();
+            setGameStartName(name);
+            chooseCardDisplayed(2);
         }
     });
 });
