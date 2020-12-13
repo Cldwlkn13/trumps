@@ -16,10 +16,11 @@
 	"cards": [{
 			"cardId": 1,
 			"name": "Phil Babb",
-			"img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/phil-babb.jpg",
+            "best" : 2,
 			"values": {
 				"1": 195,
-				"2": 380,
+				"2": 390,
 				"3": 18,
 				"4": 2
 			}
@@ -27,7 +28,8 @@
 		{
 			"cardId": 2,
 			"name": "Phil Babb",
-			"img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/phil-babb.jpg",
+            "best" : 2,
 			"values": {
 				"1": 190,
 				"2": 380,
@@ -38,7 +40,8 @@
         {
 			"cardId": 3,
 			"name": "Phil Babb",
-			"img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/phil-babb.jpg",
+            "best" : 2,
 			"values": {
 				"1": 190,
 				"2": 380,
@@ -49,7 +52,8 @@
         {
 			"cardId": 4,
 			"name": "Phil Babb",
-			"img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/phil-babb.jpg",
+            "best" : 2,
 			"values": {
 				"1": 190,
 				"2": 380,
@@ -60,7 +64,8 @@
         {
 			"cardId": 5,
 			"name": "Phil Babb",
-			"img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/phil-babb.jpg",
+            "best" : 2,
 			"values": {
 				"1": 190,
 				"2": 380,
@@ -71,7 +76,8 @@
         {
 			"cardId": 6,
 			"name": "Phil Babb",
-			"img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/phil-babb.jpg",
+            "best" : 2,
 			"values": {
 				"1": 190,
 				"2": 380,
@@ -82,7 +88,8 @@
         {
 			"cardId": 7,
 			"name": "Phil Babb",
-			"img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/phil-babb.jpg",
+            "best" : 2,
 			"values": {
 				"1": 190,
 				"2": 380,
@@ -93,7 +100,8 @@
         {
 			"cardId": 8,
 			"name": "Phil Babb",
-			"img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/phil-babb.jpg",
+            "best" : 2,
 			"values": {
 				"1": 190,
 				"2": 380,
@@ -104,7 +112,8 @@
         {
 			"cardId": 9,
 			"name": "Phil Babb",
-			"img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/phil-babb.jpg",
+            "best" : 2,
 			"values": {
 				"1": 190,
 				"2": 380,
@@ -115,7 +124,8 @@
         {
 			"cardId": 10,
 			"name": "Phil Babb",
-			"img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/phil-babb.jpg",
+            "best" : 2,
 			"values": {
 				"1": 190,
 				"2": 380,
@@ -126,7 +136,8 @@
         {
 			"cardId": 11,
 			"name": "Phil Babb",
-			"img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/phil-babb.jpg",
+            "best" : 2,
 			"values": {
 				"1": 190,
 				"2": 380,
@@ -137,7 +148,8 @@
         {
 			"cardId": 12,
 			"name": "Phil Babb",
-			"img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/phil-babb.jpg",
+            "best" : 2,
 			"values": {
 				"1": 190,
 				"2": 380,
@@ -148,7 +160,8 @@
         {
 			"cardId": 13,
 			"name": "Phil Babb",
-			"img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/phil-babb.jpg",
+            "best" : 2,
 			"values": {
 				"1": 190,
 				"2": 380,
@@ -159,7 +172,8 @@
         {
 			"cardId": 14,
 			"name": "Phil Babb",
-			"img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/phil-babb.jpg",
+            "best" : 2,
 			"values": {
 				"1": 190,
 				"2": 380,
@@ -170,7 +184,8 @@
         {
 			"cardId": 15,
 			"name": "Phil Babb",
-			"img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/phil-babb.jpg",
+            "best" : 2,
 			"values": {
 				"1": 190,
 				"2": 380,
@@ -181,7 +196,8 @@
         {
 			"cardId": 16,
 			"name": "Phil Babb",
-			"img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/phil-babb.jpg",
+            "best" : 2,
 			"values": {
 				"1": 190,
 				"2": 380,
@@ -192,7 +208,8 @@
         {
 			"cardId": 17,
 			"name": "Phil Babb",
-			"img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/phil-babb.jpg",
+            "best" : 2,
 			"values": {
 				"1": 190,
 				"2": 380,
@@ -203,7 +220,8 @@
         {
 			"cardId": 18,
 			"name": "Phil Babb",
-			"img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/phil-babb.jpg",
+            "best" : 2,
 			"values": {
 				"1": 190,
 				"2": 380,
@@ -214,7 +232,8 @@
         {
 			"cardId": 19,
 			"name": "Phil Babb",
-			"img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/phil-babb.jpg",
+            "best" : 2,
 			"values": {
 				"1": 190,
 				"2": 380,
@@ -225,7 +244,8 @@
         {
 			"cardId": 20,
 			"name": "Phil Babb",
-			"img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/phil-babb.jpg",
+            "best" : 2,
 			"values": {
 				"1": 190,
 				"2": 380,
@@ -236,7 +256,8 @@
         {
 			"cardId": 21,
 			"name": "Phil Babb",
-			"img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/phil-babb.jpg",
+            "best" : 2,
 			"values": {
 				"1": 190,
 				"2": 380,
@@ -247,7 +268,8 @@
         {
 			"cardId": 22,
 			"name": "Phil Babb",
-			"img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/phil-babb.jpg",
+            "best" : 2,
 			"values": {
 				"1": 190,
 				"2": 380,
@@ -258,7 +280,8 @@
         {
 			"cardId": 23,
 			"name": "Phil Babb",
-			"img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/phil-babb.jpg",
+            "best" : 2,
 			"values": {
 				"1": 190,
 				"2": 380,
@@ -269,7 +292,8 @@
         {
 			"cardId": 24,
 			"name": "Phil Babb",
-			"img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/phil-babb.jpg",
+            "best" : 2,
 			"values": {
 				"1": 190,
 				"2": 380,

@@ -157,7 +157,7 @@ header{
     border: 1px solid black;
 }
 
-.gamecard-category {
+.gamecard-category-1, .gamecard-category-2 {
     margin: 10px 10px;
     height: 25px;
     border-radius: 7px;

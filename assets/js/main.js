@@ -1,5 +1,6 @@
 $('document').ready(function(){   
     
+    var turn = 1;
     var stackOne = [];
     var stackTwo = [];
 
@@ -98,7 +99,7 @@ $('document').ready(function(){
         for (var j = 1; j <= (cards.length); j++)
         {
             if(pushedStackOneCardIds.includes(j)) { continue; } //if stackOne already has this card        
-            var card = FindCard(cards, rnd); //find card by its Id
+            var card = FindCard(cards, j); //find card by its Id
             stackTwo.push(card) //push this card to stackTwo
         }
 
@@ -129,6 +130,7 @@ $('document').ready(function(){
         }
          
         var gameObj = JSON.parse(sessionStorage.getItem("gameObj"));
+
         var cardOne = stackOne[0];
         var cardTwo = stackTwo[0];
 
@@ -137,11 +139,6 @@ $('document').ready(function(){
     }
 
     function renderCard(categories, units, stackId, card) {
-        
-        console.log(categories);
-        console.log(units);
-        console.log(card);
-
         $("#name-" + stackId)
             .children("p")
             .first()
@@ -153,19 +150,106 @@ $('document').ready(function(){
             .attr("src", card.img);
 
         for(var i = 1; i <= 4; i++) {    
-            $("#s-" + stackId + "-cat-" + i)
+            var element = $("#s-" + stackId + "-cat-" + i);
+
+            element
                 .children(".cat-name")
                 .first()
                 .text(categories[i] + " - "); 
 
-            $("#s-" + stackId + "-cat-" + i)
+            element
                 .children(".cat-score")
                 .first()
-                .text(card.values[i] + units[i]);     
+                .text(card.values[i]);     
+
+             element
+                .children(".cat-unit")
+                .first()
+                .text(units[i]);   
         }    
     }
-    
 
+    function determineShowdown(value1, value2){
+        if(value1 > value2){
+            console.log(`Player One Wins Showdown`);
+            return 1;
+        }
+        console.log(`Player Two Wins Showdown`);
+        return 2;
+    }
+
+    function pushToArray(array1, array2){
+            
+        var winningCard = array1.splice(0, 1);
+        var losingCard = array2.splice(0, 1);
+
+        console.log(winningCard);
+        console.log(losingCard);
+
+        array1.push(winningCard);
+        array1.push(losingCard);
+
+        if(array2.length === 0)
+        {
+            return 1;
+        }
+        return 0;
+    }
+
+    function next(winner) {
+        switch(winner)
+        {
+            case 1:
+                turn = winner;
+                pushToArray(stackOne, stackTwo);
+                if(stackTwo.length === 0) {
+                    declareWinner(winner);
+                    return;   
+                }
+                console.log(stackOne.length);
+                break;
+
+            case 2:
+                turn = winner;
+                pushToArray(stackTwo, stackOne);
+                if(stackOne.length === 0) {
+                    declareWinner(winner);
+                    return;
+                }
+                simulatePlayerTwo();
+                break;
+
+            default:
+                turn = 1
+        }
+    }
+
+    function declareWinner(winner){
+        alert(`Player ${winner} has won!`)
+    }
+
+    function simulatePlayerTwo() {
+        if(turn != 2) {
+            return;
+        }
+        wait(3000);
+
+        var cardOne = stackOne[0];
+        var cardTwo = stackTwo[0];
+
+        console.log(`${cardOne.values[cardOne.best]} vs ${cardTwo.values[cardTwo.best]}`);
+
+        var winner = determineShowdown(cardOne.values[cardOne.best], cardTwo.values[cardTwo.best]);
+        next(winner);
+    }
+
+    function wait(s) {    
+        setTimeout(function() 
+        {  
+            console.log(`Player Two waiting ${s}ms`);
+        }, s);
+    }
+    
     //Events
 
     $(".card-button").click(function() {
@@ -186,7 +270,24 @@ $('document').ready(function(){
     $(".gamestart-button").click(function() {
         dealCardsRandomly(); 
         chooseCardDisplayed(3);
-        renderCards();
+        renderCards()
+    })
+
+    $(".gamecard-category-1").click(function() {
+        console.log(`Player One selected Category: ${$(this).find(".cat-name").text()}${$(this).find(".cat-score").text()}`);
+        
+        if(turn != 1) {
+            return;
+        }
+
+        var category = this.id.split("-")[3];
+        
+        var cardOne = stackOne[0];
+        var cardTwo = stackTwo[0];
+
+        var winner = determineShowdown(cardOne.values[category], cardTwo.values[category]);
+
+        next(winner);
     })
 });
 
