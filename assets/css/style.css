@@ -105,20 +105,16 @@ header{
     font-size: 1.5rem; 
 }
 
-.gamestart-stack-button{
+.gamestart-button{
     height: 50px;
 }
 
-.gamestart-stack-button {
+.gamestart-button {
     background-color: #47d147;
 }
 
-.gamestart-stack-button:hover{
+.gamestart-button:hover{
     background-color: #009900;
-}
-
-.gamestart-stack-button > p {
-    font-size: 2rem;
 }
 
 /*MAIN - GAMEPLAY*/

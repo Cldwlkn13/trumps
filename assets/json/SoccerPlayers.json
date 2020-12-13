@@ -1,12 +1,13 @@
 {
-	"theme": "Soccer Players",
+    "theme": "Soccer Players",
+    "categoryCount" :  4,
 	"categories": {
 		"1": "Height",
 		"2": "Appearances",
 		"3": "Goals",
 		"4": "Honours"
 	},
-	"measures": {
+	"units": {
 		"1": "cm",
 		"2": "",
 		"3": "",
@@ -15,18 +16,260 @@
 	"cards": [{
 			"cardId": 1,
 			"name": "Phil Babb",
-			"img": "",
+			"img": "assets/images/phil-babb.jpg",
 			"values": {
-				"1": 190,
+				"1": 195,
 				"2": 380,
 				"3": 18,
 				"4": 2
 			}
 		},
 		{
-			"cardId": 1,
+			"cardId": 2,
 			"name": "Phil Babb",
-			"img": "",
+			"img": "assets/images/phil-babb.jpg",
+			"values": {
+				"1": 190,
+				"2": 380,
+				"3": 18,
+				"4": 2
+			}
+        }, 
+        {
+			"cardId": 3,
+			"name": "Phil Babb",
+			"img": "assets/images/phil-babb.jpg",
+			"values": {
+				"1": 190,
+				"2": 380,
+				"3": 18,
+				"4": 2
+			}
+        },
+        {
+			"cardId": 4,
+			"name": "Phil Babb",
+			"img": "assets/images/phil-babb.jpg",
+			"values": {
+				"1": 190,
+				"2": 380,
+				"3": 18,
+				"4": 2
+			}
+        },
+        {
+			"cardId": 5,
+			"name": "Phil Babb",
+			"img": "assets/images/phil-babb.jpg",
+			"values": {
+				"1": 190,
+				"2": 380,
+				"3": 18,
+				"4": 2
+			}
+        },
+        {
+			"cardId": 6,
+			"name": "Phil Babb",
+			"img": "assets/images/phil-babb.jpg",
+			"values": {
+				"1": 190,
+				"2": 380,
+				"3": 18,
+				"4": 2
+			}
+        },
+        {
+			"cardId": 7,
+			"name": "Phil Babb",
+			"img": "assets/images/phil-babb.jpg",
+			"values": {
+				"1": 190,
+				"2": 380,
+				"3": 18,
+				"4": 2
+			}
+        },
+        {
+			"cardId": 8,
+			"name": "Phil Babb",
+			"img": "assets/images/phil-babb.jpg",
+			"values": {
+				"1": 190,
+				"2": 380,
+				"3": 18,
+				"4": 2
+			}
+        },
+        {
+			"cardId": 9,
+			"name": "Phil Babb",
+			"img": "assets/images/phil-babb.jpg",
+			"values": {
+				"1": 190,
+				"2": 380,
+				"3": 18,
+				"4": 2
+			}
+        },
+        {
+			"cardId": 10,
+			"name": "Phil Babb",
+			"img": "assets/images/phil-babb.jpg",
+			"values": {
+				"1": 190,
+				"2": 380,
+				"3": 18,
+				"4": 2
+			}
+        },
+        {
+			"cardId": 11,
+			"name": "Phil Babb",
+			"img": "assets/images/phil-babb.jpg",
+			"values": {
+				"1": 190,
+				"2": 380,
+				"3": 18,
+				"4": 2
+			}
+        },
+        {
+			"cardId": 12,
+			"name": "Phil Babb",
+			"img": "assets/images/phil-babb.jpg",
+			"values": {
+				"1": 190,
+				"2": 380,
+				"3": 18,
+				"4": 2
+			}
+        },
+        {
+			"cardId": 13,
+			"name": "Phil Babb",
+			"img": "assets/images/phil-babb.jpg",
+			"values": {
+				"1": 190,
+				"2": 380,
+				"3": 18,
+				"4": 2
+			}
+        },
+        {
+			"cardId": 14,
+			"name": "Phil Babb",
+			"img": "assets/images/phil-babb.jpg",
+			"values": {
+				"1": 190,
+				"2": 380,
+				"3": 18,
+				"4": 2
+			}
+        },
+        {
+			"cardId": 15,
+			"name": "Phil Babb",
+			"img": "assets/images/phil-babb.jpg",
+			"values": {
+				"1": 190,
+				"2": 380,
+				"3": 18,
+				"4": 2
+			}
+        },
+        {
+			"cardId": 16,
+			"name": "Phil Babb",
+			"img": "assets/images/phil-babb.jpg",
+			"values": {
+				"1": 190,
+				"2": 380,
+				"3": 18,
+				"4": 2
+			}
+        },
+        {
+			"cardId": 17,
+			"name": "Phil Babb",
+			"img": "assets/images/phil-babb.jpg",
+			"values": {
+				"1": 190,
+				"2": 380,
+				"3": 18,
+				"4": 2
+			}
+        },
+        {
+			"cardId": 18,
+			"name": "Phil Babb",
+			"img": "assets/images/phil-babb.jpg",
+			"values": {
+				"1": 190,
+				"2": 380,
+				"3": 18,
+				"4": 2
+			}
+        },
+        {
+			"cardId": 19,
+			"name": "Phil Babb",
+			"img": "assets/images/phil-babb.jpg",
+			"values": {
+				"1": 190,
+				"2": 380,
+				"3": 18,
+				"4": 2
+			}
+        },
+        {
+			"cardId": 20,
+			"name": "Phil Babb",
+			"img": "assets/images/phil-babb.jpg",
+			"values": {
+				"1": 190,
+				"2": 380,
+				"3": 18,
+				"4": 2
+			}
+        },
+        {
+			"cardId": 21,
+			"name": "Phil Babb",
+			"img": "assets/images/phil-babb.jpg",
+			"values": {
+				"1": 190,
+				"2": 380,
+				"3": 18,
+				"4": 2
+			}
+        },
+        {
+			"cardId": 22,
+			"name": "Phil Babb",
+			"img": "assets/images/phil-babb.jpg",
+			"values": {
+				"1": 190,
+				"2": 380,
+				"3": 18,
+				"4": 2
+			}
+        },
+        {
+			"cardId": 23,
+			"name": "Phil Babb",
+			"img": "assets/images/phil-babb.jpg",
+			"values": {
+				"1": 190,
+				"2": 380,
+				"3": 18,
+				"4": 2
+			}
+        },
+        {
+			"cardId": 24,
+			"name": "Phil Babb",
+			"img": "assets/images/phil-babb.jpg",
 			"values": {
 				"1": 190,
 				"2": 380,
