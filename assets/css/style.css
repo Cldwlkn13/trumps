@@ -114,6 +114,11 @@ header{
 .gameplay > .container > .row {
     margin: 0;
 }
+.player-name{
+    font-size: 1.5rem;
+    color: #6a6a6b;
+    text-align: center;
+}
 .gamecard{
     margin: 30px auto;
     border: 2px solid black;
@@ -188,6 +193,22 @@ footer{
 }
 .footer-links {
 	text-align: left;
+}
+
+/* ALERTS */
+.alert {
+  position: absolute;
+  top: 100px;
+  margin-left: 24vw;
+  width: 50%;
+  padding: 20px;
+  border: 3px solid black;
+  color: black;
+  transition: opacity 1.4s;
+  display: none;
+  z-index: 5;
+  text-align: center;
+  border-radius: 7px;
 }
 
 /* ----------- tablet ----------- */

@@ -18,7 +18,6 @@ $('document').ready(function(){
     }
     
     //Functions
-
     function getName() {
         let name = localStorage.getItem("name");
         console.log(`Retrieving locally stored name : ${name}`);
@@ -26,7 +25,10 @@ $('document').ready(function(){
     }
 
     function storeName(name) {
-        console.log(`Storing name: ${name}`);
+        if(name.length > 0) {
+            console.log(`Storing name: ${name}`);
+        }
+
         localStorage.setItem("name", name);
     }
 
@@ -72,6 +74,11 @@ $('document').ready(function(){
     function setGameStartName(name) {
         $(".gamestart-card-name")
             .text(name);
+    }
+
+    function setGamePlayName(name){
+        $("#player-name-1 > p")
+        .text(name);
     }
 
     function storeChosenThemeInMemory(theme){
@@ -134,11 +141,13 @@ $('document').ready(function(){
             return;
         }
 
-        //setTimeout(function () { renderCard(1, stackOne[0]); }, 0);
-        //setTimeout(function () { renderCard(2, stackTwo[0]); }, 0);
-
         renderCard(1, stackOne[0]);
-        renderCard(2, stackTwo[0]);   
+        renderCard(2, stackTwo[0]);
+
+        var name = getName();
+        
+        turn == 1 ? showAlert(`${name} it is your turn`, 0.8, true,"#c9e000", 2000) :
+            showAlert(`${name} click Player 2 card for next move!`, 0.8, true, "#c9e000", 2000);
     }
 
     function renderCard(stackId, card) {
@@ -171,8 +180,13 @@ $('document').ready(function(){
                     .children(".cat-unit")
                     .first()
                     .text(gameObj.units[i]);   
-            }  
-        
+            } 
+            
+            (stackId == turn) ? $("#stack-" + stackId + "> .gamecard").css("border", "6px solid #c9e000") : 
+                $("#stack-" + stackId + "> .gamecard").css("border", "1px solid #c9e000"); 
+                
+            (stackId == turn) ? $("#player-name-" + stackId).css("border", "6px solid #c9e000") : 
+                $("#player-name-" + stackId).css("border", "0px"); 
     }
 
     function determineShowdown(value1, value2){
@@ -224,7 +238,6 @@ $('document').ready(function(){
                 console.log("-----------------------");
                 renderCards();
                 console.log(`SCORE: P1 has ${stackOne.length} cards, P2 has ${stackTwo.length} cards`);
-                //simulatePlayerTwoAction();
                 break;
 
             default:
@@ -241,8 +254,8 @@ $('document').ready(function(){
             return;
         }
         
-        console.log("P2 is making their decision...")       
-        sleep(4000);
+        console.log("P2 is making their decision..."); 
+        sleep(4800);
         console.log(`For card ${stackTwo[0].name}, P2 selects category: ${gameObj.categories[stackTwo[0].best]} `);
         console.log(`Showdown: ${stackOne[0].values[stackOne[0].best]} vs ${stackTwo[0].values[stackTwo[0].best]}`);
 
@@ -261,21 +274,31 @@ $('document').ready(function(){
             currentDate = Date.now();
         } while (currentDate - date < milliseconds);
     }
-    
+
+    function showAlert(text, opacity, hide, backgroundColor, showForS = 0) {
+        $(".alert").text(text).css("opacity", opacity).css("background-color", backgroundColor); 
+        $(".alert").show();            
+        if(hide){
+            setTimeout(function() { hideAlert()}, showForS);
+        }
+    }
+    function hideAlert() {
+            $(".alert").css("opacity", 0);
+        }
+
     //Events
-
     $(".card-button").click(function() {
-        storeName($(".landing-card-name-input")
-            .val());
 
-        let name = getName();
-        if(validateName(name))
-        {
+        let name = $(".landing-card-name-input")
+                        .val();
+        storeName(name);
+        
+        if(name != null && name.length > 0){
             setGameStartName(name);
             chooseCardDisplayed(2);
         }
-        else{
-            alert(`Please enter your name to play`)
+        else{         
+           showAlert("Please enter your name", 1, 1, "#fbd000", 2000);
         }
     });
 
@@ -283,6 +306,7 @@ $('document').ready(function(){
         dealCardsRandomly(); 
         chooseCardDisplayed(3);
         renderCards();
+        setGamePlayName(getName());
     })
 
     $(".gamecard-category-1").click(function() {
@@ -305,6 +329,7 @@ $('document').ready(function(){
         if(turn != 2) {
             return;
         }
+
         simulatePlayerTwoAction();
     })
 });
