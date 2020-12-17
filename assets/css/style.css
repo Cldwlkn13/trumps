@@ -16,29 +16,24 @@ header{
     padding-top: 5px;
     padding-bottom: 5px;
     margin-bottom: 0px;
+    overflow:hidden;
 }
-
 .bg-header{
     background-color: #ccff33;
 }
-
 .header-text{
     text-align: center;
-    margin-top: 6px;
 }
 
 /*MAIN*/
 .main{
     width: 100vw;
-	height: 100vh;
     margin-top: 60px;
-    display:flex; 
+    display: flex; 
 }
-
 .bg-main{
     background-color: #400080;
 }
-
 .card-base{
     border: 1px solid black;
     height: 70vh;
@@ -57,19 +52,15 @@ header{
     z-index: 1;
     background-color: #ffff1a;
 }
-
 .landing-card-question{
     font-size: 10rem; 
 }
-
 .landing-card-goading{
     font-size: 1.2rem;
 }
-
 .landing-card-prompt{
     font-size: 1rem;
 }
-
 .landing-card > input {
     font-size: 0.75rem;
     margin: 3px;
@@ -77,7 +68,6 @@ header{
     border-radius: 7px;
     width: 90%;
 }
-
 .card-button {
     font-size: 0.75rem;
     margin: 3px;
@@ -86,11 +76,9 @@ header{
     box-shadow: 3px 3px #000;
     margin-top: 5px;
 }
-
 .landing-card > button {
     background-color: #47d147;
 }
-
 .landing-card > button:hover{
     background-color: #009900;
 }
@@ -100,95 +88,83 @@ header{
     z-index: 1;
     background-color: #99ffff;
 }
-
 .gamestart-card-prompt{
     font-size: 1.5rem; 
 }
-
 .gamestart-button{
     height: 50px;
 }
-
 .gamestart-button {
     background-color: #47d147;
 }
-
 .gamestart-button:hover{
     background-color: #009900;
 }
 
 /*MAIN - GAMEPLAY*/
 .gameplay{
-    width: 90vw;
-    margin: 30px auto;
+    height: 100vh;
+    width: 100vw;
+    margin: 20px 0px 20px;
 }
-
-#stack-1, #stack-2, #console{
-    height: 90vh;
+.gameplay > .container {
+    padding: 0;
+    margin: 0 auto;
 }
-
+.gameplay > .container > .row {
+    margin: 0;
+}
 .gamecard{
     margin: 30px auto;
-    border: 1px solid black;
-    height: 60%;
+    border: 2px solid black;
     text-align: center;
     border-radius: 7px;
     box-shadow: 3px 3px #000;
     background-color: #ffffe6;
     overflow: auto;
 }
-
 .gamecard-name {
     margin: 10px 10px;
     height: 40px;
-    background-color: #003366;
+    background-color: #8b053e;
     color: #fff;
     font-size: 1rem;
     border-radius: 7px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 5px;
     border: 1px solid black;
 }
-
 .gamecard-img {
-    margin: 10px 10px;
-    height: 80px;
+    margin: 30px auto;
+}
+.gamecard-img > img {
+    height: 180px;
+    width: 180px;
     border-radius: 7px;
     border: 1px solid black;
 }
-
 .gamecard-category-1, .gamecard-category-2 {
     margin: 10px 10px;
-    height: 25px;
+    height: 45px;
     border-radius: 7px;
     border: 1px solid black;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    padding-top: 10px;
     font-size: 1rem;
 }
-
+.gamecard-category-1 > span, .gamecard-category-2 > span{
+    margin: 10px auto;
+}
 #s-1-cat-1, #s-2-cat-1 {
     background-color: #ecb3ff;
 }
-
 #s-1-cat-2, #s-2-cat-2 {
     background-color: #99ff33;
 }
-
 #s-1-cat-3, #s-2-cat-3 {
     background-color: #ff3300;
 }
-
 #s-1-cat-4, #s-2-cat-4 {
     background-color: #ffff00;
 }
-
-.gamecard-img > img {
-    max-height:100%; 
-    max-width:100%;
-    object-fit: cover;
-}
-
 .cat-score{
     font-weight: bold;
 }
@@ -203,16 +179,13 @@ footer{
 	padding-top: 5px;
     padding-bottom: 5px;
 }
-
 .bg-footer{
     background-color: #100a10;
 }
-
 #social-links {
     padding-top: 15px;
     padding-bottom: 15px;
 }
-
 .footer-links {
 	text-align: left;
 }
@@ -225,20 +198,13 @@ footer{
         width: 80vw;
         margin: 30px auto;
     }
-    .gameplay{
-        margin: 20px auto;
-    }
-    .gamecard{
-        margin: 20px auto;
-        height: 70%;
-    }
   }
 
-/* ----------- large mobile ----------- */
+
+/* ----------- large mobile----------- */
 @media only screen 
-  and (max-device-width: 834px)  { 
+  and (max-device-width: 767px)  { 
     .card-base{
-        height: 90vh;
         width: 90vw;
         margin: 10px auto;
     }
@@ -252,31 +218,42 @@ footer{
         font-size: 1rem; 
     }
     .gameplay{
-        margin: 5px auto;
+        height: 100%;
+        margin: 10px 0px 10px;
     }
+    #stack-1, #stack-2 {
+        margin: 0 auto;
+    }
+    #console{
+        height: 15vh;
+    }   
     .gamecard{
         margin: 5px auto;
-        height: 80%;
     }
     .gamecard-name {
         margin: 3px 3px;
-        height: 20px;
-        font-size: 0.75rem;
+        height: 30px;
+        font-size: 0.85rem;
         padding-top: 3px;
         padding-bottom: 3px;
     }
-
     .gamecard-img {
-        margin: 3px 3px;
-        height: 70px;
+        margin: 5px auto;
+    }
+    .gamecard-img > img {
+        height: 140px;
+        width: 140px;
     }
     .gamecard-category {
         margin: 5px 5px;
         height: 25px;
         padding-top: 2px;
-        padding-bottom: 2px;
+        padding-bottom: 2px;   
     }
-  }
+    .gamecard-category-1, .gamecard-category-2 {
+        font-size: 0.75rem;
+    }
+}
 
 /* ----------- small mobile ----------- */
 @media only screen 
