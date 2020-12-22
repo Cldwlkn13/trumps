@@ -17,288 +17,288 @@
 			"cardId": 1,
 			"name": "Phil Babb",
             "img": "assets/images/phil-babb.jpg",
-            "best" : 2,
+            "best" : 1,
 			"values": {
-				"1": 195,
-				"2": 390,
+				"1": 183,
+				"2": 374,
 				"3": 18,
-				"4": 2
+				"4": 3
 			}
 		},
 		{
 			"cardId": 2,
 			"name": "Neil Redfearn",
-            "img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/neil-redfearn.jpg",
             "best" : 2,
 			"values": {
-				"1": 190,
-				"2": 380,
-				"3": 18,
-				"4": 2
+				"1": 175,
+				"2": 851,
+				"3": 176,
+				"4": 1
 			}
         }, 
         {
 			"cardId": 3,
-			"name": "Pierre-Emerick Aubameyang",
-            "img": "assets/images/phil-babb.jpg",
+			"name": "John Barnes",
+            "img": "assets/images/john-barnes.jpg",
             "best" : 2,
 			"values": {
-				"1": 190,
-				"2": 380,
-				"3": 18,
-				"4": 2
+				"1": 182,
+				"2": 586,
+				"3": 155,
+				"4": 8
 			}
         },
         {
 			"cardId": 4,
-			"name": "Harry Kane",
-            "img": "assets/images/phil-babb.jpg",
-            "best" : 2,
+			"name": "Dixie Dean",
+            "img": "assets/images/dixie-dean.jpg",
+            "best" : 3,
 			"values": {
-				"1": 190,
-				"2": 380,
-				"3": 18,
-				"4": 2
+				"1": 178,
+				"2": 447,
+				"3": 390,
+				"4": 6
 			}
         },
         {
 			"cardId": 5,
 			"name": "Cristiano Ronaldo",
-            "img": "assets/images/phil-babb.jpg",
-            "best" : 2,
+            "img": "assets/images/cristiano-ronaldo.jpg",
+            "best" : 4,
 			"values": {
-				"1": 190,
-				"2": 380,
-				"3": 18,
-				"4": 2
+				"1": 187,
+				"2": 585,
+				"3": 460,
+				"4": 28
 			}
         },
         {
 			"cardId": 6,
 			"name": "Diego Maradona",
-            "img": "assets/images/phil-babb.jpg",
-            "best" : 2,
+            "img": "assets/images/diego-maradona.jpg",
+            "best" : 3,
 			"values": {
-				"1": 190,
-				"2": 380,
-				"3": 18,
-				"4": 2
+				"1": 165,
+				"2": 491,
+				"3": 259,
+				"4": 11
 			}
         },
         {
 			"cardId": 7,
 			"name": "Gerd Muller",
-            "img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/gerd-muller.jpg",
             "best" : 2,
 			"values": {
-				"1": 190,
-				"2": 380,
-				"3": 18,
-				"4": 2
+				"1": 177,
+				"2": 555,
+				"3": 487,
+				"4": 17
 			}
         },
         {
 			"cardId": 8,
-			"name": "Sergio Aguero",
-            "img": "assets/images/phil-babb.jpg",
+			"name": "Ray Houghton",
+            "img": "assets/images/ray-houghton.jpg",
             "best" : 2,
 			"values": {
-				"1": 190,
-				"2": 380,
-				"3": 18,
-				"4": 2
+				"1": 171,
+				"2": 580,
+				"3": 67,
+				"4": 5
 			}
         },
         {
 			"cardId": 9,
 			"name": "Graeme Souness",
             "img": "assets/images/phil-babb.jpg",
-            "best" : 2,
+            "best" : 4,
 			"values": {
-				"1": 190,
-				"2": 380,
-				"3": 18,
-				"4": 2
+				"1": 180,
+				"2": 539,
+				"3": 73,
+				"4": 18
 			}
         },
         {
 			"cardId": 10,
-			"name": "Robert Lewandowski",
-            "img": "assets/images/phil-babb.jpg",
+			"name": "David Villa",
+            "img": "assets/images/david-villa.jpg",
             "best" : 2,
 			"values": {
-				"1": 190,
-				"2": 380,
-				"3": 18,
-				"4": 2
+				"1": 173,
+				"2": 617,
+				"3": 330,
+				"4": 15
 			}
         },
         {
 			"cardId": 11,
-			"name": "Phil Bardsley",
-            "img": "assets/images/phil-babb.jpg",
-            "best" : 2,
+			"name": "Brian Laudrup",
+            "img": "assets/images/brian-laudrup.jpg",
+            "best" : 1,
 			"values": {
-				"1": 190,
-				"2": 380,
-				"3": 18,
-				"4": 2
+				"1": 186,
+				"2": 342,
+				"3": 84,
+				"4": 13
 			}
         },
         {
 			"cardId": 12,
 			"name": "Michael Laudrup",
-            "img": "assets/images/phil-babb.jpg",
-            "best" : 2,
+            "img": "assets/images/michael-laudrup.jpg",
+            "best" : 1,
 			"values": {
-				"1": 190,
-				"2": 380,
-				"3": 18,
-				"4": 2
+				"1": 184,
+				"2": 479,
+				"3": 121,
+				"4": 16
 			}
         },
         {
 			"cardId": 13,
 			"name": "Phil Stamp",
-            "img": "assets/images/phil-babb.jpg",
-            "best" : 2,
+            "img": "assets/images/phil-stamp.jpg",
+            "best" : 1,
 			"values": {
-				"1": 190,
-				"2": 380,
-				"3": 18,
-				"4": 2
+				"1": 178,
+				"2": 190,
+				"3": 13,
+				"4": 0
 			}
         },
         {
 			"cardId": 14,
-			"name": "Mo Salah",
-            "img": "assets/images/phil-babb.jpg",
-            "best" : 2,
+			"name": "Mark Bosnich",
+            "img": "assets/images/mark-bosnich.jpg",
+            "best" : 1,
 			"values": {
-				"1": 190,
-				"2": 380,
-				"3": 18,
-				"4": 2
+				"1": 185,
+				"2": 227,
+				"3": 0,
+				"4": 4
 			}
         },
         {
 			"cardId": 15,
 			"name": "Gabriel Batistuta",
-            "img": "assets/images/phil-babb.jpg",
-            "best" : 2,
+            "img": "assets/images/gabriel-batistuta.jpg",
+            "best" : 1,
 			"values": {
-				"1": 190,
-				"2": 380,
-				"3": 18,
-				"4": 2
+				"1": 189,
+				"2": 430,
+				"3": 244,
+				"4": 7
 			}
         },
         {
 			"cardId": 16,
 			"name": "Paolo Maldini",
-            "img": "assets/images/phil-babb.jpg",
-            "best" : 2,
+            "img": "assets/images/paolo-maldini.jpg",
+            "best" : 4,
 			"values": {
-				"1": 190,
-				"2": 380,
-				"3": 18,
-				"4": 2
+				"1": 187,
+				"2": 647,
+				"3": 29,
+				"4": 25
 			}
         },
         {
 			"cardId": 17,
-			"name": "Gianluigi Buffon",
-            "img": "assets/images/phil-babb.jpg",
-            "best" : 2,
+			"name": "Alan Hansen",
+            "img": "assets/images/alan-hansen.jpg",
+            "best" : 4,
 			"values": {
-				"1": 190,
-				"2": 380,
-				"3": 18,
-				"4": 2
+				"1": 188,
+				"2": 520,
+				"3": 14,
+				"4": 26
 			}
         },
         {
 			"cardId": 18,
-			"name": "Thomas Muller",
-            "img": "assets/images/phil-babb.jpg",
-            "best" : 2,
+			"name": "Claudio Caniggia",
+            "img": "assets/images/claudio-caniggia.jpg",
+            "best" : 3,
 			"values": {
-				"1": 190,
-				"2": 380,
-				"3": 18,
-				"4": 2
+				"1": 174,
+				"2": 360,
+				"3": 107,
+				"4": 12
 			}
         },
         {
 			"cardId": 19,
 			"name": "Barry Venison",
-            "img": "assets/images/phil-babb.jpg",
-            "best" : 2,
+            "img": "assets/images/barry-vension.jpg",
+            "best" : 1,
 			"values": {
-				"1": 190,
-				"2": 380,
-				"3": 18,
-				"4": 2
+				"1": 179,
+				"2": 424,
+				"3": 4,
+				"4": 0
 			}
         },
         {
 			"cardId": 20,
 			"name": "Dave Beasant",
-            "img": "assets/images/phil-babb.jpg",
-            "best" : 2,
+            "img": "assets/images/dave-beasant.jpg",
+            "best" : 1,
 			"values": {
-				"1": 190,
-				"2": 380,
-				"3": 18,
-				"4": 2
+				"1": 193,
+				"2": 775,
+				"3": 0,
+				"4": 3
 			}
         },
         {
 			"cardId": 21,
 			"name": "Vinny Samways",
-            "img": "assets/images/phil-babb.jpg",
+            "img": "assets/images/vinny-samways.jpg",
             "best" : 2,
 			"values": {
-				"1": 190,
-				"2": 380,
-				"3": 18,
+				"1": 172,
+				"2": 461,
+				"3": 22,
 				"4": 2
 			}
         },
         {
 			"cardId": 22,
-			"name": "Sadio Mane",
-            "img": "assets/images/phil-babb.jpg",
+			"name": "Roger Milla",
+            "img": "assets/images/roger-milla.jpg",
             "best" : 2,
 			"values": {
-				"1": 190,
-				"2": 380,
-				"3": 18,
-				"4": 2
+				"1": 176,
+				"2": 666,
+				"3": 405,
+				"4": 10
 			}
         },
         {
 			"cardId": 23,
 			"name": "David Beckham",
-            "img": "assets/images/phil-babb.jpg",
-            "best" : 2,
+            "img": "assets/images/david-beckham.jpg",
+            "best" : 4,
 			"values": {
-				"1": 190,
-				"2": 380,
-				"3": 18,
-				"4": 2
+				"1": 181,
+				"2": 523,
+				"3": 97,
+				"4": 19
 			}
         },
         {
 			"cardId": 24,
 			"name": "Lionel Messi",
             "img": "assets/images/lionel-messi.jpg",
-            "best" : 2,
+            "best" : 4,
 			"values": {
-				"1": 190,
-				"2": 380,
-				"3": 18,
-				"4": 2
+				"1": 170,
+				"2": 530,
+				"3": 461,
+				"4": 32
 			}
 		}
 	]
