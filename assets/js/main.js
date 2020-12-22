@@ -77,8 +77,63 @@ $('document').ready(function(){
     }
 
     function setGamePlayName(name){
-        $("#player-name-1 > p")
-        .text(name);
+        $("#player-name-1 > .name")
+            .text(name); 
+    }
+
+    function updateTotals(){
+        $("#player-cards-total-1")
+            .text(`${stackOne.length} out of ${gameObj.cards.length}`);
+
+        $("#player-cards-total-2")
+            .text(`${stackTwo.length} out of ${gameObj.cards.length}`);
+    }
+
+    function calculateScore(categoryScore1, categoryScore2){
+        var diff = categoryScore1 - categoryScore2;
+        return diff ^ 2;
+    }
+
+    function updateScore(score) {
+        var newScore = 0;
+        var currentScore = parseInt(localStorage.getItem("score"));
+        if (isNaN(currentScore)){
+            newScore = score;
+        }
+        else {
+            newScore = currentScore + score;
+        }
+        $("#player-score-value")
+            .text(newScore);
+        localStorage.setItem("score", newScore);
+        console.log(`Score Updated: ${newScore}`);  
+        updateHighScore(newScore);
+    }
+
+    function resetScore(){
+        localStorage.removeItem("score");
+        $("#player-score-value")
+            .text(0);
+    }
+
+    function updateHighScore(currentGameScore){
+        var currentHigh = parseInt(sessionStorage.getItem("high-score"));
+        if (isNaN(currentHigh)) {
+            $("#player-high-score-value")
+                .text(0);
+            sessionStorage.setItem("high-score", 0);
+            return;
+        }
+        if(currentGameScore >= currentHigh) {
+            $("#player-high-score-value")
+                .text(currentGameScore);
+            console.log(`High Score Updated: ${currentGameScore}`);
+            sessionStorage.setItem("high-score", currentGameScore);
+        }
+        else {
+            $("#player-high-score-value")
+                .text(currentHigh);
+        }
     }
 
     function storeChosenThemeInMemory(theme){
@@ -136,7 +191,7 @@ $('document').ready(function(){
         return Math.floor(Math.random() * (max - min) + min); 
     }
 
-    function renderCards() {  
+    function renderCards(winner) {  
         if(stackOne.length === 0 || stackTwo.length === 0) {
             return;
         }
@@ -144,10 +199,8 @@ $('document').ready(function(){
         renderCard(1, stackOne[0]);
         renderCard(2, stackTwo[0]);
 
-        var name = getName();
-        
-        turn == 1 ? showAlert(`${name} it is your turn`, 0.8, true,"#c9e000", 2000) :
-            showAlert(`${name} click Player 2 card for next move!`, 0.8, true, "#c9e000", 2000);
+        setBorders(winner, 1);
+        setBorders(winner, 2);
     }
 
     function renderCard(stackId, card) {
@@ -165,33 +218,39 @@ $('document').ready(function(){
             for(var i = 1; i <= 4; i++) {    
                 
                 var element = $("#s-" + stackId + "-cat-" + i);
+                var container = element
+                    .children(".gamecard-details")
+                    .first();
 
-                element
+                container
                     .children(".cat-name")
                     .first()
                     .text(gameObj.categories[i] + " - "); 
 
-                element
+                container
                     .children(".cat-score")
                     .first()
                     .text(card.values[i]);     
 
-                element
+                container
                     .children(".cat-unit")
                     .first()
                     .text(gameObj.units[i]);   
             } 
-            
-            (stackId == turn) ? $("#stack-" + stackId + "> .gamecard").css("border", "6px solid #c9e000") : 
-                $("#stack-" + stackId + "> .gamecard").css("border", "1px solid #c9e000"); 
+    }
+
+    function setBorders(winner, stackId) {
+        (winner == stackId) ? $("#stack-" + stackId + "> .gamecard").css("border", "6px solid #ff3399") : 
+        $("#stack-" + stackId + "> .gamecard").css("border", "6px solid black"); 
                 
-            (stackId == turn) ? $("#player-name-" + stackId).css("border", "6px solid #c9e000") : 
-                $("#player-name-" + stackId).css("border", "0px"); 
+        (winner == stackId) ? $("#player-name-" + stackId).css("border", "6px solid #ff3399") : 
+        $("#player-name-" + stackId).css("border", "6px solid #400080"); 
     }
 
     function determineShowdown(value1, value2){
         if(value1 > value2){
             console.log(`P1 WINS Showdown: ${value1} beats ${value2}`);
+            updateScore(calculateScore(value1, value2));
             return 1;
         }
         console.log(`P2 WINS Showdown with ${value2} beats ${value1}`);
@@ -214,39 +273,59 @@ $('document').ready(function(){
     }
 
     function goToNextShowdown(winner) {
+        turn = winner;
         switch(winner)
         {
             case 1:
-                turn = winner;
                 pushToArray(stackOne, stackTwo);
                 if(stackTwo.length === 0) {
-                    declareWinner(winner);
+                    declareWinner(1);
                     return;   
                 }
                 console.log("-----------------------");
-                renderCards();
-                console.log(`SCORE: P1 has ${stackOne.length} cards, P2 has ${stackTwo.length} cards`);
                 break;
 
             case 2:
-                turn = winner;
                 pushToArray(stackTwo, stackOne);
                 if(stackOne.length === 0) {
-                    declareWinner(winner);
+                    declareWinner(2);
                     return;
                 }
                 console.log("-----------------------");
-                renderCards();
-                console.log(`SCORE: P1 has ${stackOne.length} cards, P2 has ${stackTwo.length} cards`);
                 break;
 
             default:
                 turn = 1
         }
+        renderCards(winner);
+        updateTotals();
+        console.log(`SCORE: P1 has ${stackOne.length} cards, P2 has ${stackTwo.length} cards`);
     }
 
     function declareWinner(winner){
-        alert(`P${winner} has won!`)
+        alert(`P${winner} has won!`);
+        turn = 0;
+    }
+
+    function handlePlayerAction(category){
+        
+        var n = winner === 1 ? getName() : "Player 2";
+        var card = winner === 1 ? stackOne[0] : stackTwo[0];
+
+        var winner = determineShowdown(
+            stackOne[0].values[category], 
+            stackTwo[0].values[category]);
+
+        setTimeout(function() {     
+            showAlert($(".gameplay-alert"),`${n} WINS with ${categories[category]} - ${card.values[category]}`, 1, false, "#fff");
+            goToNextShowdown(winner);       
+        }, 2000);
+
+        setTimeout(function() {       
+            winner === 1 ? showAlert($(".gameplay-alert"), `${n} it is your turn, choose your category!`, 0.8, false,"#c9e000") :
+            showAlert($(".gameplay-alert"),`Click here to force Player 2 move!`, 0.8, false, "#c9e000");
+            console.log("turn:" + turn);
+        }, 4000);
     }
 
     function simulatePlayerTwoAction() {
@@ -255,15 +334,11 @@ $('document').ready(function(){
         }
         
         console.log("P2 is making their decision..."); 
-        sleep(4800);
-        console.log(`For card ${stackTwo[0].name}, P2 selects category: ${gameObj.categories[stackTwo[0].best]} `);
+        console.log(`For card ${stackTwo[0].name}, P2 selects category: ${categories[stackTwo[0].best]} `);
         console.log(`Showdown: ${stackOne[0].values[stackOne[0].best]} vs ${stackTwo[0].values[stackTwo[0].best]}`);
 
-        goToNextShowdown(
-            determineShowdown(
-                stackOne[0].values[stackOne[0].best], 
-                stackTwo[0].values[stackTwo[0].best]));
-
+        showAlert($(".gameplay-alert"),`Player 2 has selected ${categories[stackTwo[0].best]} - ${stackTwo[0].values[stackTwo[0].best]}`, 1, false, "#fff");   
+        handlePlayerAction(stackTwo[0].best);
     }
 
     //https://www.sitepoint.com/delay-sleep-pause-wait/
@@ -275,15 +350,15 @@ $('document').ready(function(){
         } while (currentDate - date < milliseconds);
     }
 
-    function showAlert(text, opacity, hide, backgroundColor, showForS = 0) {
-        $(".alert").text(text).css("opacity", opacity).css("background-color", backgroundColor); 
-        $(".alert").show();            
+    function showAlert(alert, text, opacity, hide, backgroundColor, showForMs = 0) {
+        alert.text(text).css("opacity", opacity).css("background-color", backgroundColor); 
+        alert.show();            
         if(hide){
-            setTimeout(function() { hideAlert()}, showForS);
+            setTimeout(function() { hideAlert(alert)}, showForMs);
         }
     }
-    function hideAlert() {
-            $(".alert").css("opacity", 0);
+    function hideAlert(alert) {
+            $(alert).css("opacity", 0);
         }
 
     //Events
@@ -298,15 +373,18 @@ $('document').ready(function(){
             chooseCardDisplayed(2);
         }
         else{         
-           showAlert("Please enter your name", 1, 1, "#fbd000", 2000);
+           showAlert($(".alert"), "Please enter your name", 1, 1, "#fbd000", 2000);
         }
     });
 
     $(".gamestart-button").click(function() {
         dealCardsRandomly(); 
         chooseCardDisplayed(3);
-        renderCards();
+        renderCards(1);
         setGamePlayName(getName());
+        updateTotals();
+        resetScore();
+        updateScore(0);
     })
 
     $(".gamecard-category-1").click(function() {
@@ -319,17 +397,15 @@ $('document').ready(function(){
 
         var category = this.id.split("-")[3];
 
-        goToNextShowdown(
-            determineShowdown(
-                stackOne[0].values[category], 
-                stackTwo[0].values[category]));
+        showAlert($(".gameplay-alert"),`You have selected ${categories[category]} - ${stackOne[0].values[category]}`, 1, false, "#fff");
+        handlePlayerAction(category);
     })
 
-    $("#stack-2").click(function() {
+    $("#stack-2, #console").click(function() {
         if(turn != 2) {
             return;
         }
-
+        showAlert($(".gameplay-alert"),"Player 2 making their decision...", 1, false, "#fff");
         simulatePlayerTwoAction();
     })
 });

@@ -16,7 +16,7 @@ header{
     padding-top: 5px;
     padding-bottom: 5px;
     margin-bottom: 0px;
-    overflow:hidden;
+    overflow: hidden;
 }
 .bg-header{
     background-color: #ccff33;
@@ -51,6 +51,7 @@ header{
 .landing-card {  
     z-index: 1;
     background-color: #ffff1a;
+    display: none;
 }
 .landing-card-question{
     font-size: 10rem; 
@@ -87,6 +88,7 @@ header{
 .gamestart-card {  
     z-index: 1;
     background-color: #99ffff;
+    display: none;
 }
 .gamestart-card-prompt{
     font-size: 1.5rem; 
@@ -106,6 +108,7 @@ header{
     height: 100vh;
     width: 100vw;
     margin: 20px 0px 20px;
+    display: none;
 }
 .gameplay > .container {
     padding: 0;
@@ -119,12 +122,19 @@ header{
     color: #6a6a6b;
     text-align: center;
 }
+.player-name > p{
+    margin: auto;
+}
+#player-cards-total-1, #player-cards-total-2{
+    color: #fff;
+    font-size: 0.85rem;
+}
 .gamecard{
     margin: 30px auto;
     border: 2px solid black;
     text-align: center;
     border-radius: 7px;
-    box-shadow: 3px 3px #000;
+    box-shadow: 7px 7px #000;
     background-color: #ffffe6;
     overflow: auto;
 }
@@ -135,8 +145,11 @@ header{
     color: #fff;
     font-size: 1rem;
     border-radius: 7px;
-    padding-top: 5px;
+    padding-top: 8px;
     border: 1px solid black;
+}
+.gamecard-name > p{
+    margin: auto;
 }
 .gamecard-img {
     margin: 30px auto;
@@ -149,14 +162,13 @@ header{
 }
 .gamecard-category-1, .gamecard-category-2 {
     margin: 10px 10px;
-    height: 45px;
     border-radius: 7px;
     border: 1px solid black;
-    padding-top: 10px;
+    padding: 10px;
     font-size: 1rem;
 }
-.gamecard-category-1 > span, .gamecard-category-2 > span{
-    margin: 10px auto;
+.gamecard-details {
+    margin: 5px auto;
 }
 #s-1-cat-1, #s-2-cat-1 {
     background-color: #ecb3ff;
@@ -172,6 +184,28 @@ header{
 }
 .cat-score{
     font-weight: bold;
+}
+
+/* CONSOLE */
+#console{
+    padding: 10px;
+    margin: 20px auto;
+    width: 90vw;
+}
+
+.player-score{
+    margin-top: 40px;
+    font-size: 3rem;
+    color: #6a6a6b;
+    text-align: center;
+}
+
+.player-score > p{
+    margin: 0 auto;
+}
+
+#player-score-value, #player-high-score-value{
+    color: #fff;
 }
 
 /* FOOTER */
@@ -211,6 +245,19 @@ footer{
   border-radius: 7px;
 }
 
+.gameplay-alert {
+  width: 80%;
+  padding: 20px;
+  border: 3px solid black;
+  color: black;
+  transition: opacity 1.4s;
+  display: none;
+  z-index: 5;
+  text-align: center;
+  border-radius: 7px;
+  margin: auto;
+}
+
 /* ----------- tablet ----------- */
 @media only screen 
   and (max-device-width: 992px)  { 
@@ -244,9 +291,6 @@ footer{
     }
     #stack-1, #stack-2 {
         margin: 0 auto;
-    }
-    #console{
-        height: 15vh;
     }   
     .gamecard{
         margin: 5px auto;
@@ -254,7 +298,7 @@ footer{
     .gamecard-name {
         margin: 3px 3px;
         height: 30px;
-        font-size: 0.85rem;
+        font-size: 1rem;
         padding-top: 3px;
         padding-bottom: 3px;
     }
@@ -272,7 +316,15 @@ footer{
         padding-bottom: 2px;   
     }
     .gamecard-category-1, .gamecard-category-2 {
-        font-size: 0.75rem;
+        font-size: 1rem;
+        margin: 5px 5px;
+        padding: 2px;
+    }
+    #console{
+        margin: 10px auto;
+    }
+    .gameplay-alert {
+        padding: 5px;
     }
 }
 
