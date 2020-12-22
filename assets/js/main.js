@@ -307,6 +307,9 @@ $('document').ready(function(){
     function declareWinner(winner){
         alert(`P${winner} has won!`);
         turn = 0;
+        setTimeout(function(){ 
+            processing = false;
+        }, 2000);
     }
 
     function handlePlayerAction(category){
@@ -331,10 +334,6 @@ $('document').ready(function(){
         winner === 1 ? 
             showAlert($(".gameplay-alert"), `${getName()}\nit is your turn, choose your category!`, 0.8, false,"#c9e000") :
             showAlert($(".gameplay-alert"),`Click here to force Player 2 move!`, 0.8, false, "#c9e000");
-    }
-
-    function hidePlayerTwoValues(){
-
     }
 
     function simulatePlayerTwoAction() {
