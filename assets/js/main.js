@@ -261,8 +261,8 @@ $('document').ready(function(){
 
     function pushToArray(array1, array2){
             
-        var winningCard = array1.splice(0, 1);
-        var losingCard = array2.splice(0, 1);
+        var winningCard = array1.splice(0, 1)[0];
+        var losingCard = array2.splice(0, 1)[0];
 
         array1.push(winningCard);
         array1.push(losingCard);

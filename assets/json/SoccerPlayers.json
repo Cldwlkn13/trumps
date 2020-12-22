@@ -232,7 +232,7 @@
         {
 			"cardId": 19,
 			"name": "Barry Venison",
-            "img": "assets/images/barry-vension.jpg",
+            "img": "assets/images/barry-venison.jpg",
             "best" : 1,
 			"values": {
 				"1": 179,
