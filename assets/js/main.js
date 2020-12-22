@@ -196,14 +196,14 @@ $('document').ready(function(){
             return;
         }
 
-        renderCard(1, stackOne[0]);
-        renderCard(2, stackTwo[0]);
+        renderCard(1, winner, stackOne[0]);
+        renderCard(2, winner, stackTwo[0]);
 
         setBorders(winner, 1);
         setBorders(winner, 2);
     }
 
-    function renderCard(stackId, card) {
+    function renderCard(stackId, winner, card) {
             console.log(`P${stackId} rendering card ${card.name}`);
             $("#name-" + stackId)
                 .children("p")
@@ -218,6 +218,7 @@ $('document').ready(function(){
             for(var i = 1; i <= 4; i++) {    
                 
                 var element = $("#s-" + stackId + "-cat-" + i);
+
                 var container = element
                     .children(".gamecard-details")
                     .first();
@@ -227,10 +228,12 @@ $('document').ready(function(){
                     .first()
                     .text(gameObj.categories[i] + " - "); 
 
+                var cardValue = (stackId == 2 && winner == 1) ? "?" : card.values[i];
+
                 container
-                    .children(".cat-score")
+                    .children(".cat-value")
                     .first()
-                    .text(card.values[i]);     
+                    .text(cardValue);     
 
                 container
                     .children(".cat-unit")
@@ -330,6 +333,10 @@ $('document').ready(function(){
             showAlert($(".gameplay-alert"),`Click here to force Player 2 move!`, 0.8, false, "#c9e000");
     }
 
+    function hidePlayerTwoValues(){
+
+    }
+
     function simulatePlayerTwoAction() {
         if(turn != 2) {
             return;
@@ -402,9 +409,13 @@ $('document').ready(function(){
         var category = this.id.split("-")[3];
 
         showAlert($(".gameplay-alert"),`You have selected ${categories[category]} - ${stackOne[0].values[category]}`, 1, false, "#fff");
+
         handlePlayerAction(category);
+
         processing = true;
-        setTimeout(function(){ processing = false;}, 2000);
+        setTimeout(function(){ 
+            processing = false;
+        }, 2000);
     })
 
    
@@ -415,9 +426,13 @@ $('document').ready(function(){
         }
 
         showAlert($(".gameplay-alert"),"Player 2 making their decision...", 1, false, "#fff");
+
         simulatePlayerTwoAction();
+
         processing = true;
-        setTimeout(function(){ processing = false;}, 2000);
+        setTimeout(function(){ 
+            processing = false;
+        }, 2000);
     })
 
     $(".restart").click(function() {
