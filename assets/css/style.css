@@ -45,6 +45,7 @@ header{
     text-align: center;
     min-width: 150px;
     overflow: hidden;
+    max-width: 400px;
 }
 
 /*MAIN - LANDING CARD*/
@@ -127,7 +128,7 @@ header{
 }
 #player-cards-total-1, #player-cards-total-2{
     color: #fff;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
 }
 .gamecard{
     margin: 30px auto;
@@ -206,6 +207,21 @@ header{
 
 #player-score-value, #player-high-score-value{
     color: #fff;
+}
+
+.restart {
+    margin-top: 60px;
+    text-align: center;
+    color: #ffff66;
+}
+
+.restart > i{
+    font-size: 100px;
+    margin: auto; 
+}
+
+.restart:hover {
+    color: #cccc00;
 }
 
 /* FOOTER */
