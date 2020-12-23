@@ -83,10 +83,10 @@ $('document').ready(function(){
 
     function updateTotals(){
         $("#player-cards-total-1")
-            .text(`${stackOne.length} out of ${gameObj.cards.length}`);
+            .html(`has <span style="font-size: 2rem; color: white">${stackOne.length}</span> out of <span style="font-size: 2rem;color: white">${gameObj.cards.length}</span> Cards`);
 
         $("#player-cards-total-2")
-            .text(`${stackTwo.length} out of ${gameObj.cards.length}`);
+            .html(`has <span style="font-size: 2rem; color: white">${stackTwo.length}</span> out of <span style="font-size: 2rem;color: white">${gameObj.cards.length}</span> Cards`);
     }
 
     function calculateScore(categoryScore1, categoryScore2){
@@ -314,20 +314,34 @@ $('document').ready(function(){
 
     function handlePlayerAction(category){
         
-        var card = winner == 1 ? stackOne[0] : stackTwo[0];
-
         var winner = determineShowdown(
             stackOne[0].values[category], 
             stackTwo[0].values[category]);
 
-        setTimeout(function() {     
-            showAlert($(".gameplay-alert"),`${winner == 1 ? getName() : "Player 2"} WINS with ${categories[category]} - ${card.values[category]}`, 1, false, "#fff");
-            goToNextShowdown(winner);       
-        }, 2000);
+        var card = winner == 1 ? stackOne[0] : stackTwo[0];
 
-        setTimeout(function() {       
+        setTimeout(function() {
+            showdownAlert(winner, card, category);
+         }, 2000);
+
+        setTimeout(function() {    
+            goToNextShowdown(winner);    
             nextMoveAlert(winner);
-        }, 4000);
+        }, 10000);
+    }
+
+    function showdownAlert(winner, card, category) {        
+        
+        $("#showdown-card-name-1").text(stackOne[0].name);
+        $("#showdown-card-name-2").text(stackTwo[0].name);
+
+        showAlert(
+            $(".showdown-alert"),
+            ``,
+            1, 
+            true, 
+            "#fff", 
+            5000);
     }
 
     function nextMoveAlert(winner){
@@ -358,8 +372,11 @@ $('document').ready(function(){
         } while (currentDate - date < milliseconds);
     }
 
-    function showAlert(alert, text, opacity, hide, backgroundColor, showForMs = 0) {
-        alert.text(text).css("opacity", opacity).css("background-color", backgroundColor); 
+    function showAlert(alert, html = "", opacity, hide, backgroundColor, showForMs = 0) {
+        if(html != "") {
+            alert.html(html)
+        }
+        alert.css("opacity", opacity).css("background-color", backgroundColor); 
         alert.show();            
         if(hide){
             setTimeout(function() { hideAlert(alert)}, showForMs);
@@ -407,7 +424,7 @@ $('document').ready(function(){
 
         var category = this.id.split("-")[3];
 
-        showAlert($(".gameplay-alert"),`You have selected ${categories[category]} - ${stackOne[0].values[category]}`, 1, false, "#fff");
+        //showAlert($(".gameplay-alert"),`You have selected ${categories[category]} - ${stackOne[0].values[category]}`, 1, false, "#fff");
 
         handlePlayerAction(category);
 
