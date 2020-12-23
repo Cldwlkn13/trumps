@@ -165,7 +165,7 @@ header{
 .gamecard-name {
     margin: 10px 10px;
     height: 40px;
-    background-color: #8b053e;
+    background-color: #b30000;
     color: #fff;
     font-size: 1.5rem;
     border-radius: 7px;
@@ -195,16 +195,16 @@ header{
     margin: 5px auto;
 }
 #s-1-cat-1, #s-2-cat-1 {
-    background-color: #ecb3ff;
+    background-color: #ffc266;
 }
 #s-1-cat-2, #s-2-cat-2 {
-    background-color: #99ff33;
+    background-color: #ffad33;
 }
 #s-1-cat-3, #s-2-cat-3 {
-    background-color: #ccffff;
+    background-color: #ff9900;
 }
 #s-1-cat-4, #s-2-cat-4 {
-    background-color: #ffff00;
+    background-color: #cc7a00;
 }
 
 /* CONSOLE */
@@ -315,9 +315,15 @@ footer{
   height: 70vh;
 }
 
+.showdown-alert h2 {
+    font-size: 4rem;
+    background-color: #ffffcc;
+    border: 2px solid black;
+    border-radius: 7px;
+}
+
 .showdown{
-    margin: auto;
-    height: inherit;
+    margin: 0 auto;
 }
 
 #showdown-card-1, #showdown-card-2, #divisor{
@@ -327,7 +333,7 @@ footer{
 
 .showdown-player-name{
     font-size: 2rem;
-    color:#002533;
+    color:black;
     text-align: center;
 }
 
@@ -337,6 +343,12 @@ footer{
 
 .showdown-category, .showdown-value{
     font-size: 2rem;
+}
+
+#showdown-value-1, #showdown-value-2{
+    background-color: #ffffcc;
+    border: 2px solid black;
+    border-radius: 7px;
 }
 
 .winner-alert {
@@ -357,10 +369,35 @@ footer{
 
 .winner-name {
     font-size: 4rem;
+    background-color: #ffffcc;
+    border: 2px solid black;
+    border-radius: 7px;
 }
 
-.winner-category, .winner-value, .winner-card {
+.winner-category, .winner-value {
     font-size: 3rem;
+}
+
+#arrows{
+    height: 100px;
+    margin-left: 40%;
+}
+
+#arrows .arrow-right{
+    background:url(https://i.stack.imgur.com/xRwtw.png) no-repeat;
+    height: 50px;
+    width: 40px;
+    float: left;
+    opacity: 0;
+}
+
+#arrows .arrow-left{
+    background:url(https://i.stack.imgur.com/xRwtw.png) no-repeat;
+    transform: ScaleX(-1);
+    height: 50px;
+    width: 40px;
+    float: left;
+    opacity: 0;
 }
 
 
@@ -442,7 +479,7 @@ footer{
     .restart > i{
         font-size: 40px;
     }
-    .showdown-alert {
+    .showdown-alert, .winner-alert {
         width: 95vw;
         margin-left: 2.5vw;
         padding: 2px;
@@ -451,7 +488,11 @@ footer{
         padding: 0;
     }
     .showdown-category, .showdown-value{
-        font-size: 1rem;
+        font-size: 2rem;
+    }
+    #arrows{
+        height: 100px;
+        margin-left: 35%;
     }
 }
 

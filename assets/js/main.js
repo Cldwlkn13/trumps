@@ -228,12 +228,10 @@ $('document').ready(function(){
                     .first()
                     .text(gameObj.categories[i] + " - "); 
 
-                var cardValue = (stackId == 2 && winner == 1) ? "?" : card.values[i];
-
                 container
                     .children(".cat-value")
                     .first()
-                    .text(cardValue);     
+                    .text((stackId == 2) ? "?" : card.values[i]);     
 
                 container
                     .children(".cat-unit")
@@ -311,6 +309,7 @@ $('document').ready(function(){
         }, 2000);
     }
 
+    var animationInterval;
     function handlePlayerAction(category, caller){
         
         $(".alert-bg").toggleClass("opacity-cover");
@@ -320,19 +319,20 @@ $('document').ready(function(){
             stackTwo[0].values[category]);
 
         setTimeout(function() {
-            showdownAlert(category, caller, 4500);
+            showdownAlert(category, caller, 7000);
          }, 0);
 
         setTimeout(function() {
-            winnerAlert(winner, category, 4500);
-        }, 4500);
+            winnerAlert(winner, category, 7000);
+        }, 7000);
 
         setTimeout(function() {    
             goToNextShowdown(winner);    
             nextMoveAlert(winner);
             updateScore(calculateScore(stackOne[0].values[category], stackTwo[0].values[category]));
             $(".alert-bg").toggleClass("opacity-cover");
-        }, 9000);
+            clearInterval(animationInterval);
+        }, 14000);
     }
 
     function showdownAlert(category, caller, showFor) {                
@@ -357,28 +357,44 @@ $('document').ready(function(){
         $("#showdown-category-1").text(categories[category]);
         $("#showdown-category-2").text(categories[category]);
 
-        $("#showdown-value-1").text(stackOne[0].values[category] + units[category]);
-        $("#showdown-value-2").text(stackTwo[0].values[category] + units[category]);
+        $("#showdown-value-1").text(stackOne[0].values[category] + " " + units[category]);
+        
+        $("#showdown-value-2").text("?");
+            setTimeout(function() {
+                $("#showdown-value-2").animate({opacity:0},function(){
+                    $("#showdown-value-2").text(stackTwo[0].values[category] + units[category])
+                        .animate({opacity:1});
+                });
+            }, 2000);
+
 
         showAlert(
             $(".showdown-alert"),
             ``,
             1, 
             true, 
-            "#00ffff", 
+            "#99d6ff", 
             showFor);
     }
 
     function winnerAlert(winner, category, showFor) {
         var nameWinner = winner == 1 ? getName() : "Player 2";
-        var winningCard = winner = 1 ? stackOne[0] : stackTwo[0];
-        var losingCard = winner = 2 ? stackTwo[0] : stackOne[0];
+        var winningCard = winner == 1 ? stackOne[0] : stackTwo[0];
+        var losingCard = winner == 1 ? stackTwo[0] : stackOne[0];
 
         $(".winner-name").text(nameWinner);
         $(".winner-category").text(categories[category]);
-        $(".winner-value").text(winningCard.values[category] + " " + units[category]);
+        $(".winner-value").html(stackOne[0].values[category] + " " + units[category] + "<span style='font-size: 1.5rem'>  vs.  </span>" + stackTwo[0].values[category] + " " + units[category]);
         $(".winner-card").text(winningCard.name);
         $(".losing-card").text(losingCard.name)
+
+        //https://www.fesliyanstudios.com/
+        var cheering = new Audio("assets/sounds/cheering.mp3");
+        var booing = new Audio("assets/sounds/booing.mp3");
+        
+        winner == 1 ? cheering.play() : booing.play();
+        
+        winner == 1 ? animationInterval = setInterval(animateArrowsLeft, 1000) : animationInterval = setInterval(animateArrowsRight, 1000);
 
         showAlert(
             $(".winner-alert"),
@@ -389,7 +405,33 @@ $('document').ready(function(){
             showFor);
     }
 
+    //https://github.com/yckart/jquery-custom-animations
+    jQuery.fn.blindRightToggle = function (duration, easing, complete) {
+        return this.animate({
+            marginLeft: -(parseFloat(this.css('marginLeft'))) < 0 ? 0 : this.outerWidth()
+        }, jQuery.speed(duration, easing, complete));
+    };
 
+    function animateArrowsRight() {
+
+        $('.left').removeClass('arrow-left').addClass('arrow-right');
+        $('.middle').removeClass('arrow-left').addClass('arrow-right');
+        $('.right').removeClass('arrow-left').addClass('arrow-right');
+        
+        $('.left').fadeTo(500, 1).delay(500).fadeTo(500, 0);
+        $('.middle').delay(250).fadeTo(500, 1).delay(500).fadeTo(500, 0);
+        $('.right').delay(500).fadeTo(500, 1).delay(500).fadeTo(500, 0);
+    }
+
+    function animateArrowsLeft() {     
+        $('.left').removeClass('arrow-right').addClass('arrow-left');
+        $('.middle').removeClass('arrow-right').addClass('arrow-left');
+        $('.right').removeClass('arrow-right').addClass('arrow-left');
+        
+        $('.left').fadeTo(500, 1).delay(500).fadeTo(500, 0);
+        $('.middle').delay(250).fadeTo(500, 1).delay(500).fadeTo(500, 0);
+        $('.right').delay(500).fadeTo(500, 1).delay(500).fadeTo(500, 0);
+    }
 
     function nextMoveAlert(winner){
         winner === 1 ? 
