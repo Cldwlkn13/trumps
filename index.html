@@ -34,27 +34,72 @@
             <button class="card-button gamestart-button" id="">Start Game</button>
         </div>
         <div class="gameplay">
-            <div class="showdown-alert">
-                <div class="row">
-                    <div class="col-5">
-                        <p class="showdown-card-name" id="showdown-card-name-1"></p> 
-                    </div>
-                    <div class="col-2">
-                        <p id="divisor">VS.</p> 
-                    </div>
-                    <div class="col-5">
-                        <p class="showdown-card-name" id="showdown-card-name-2"></p> 
+            <div class="alert-bg">
+                <div class="showdown-alert">
+                    <div class="row showdown">
+                        <div class="col-5" id="showdown-card-1">
+                            <div class="gamecard-name">
+                                <p id="showdown-name-1"></p>
+                            </div>
+                            <div class="gamecard-img" id="showdown-img-1">
+                                <img src="#" alt="">
+                            </div>
+                            <div class="showdown-player-name">
+                                <p id="showdown-player-name-1"></p>
+                                <p id="showdown-selected-1">selects</p>
+                            </div>
+                            <div class="showdown-category">
+                                <p id="showdown-category-1"></p> 
+                            </div>
+                            <div class="showdown-value">
+                                <p id="showdown-value-1"></p> 
+                            </div>
+                        </div>
+                        <div class="col-2" id="divisor">
+                            <p>VS.</p> 
+                        </div>
+                        <div class="col-5" id="showdown-card-2">
+                            <div class="gamecard-name">
+                                <p id="showdown-name-2"></p> 
+                            </div>
+                            <div class="gamecard-img" id="showdown-img-2">
+                                <img src="#" alt="">
+                            </div>
+                            <div class="showdown-player-name">
+                                <p id="showdown-player-name-2"></p>
+                                <p id="showdown-selected-2">selects</p>
+                            </div>
+                            <div class="showdown-category">
+                                <p id="showdown-category-2"></p> 
+                            </div>
+                            <div class="showdown-value">
+                                <p id="showdown-value-2"></p> 
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="winner-alert">
+                    <p class="winner-name"></p>
+                    <p>WINS SHOWDOWN</p> 
+                    <p>WITH CATEGORY</p> 
+                    <p class="winner-category"></p>
+                    <p class="winner-value"></p>
+                    <p>FOR CARD</p> 
+                    <p class="winner-card"></p>
+                    <br>
+                    <p class="winner-name"></p>
+                    <p>AQUIRES</p> 
+                    <p class="losing-card"></p>
+                </div>
             </div>
-            <div class="container">
+            <div class="container gameplay-action">
                 <div class="row">
                     <div class="col-12 col-sm-5" id="stack-1">
                         <div class="player-name" id="player-name-1">
-                            <p class="name"></p>  
+                            <p class="name-value"></p>  
                             <p id="player-cards-total-1"></p>
                        </div>
-                        <div class="gamecard" >
+                        <div class="gamecard" id="gamecard-1">
                             <div class="gamecard-name" id="name-1">
                                 <p></p>
                             </div>
@@ -119,10 +164,10 @@
                     </div>
                     <div class="col-12 col-sm-5" id="stack-2">
                         <div class="player-name" id="player-name-2">
-                            <p class="name">Player 2</p>  
+                            <p>Player 2</p>  
                             <p id="player-cards-total-2"></p>
                         </div>
-                        <div class="gamecard">
+                        <div class="gamecard" id="gamecard-2">
                             <div class="gamecard-name" id="name-2">
                                 <p></p>
                             </div>

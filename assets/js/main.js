@@ -77,7 +77,7 @@ $('document').ready(function(){
     }
 
     function setGamePlayName(name){
-        $("#player-name-1 > .name")
+        $("#player-name-1 > .name-value")
             .text(name); 
     }
 
@@ -243,19 +243,18 @@ $('document').ready(function(){
     }
 
     function setBorders(winner, stackId) {
-        (winner == stackId) ? 
-            $("#stack-" + stackId + "> .gamecard").css("border", "6px solid #ff3399") : 
-            $("#stack-" + stackId + "> .gamecard").css("border", "6px solid black"); 
-                
-        (winner == stackId) ? 
-            $("#player-name-" + stackId).css("border", "6px solid #ff3399") : 
-            $("#player-name-" + stackId).css("border", "6px solid #400080"); 
+        (winner == stackId && stackId == 1) ? 
+            $("#gamecard-" + winner).addClass("flashing-border-1"): 
+            $("#gamecard-" + stackId).removeClass("flashing-border-1"); 
+        
+        (winner == stackId && stackId == 2) ? 
+            $("#gamecard-" + winner).addClass("flashing-border-2"): 
+            $("#gamecard-" + stackId).removeClass("flashing-border-2"); 
     }
 
     function determineShowdown(value1, value2){
         if(value1 > value2){
             console.log(`P1 WINS Showdown: ${value1} beats ${value2}`);
-            updateScore(calculateScore(value1, value2));
             return 1;
         }
         console.log(`P2 WINS Showdown with ${value2} beats ${value1}`);
@@ -312,42 +311,90 @@ $('document').ready(function(){
         }, 2000);
     }
 
-    function handlePlayerAction(category){
+    function handlePlayerAction(category, caller){
         
+        $(".alert-bg").toggleClass("opacity-cover");
+
         var winner = determineShowdown(
             stackOne[0].values[category], 
             stackTwo[0].values[category]);
 
-        var card = winner == 1 ? stackOne[0] : stackTwo[0];
+        setTimeout(function() {
+            showdownAlert(category, caller, 4500);
+         }, 0);
 
         setTimeout(function() {
-            showdownAlert(winner, card, category);
-         }, 2000);
+            winnerAlert(winner, category, 4500);
+        }, 4500);
 
         setTimeout(function() {    
             goToNextShowdown(winner);    
             nextMoveAlert(winner);
-        }, 10000);
+            updateScore(calculateScore(stackOne[0].values[category], stackTwo[0].values[category]));
+            $(".alert-bg").toggleClass("opacity-cover");
+        }, 9000);
     }
 
-    function showdownAlert(winner, card, category) {        
-        
-        $("#showdown-card-name-1").text(stackOne[0].name);
-        $("#showdown-card-name-2").text(stackTwo[0].name);
+    function showdownAlert(category, caller, showFor) {                
+        $("#showdown-player-name-1").text(getName());
+        $("#showdown-player-name-2").text("Player 2");
+
+        if(caller == 1) {
+            $("#showdown-selected-1").css("opacity", "1");
+            $("#showdown-selected-2").css("opacity", "0");
+        }  
+        else {
+            $("#showdown-selected-1").css("opacity", "0");
+            $("#showdown-selected-2").css("opacity", "1");
+        }
+
+        $("#showdown-name-1").text(stackOne[0].name);
+        $("#showdown-name-2").text(stackTwo[0].name);
+
+        $("#showdown-img-1").children("img").first().attr("src", stackOne[0].img);
+        $("#showdown-img-2").children("img").first().attr("src", stackTwo[0].img);
+
+        $("#showdown-category-1").text(categories[category]);
+        $("#showdown-category-2").text(categories[category]);
+
+        $("#showdown-value-1").text(stackOne[0].values[category] + units[category]);
+        $("#showdown-value-2").text(stackTwo[0].values[category] + units[category]);
 
         showAlert(
             $(".showdown-alert"),
             ``,
             1, 
             true, 
-            "#fff", 
-            5000);
+            "#00ffff", 
+            showFor);
     }
+
+    function winnerAlert(winner, category, showFor) {
+        var nameWinner = winner == 1 ? getName() : "Player 2";
+        var winningCard = winner = 1 ? stackOne[0] : stackTwo[0];
+        var losingCard = winner = 2 ? stackTwo[0] : stackOne[0];
+
+        $(".winner-name").text(nameWinner);
+        $(".winner-category").text(categories[category]);
+        $(".winner-value").text(winningCard.values[category] + " " + units[category]);
+        $(".winner-card").text(winningCard.name);
+        $(".losing-card").text(losingCard.name)
+
+        showAlert(
+            $(".winner-alert"),
+            ``,
+            1,  
+            true, 
+            winner == 1 ? "#ff3399" :"#ace600", 
+            showFor);
+    }
+
+
 
     function nextMoveAlert(winner){
         winner === 1 ? 
-            showAlert($(".gameplay-alert"), `${getName()}\nit is your turn, choose your category!`, 0.8, false,"#c9e000") :
-            showAlert($(".gameplay-alert"),`Click here to force Player 2 move!`, 0.8, false, "#c9e000");
+            showAlert($(".gameplay-alert"), `${getName()}\nit is your turn, choose your category!`, 0.8, false, "#ff3399") :
+            showAlert($(".gameplay-alert"),`Click here to force Player 2 move!`, 0.8, false, "#ace600");
     }
 
     function simulatePlayerTwoAction() {
@@ -358,9 +405,8 @@ $('document').ready(function(){
         console.log("P2 is making their decision..."); 
         console.log(`For card ${stackTwo[0].name}, P2 selects category: ${categories[stackTwo[0].best]} `);
         console.log(`Showdown: ${stackOne[0].values[stackOne[0].best]} vs ${stackTwo[0].values[stackTwo[0].best]}`);
-
-        showAlert($(".gameplay-alert"),`Player 2 has selected ${categories[stackTwo[0].best]} - ${stackTwo[0].values[stackTwo[0].best]}`, 1, false, "#fff");   
-        handlePlayerAction(stackTwo[0].best);
+   
+        handlePlayerAction(stackTwo[0].best, 2);
     }
 
     //https://www.sitepoint.com/delay-sleep-pause-wait/
@@ -377,13 +423,13 @@ $('document').ready(function(){
             alert.html(html)
         }
         alert.css("opacity", opacity).css("background-color", backgroundColor); 
-        alert.show();            
+        alert.slideDown("slow");            
         if(hide){
             setTimeout(function() { hideAlert(alert)}, showForMs);
         }
     }
     function hideAlert(alert) {
-            $(alert).css("opacity", 0);
+            $(alert).slideUp("slow"); 
         }
 
     //Events
@@ -424,9 +470,7 @@ $('document').ready(function(){
 
         var category = this.id.split("-")[3];
 
-        //showAlert($(".gameplay-alert"),`You have selected ${categories[category]} - ${stackOne[0].values[category]}`, 1, false, "#fff");
-
-        handlePlayerAction(category);
+        handlePlayerAction(category, 1);
 
         processing = true;
         setTimeout(function(){ 
@@ -440,8 +484,6 @@ $('document').ready(function(){
             console.log("Please wait");
             return;
         }
-
-        showAlert($(".gameplay-alert"),"Player 2 making their decision...", 1, false, "#fff");
 
         simulatePlayerTwoAction();
 
