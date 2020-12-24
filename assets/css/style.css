@@ -331,10 +331,17 @@ footer{
     text-align: center;
 }
 
-.showdown-player-name{
+.showdown-player-name, .winner-player-name{
     font-size: 2rem;
     color:black;
     text-align: center;
+    background-color: #ffff99;
+    border: 2px solid black;
+    border-radius: 7px;
+}
+
+.showdown-player-name p {
+    margin: 0 auto;
 }
 
 #showdown-selected-1, #showdown-selected-2{
@@ -343,12 +350,20 @@ footer{
 
 .showdown-category, .showdown-value{
     font-size: 2rem;
-}
-
-#showdown-value-1, #showdown-value-2{
-    background-color: #ffffcc;
+    
     border: 2px solid black;
     border-radius: 7px;
+    margin-top: 3px;
+}
+.showdown-category{
+    background-color: #00cc99;
+}
+.showdown-value{
+    background-color: #ccf2ff;
+}
+
+.showdown-category p, .showdown-value p{
+    margin: 0 auto;
 }
 
 .winner-alert {
@@ -374,13 +389,24 @@ footer{
     border-radius: 7px;
 }
 
+
+
+.winner-player-name p {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    left: 50%;
+    margin-right: -50%;
+}
+
 .winner-category, .winner-value {
     font-size: 3rem;
 }
 
 #arrows{
     height: 100px;
-    margin-left: 40%;
+    margin: auto;
 }
 
 #arrows .arrow-right{
@@ -389,6 +415,7 @@ footer{
     width: 40px;
     float: left;
     opacity: 0;
+    margin-top: 25px;
 }
 
 #arrows .arrow-left{
@@ -397,7 +424,8 @@ footer{
     height: 50px;
     width: 40px;
     float: left;
-    opacity: 0;
+    opacity: 0; 
+    margin-top: 25px; 
 }
 
 

@@ -51,8 +51,8 @@
                             </div>
                             <div class="showdown-player-name">
                                 <p id="showdown-player-name-1"></p>
-                                <p id="showdown-selected-1">selects</p>
                             </div>
+                            <p id="showdown-selected-1">selects</p>
                             <div class="showdown-category">
                                 <p id="showdown-category-1"></p> 
                             </div>
@@ -72,8 +72,8 @@
                             </div>
                             <div class="showdown-player-name">
                                 <p id="showdown-player-name-2"></p>
-                                <p id="showdown-selected-2">selects</p>
                             </div>
+                            <p id="showdown-selected-2">selects</p>
                             <div class="showdown-category">
                                 <p id="showdown-category-2"></p> 
                             </div>
@@ -86,16 +86,29 @@
                 <div class="winner-alert">
                     <p class="winner-name"></p>
                     <p>WINS SHOWDOWN</p>
-                    <!--<p class="winner-card"></p>-->
                     <p class="winner-category"></p>
                     <p class="winner-value"></p>
                     <p>-------------</p> 
                     <br>
-                    <p class="losing-card"></p>
-                    <div id="arrows">
-                        <div class="arrow-right left"></div>
-                        <div class="arrow-right middle"></div>
-                        <div class="arrow-right right"></div>
+                    <div class="row justify-content-center">
+                        <div class="col-3 gamecard-name" id="losing-gamecard-name">
+                            <p class="losing-card"></p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-3 winner-player-name">
+                            <p id="player-1-name"></p>
+                        </div>
+                        <div class="col-3">
+                            <div id="arrows">
+                                <div class="arrow-right left"></div>
+                                <div class="arrow-right middle"></div>
+                                <div class="arrow-right right"></div>
+                            </div>
+                        </div>
+                        <div class="col-3 winner-player-name">
+                            <p>PLAYER 2</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -236,6 +249,7 @@
     </footer>
     <!-- JQUERY -->
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/color/jquery.color-2.1.2.js"></script>
     
     <!-- MY SCRIPTS -->
         <script src="assets/js/main.js"></script> 

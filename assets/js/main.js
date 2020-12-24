@@ -335,9 +335,11 @@ $('document').ready(function(){
         }, 14000);
 
         setTimeout(function(){
-            var coins = new Audio("assets/sounds/coins.mp3");
-            winner == 1 ? coins.play() : coins.play()
-        }, 14050);
+            var positive1 = new Audio("assets/sounds/game-positive.mp3");
+            var error2 = new Audio("assets/sounds/game-error-2.mp3");
+            winner == 1 ? positive1.play() : error2.play();
+            $("#player-score-value").flash(2, 500,'', function() { $("#player-score-value").css("color", "#fff") });
+        }, 16000);
     }
 
     function showdownAlert(category, caller, showFor) {                
@@ -370,8 +372,10 @@ $('document').ready(function(){
                     $("#showdown-value-2").text(stackTwo[0].values[category] + units[category])
                         .animate({opacity:1});
                 });
-            }, 2000);
+            }, 3000);
 
+        var drum = new Audio("assets/sounds/tension-drum.mp3");
+        drum.play();
 
         showAlert(
             $(".showdown-alert"),
@@ -391,15 +395,21 @@ $('document').ready(function(){
         $(".winner-category").text(categories[category]);
         $(".winner-value").html(stackOne[0].values[category] + " " + units[category] + "<span style='font-size: 1.5rem'>  vs.  </span>" + stackTwo[0].values[category] + " " + units[category]);
         $(".winner-card").text(winningCard.name);
-        $(".losing-card").text(losingCard.name)
+        $(".losing-card").text(losingCard.name);
+        $("#player-1-name").text(getName());
 
-        //https://www.fesliyanstudios.com/
-        var cheering = new Audio("assets/sounds/cheering.mp3");
-        var booing = new Audio("assets/sounds/booing.mp3");
+        //https://www.zapsplat.com//
+        var positive2 = new Audio("assets/sounds/game-positive-2.mp3");
+        var error1 = new Audio("assets/sounds/game-error.mp3");
         
-        winner == 1 ? cheering.play() : booing.play();
+        winner == 1 ? positive2.play() : error1.play();
         
         winner == 1 ? animationInterval = setInterval(animateArrowsLeft, 1000) : animationInterval = setInterval(animateArrowsRight, 1000);
+
+        setTimeout(function() {
+            console.log("trying");
+             winner == 1 ? $("#losing-gamecard-name").blindLeftOut(1000) : $("#losing-gamecard-name").blindRightOut(1000)
+        }, 2000);
 
         showAlert(
             $(".winner-alert"),
@@ -411,10 +421,27 @@ $('document').ready(function(){
     }
 
     //https://github.com/yckart/jquery-custom-animations
-    jQuery.fn.blindRightToggle = function (duration, easing, complete) {
+    jQuery.fn.blindRightOut = function (duration, easing, complete) {
         return this.animate({
-            marginLeft: -(parseFloat(this.css('marginLeft'))) < 0 ? 0 : this.outerWidth()
+            marginLeft: this.outerWidth()
         }, jQuery.speed(duration, easing, complete));
+    };
+
+    jQuery.fn.blindLeftOut = function (duration, easing, complete) {
+        return this.animate({
+            marginLeft: -this.outerWidth()
+        }, jQuery.speed(duration, easing, complete));
+    };
+
+    jQuery.fn.flash = function (times, duration, easing, complete) {
+        times = (times || 2) * 2;
+        while(times--){
+            this.animate({
+                opacity: !(times % 2), 
+                color: "#ffff00"
+            }, duration, easing, complete);
+        }
+        return this;
     };
 
     function animateArrowsRight() {
@@ -492,6 +519,8 @@ $('document').ready(function(){
         }
         else{         
            showAlert($(".alert"), "Please enter your name", 1, 1, "#fbd000", 2000);
+           var error1 = new Audio("assets/sounds/game-error.mp3");
+           error1.play();
         }
     });
 
@@ -504,6 +533,8 @@ $('document').ready(function(){
         resetScore();
         updateScore(0);
         nextMoveAlert(1);
+        var chant = new Audio("assets/sounds/soccer-chant.mp3");
+        chant.play();
     })
 
     var processing = false;
