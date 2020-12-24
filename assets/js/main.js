@@ -333,6 +333,11 @@ $('document').ready(function(){
             $(".alert-bg").toggleClass("opacity-cover");
             clearInterval(animationInterval);
         }, 14000);
+
+        setTimeout(function(){
+            var coins = new Audio("assets/sounds/coins.mp3");
+            winner == 1 ? coins.play() : coins.play()
+        }, 14050);
     }
 
     function showdownAlert(category, caller, showFor) {                
