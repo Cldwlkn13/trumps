@@ -26,12 +26,14 @@
             <button class="card-button">Submit</button>
         </div>
         <div class="card-base gamestart-card" id="gamestart-card">
-            <h2 class="gamestart-card-name">Name</h2>
+            <h2 class="gamestart-card-name">Name </h2>
+            <span class="change-name"><i>*Change Player Name</i> <i class="fas fa-redo"></i></span>
             <br>
-            <p class="gamestart-card-prompt">Are you ready?</p>
             <br>
-            <p class="gamestart-card-prompt">The cards have been dealt...</p>
-            <button class="card-button gamestart-button" id="">Start Game</button>
+            <p class="gamestart-card-prompt">ARE YOU READY?</p>
+            <p class="gamestart-card-prompt">PLEASE CHOOSE YOU THEME...</p>
+            <div id="gamestart-buttons">
+            </div>
         </div>
         <div class="gameplay">
             <div class="alert-bg">
@@ -88,27 +90,40 @@
                     <p>WINS SHOWDOWN</p>
                     <p class="winner-category"></p>
                     <p class="winner-value"></p>
-                    <p>-------------</p> 
                     <br>
                     <div class="row justify-content-center">
-                        <div class="col-3 gamecard-name" id="losing-gamecard-name">
+                        <div class="col-6 col-sm-3 gamecard-name" id="losing-gamecard-name">
                             <p class="losing-card"></p>
                         </div>
                     </div>
                     <div class="row justify-content-center">
-                        <div class="col-3 winner-player-name">
+                        <div class="col-5 col-sm-3 winner-player-name">
                             <p id="player-1-name"></p>
                         </div>
-                        <div class="col-3">
+                        <div class="col-1 col-sm-3">
                             <div id="arrows">
                                 <div class="arrow-right left"></div>
                                 <div class="arrow-right middle"></div>
                                 <div class="arrow-right right"></div>
                             </div>
                         </div>
-                        <div class="col-3 winner-player-name">
-                            <p>PLAYER 2</p>
+                        <div class="col-5 col-sm-3 winner-player-name">
+                            <p id="player-2-name">PLAYER 2</p>
                         </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-10 score-update">
+                        </div>
+                    </div>
+                </div>
+                <div class="match-winner-alert">
+                    <p class="winner-name"></p>
+                    <p>WINS THE MATCH!</p>
+                    <p id="match-winner-score"></p>
+                    <br>
+                    <p>PLAY AGAIN?</p>
+                    <div class="console-feature restart">
+                        <i class="fas fa-redo"></i>
                     </div>
                 </div>
             </div>
@@ -253,6 +268,7 @@
     
     <!-- MY SCRIPTS -->
         <script src="assets/js/main.js"></script> 
+        <script src="assets/js/helpers.js"></script>
         
     <!-- BOOTSTRAP SCRIPTS -->
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

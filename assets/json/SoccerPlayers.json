@@ -1,5 +1,6 @@
 {
     "theme": "Soccer Players",
+    "sound": "assets/sounds/soccer-chant.mp3",
     "categoryCount" :  4,
 	"categories": {
 		"1": "Height",

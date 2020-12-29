@@ -30,6 +30,7 @@ header{
     width: 100vw;
     margin-top: 60px;
     display: flex; 
+    min-height: 100vh;
 }
 .bg-main{
     background-color: #400080;
@@ -94,13 +95,21 @@ header{
 .gamestart-card-prompt{
     font-size: 1.5rem; 
 }
-.gamestart-button{
+
+.gamestart-card span{
+    font-size: 0.7rem;
+}
+.gamestart-theme-button {
     height: 50px;
-}
-.gamestart-button {
     background-color: #47d147;
+    font-size: 0.75rem;
+    margin: 3px;
+    text-align: center;
+    border-radius: 7px;
+    box-shadow: 3px 3px #000;
+    margin-top: 5px;
 }
-.gamestart-button:hover{
+.gamestart-theme-button:hover{
     background-color: #009900;
 }
 
@@ -117,12 +126,13 @@ header{
 }
 .opacity-cover{
     background-color: rgba(0,0,0,0.4);
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 1;
+    background-size: cover;
 }
 .gameplay > .container > .row {
     margin: 0;
@@ -164,13 +174,16 @@ header{
 
 .gamecard-name {
     margin: 10px 10px;
-    height: 40px;
+    height: 60px;
     background-color: #b30000;
     color: #fff;
     font-size: 1.5rem;
     border-radius: 7px;
     padding-top: 8px;
     border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 .gamecard-name > p{
     margin: auto;
@@ -252,26 +265,7 @@ header{
     color: #cccc00;
 }
 
-/* FOOTER */
-footer{
-    width: 100vw;
-    clear: both;
-	position: relative;
-    z-index: 2;
-	margin-top: 0px;
-	padding-top: 5px;
-    padding-bottom: 5px;
-}
-.bg-footer{
-    background-color: #100a10;
-}
-#social-links {
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-.footer-links {
-	text-align: left;
-}
+
 
 /* ALERTS */
 .alert {
@@ -288,8 +282,9 @@ footer{
   border-radius: 7px;
 }
 
+
+
 .gameplay-alert {
-  width: 80%;
   padding: 20px;
   border: 3px solid black;
   color: black;
@@ -338,6 +333,9 @@ footer{
     background-color: #ffff99;
     border: 2px solid black;
     border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .showdown-player-name p {
@@ -350,7 +348,6 @@ footer{
 
 .showdown-category, .showdown-value{
     font-size: 2rem;
-    
     border: 2px solid black;
     border-radius: 7px;
     margin-top: 3px;
@@ -366,7 +363,7 @@ footer{
     margin: 0 auto;
 }
 
-.winner-alert {
+.winner-alert, .match-winner-alert {
   position: absolute;
   top: 100px;
   margin-left: 25vw;
@@ -388,9 +385,6 @@ footer{
     border: 2px solid black;
     border-radius: 7px;
 }
-
-
-
 .winner-player-name p {
     position: absolute;
     top: 50%;
@@ -399,16 +393,13 @@ footer{
     left: 50%;
     margin-right: -50%;
 }
-
 .winner-category, .winner-value {
     font-size: 3rem;
 }
-
 #arrows{
     height: 100px;
     margin: auto;
 }
-
 #arrows .arrow-right{
     background:url(https://i.stack.imgur.com/xRwtw.png) no-repeat;
     height: 50px;
@@ -417,7 +408,6 @@ footer{
     opacity: 0;
     margin-top: 25px;
 }
-
 #arrows .arrow-left{
     background:url(https://i.stack.imgur.com/xRwtw.png) no-repeat;
     transform: ScaleX(-1);
@@ -428,6 +418,32 @@ footer{
     margin-top: 25px; 
 }
 
+.emphasise{
+    font-size: 2rem;
+    color: #fff;
+}
+
+
+/* FOOTER */
+footer{
+    width: 100vw;
+    clear: both;
+	position: relative;
+    z-index: 2;
+	margin-top: 0px;
+	padding-top: 5px;
+    padding-bottom: 5px;
+}
+.bg-footer{
+    background-color: #100a10;
+}
+#social-links {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.footer-links {
+	text-align: left;
+}
 
 /* ----------- tablet ----------- */
 @media only screen 
@@ -436,6 +452,16 @@ footer{
         height: 80vh;
         width: 80vw;
         margin: 30px auto;
+    }
+    .gamecard-category-1, .gamecard-category-2 {
+        padding: 7px;
+        font-size: 1.5rem;
+    }
+    #console{
+        padding: 0px;
+    }
+    .gameplay-alert {
+        padding : 2px;
     }
   }
 
@@ -465,10 +491,10 @@ footer{
     }   
     .gamecard{
         margin: 5px auto;
+        box-shadow: 2px 2px #404040;
     }
     .gamecard-name {
         margin: 3px 3px;
-        height: 30px;
         font-size: 1rem;
         padding-top: 3px;
         padding-bottom: 3px;
@@ -494,9 +520,6 @@ footer{
     #console{
         margin: 10px auto;
     }
-    .gameplay-alert {
-        padding: 5px;
-    }
     .player-score{
         margin-top: 10px;
         font-size: 1.25rem;
@@ -507,10 +530,9 @@ footer{
     .restart > i{
         font-size: 40px;
     }
-    .showdown-alert, .winner-alert {
+    .showdown-alert, .winner-alert, .match-winner-alert {
         width: 95vw;
         margin-left: 2.5vw;
-        padding: 2px;
     }
     #showdown-card-1, #showdown-card-2, #divisor{
         padding: 0;
@@ -527,5 +549,34 @@ footer{
 /* ----------- small mobile ----------- */
 @media only screen 
   and (max-device-width: 480px) {
-
+    .showdown-alert h2{
+        font-size: 3rem;
+    }
+    .gamecard-img > img {
+        height: 100px;
+        width: 100px;
+    }
+    .showdown-player-name, .showdown-category, .showdown-value {
+        font-size: 1rem;
+    }
+    .showdown-player-name{
+        height: 50px;
+        overflow: hidden;
+    }
+    .gamecard-name > p{
+        font-size: 0.85rem;
+    }
+    .winner-alert p{
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+    }
+    .winner-alert .winner-name{
+        font-size: 2rem;
+    }
+    .winner-player-name{
+        height: 50px;
+    }
+    #arrows{
+        display: none;
+    }
 }

@@ -3,14 +3,17 @@ $('document').ready(function(){
     var turn = 1;
     var stackOne = [];
     var stackTwo = [];
+    var themes = [];
     var gameObj = {};
     var categories = {};
     var units = {};
+    var sounds = {};
 
-    storeChosenThemeInMemory("SoccerPlayers");
-    removeName();
+
+    registerThemes();
+    registerSounds();
     
-    if(!validateName()) {
+    if(!validateName(localStorage.getItem("name"))) {
         chooseCardDisplayed(1);
     }
     else {
@@ -18,46 +21,82 @@ $('document').ready(function(){
     }
     
     //Functions
+    function registerThemes(){
+        //This would be better done with server side code such as php. But this project js only. 
+        themes = [
+            { 
+                id: "Soccer Players", 
+                path: "/assets/json/SoccerPlayers.json", 
+            }
+        ];
+
+        themes.forEach(t => storeThemeInMemory(t));
+        addThemeChoiceButtons();
+    }
+    function storeThemeInMemory(theme){
+        $.getJSON(`${theme.path}`, function(result){
+            console.log(`Storing Game Object for ${theme.id}`);
+            var json = JSON.stringify(result);
+            sessionStorage.setItem(`${theme.id}`, json);
+        });
+    }
+    function addThemeChoiceButtons(){
+        var buttons = $();
+        for(var i = 0; i < themes.length; i++) {
+            var theme = themes[i];
+            var btn = $(`<button class="gamestart-theme-button" id="${theme.id}">${theme.id}</button>`);
+            buttons = buttons.add(btn)
+        }
+        $("#gamestart-buttons").html(buttons);
+    }
+    function registerSounds(){
+        //https://www.zapsplat.com//
+        sounds["game-positive-1"] = new Audio("/assets/sounds/game-positive.mp3");
+        sounds["game-positive-2"] = new Audio("/assets/sounds/game-positive-2.mp3");
+        sounds["game-error-1"] = new Audio("/assets/sounds/game-error.mp3");
+        sounds["game-error-2"] = new Audio("/assets/sounds/game-error-2.mp3");
+        sounds["tension-drum"] = new Audio("/assets/sounds/tension-drum.mp3");
+    }
+
     function getName() {
-        let name = localStorage.getItem("name");
-        console.log(`Retrieving locally stored name : ${name}`);
-        return name;
+        return localStorage.getItem("name");
     }
 
     function storeName(name) {
-        if(name.length > 0) {
-            console.log(`Storing name: ${name}`);
-        }
-
         localStorage.setItem("name", name);
     }
 
     function removeName() {
-        console.log(`Removing locally stored name value`);
         localStorage.removeItem("name");
     }
 
     function validateName(name) {
+        console.log(name);
         return name != null && 
-            name.length > 0;
+            name.length > 0 &&
+            name != "NAME";
     }
 
     function chooseCardDisplayed(e) {
         switch(e)
         {
             case 1:
+                removeName();
                 $(".landing-card").show();
                 $(".gamestart-card").hide();
                 $(".gameplay").hide();    
                 break; 
 
             case 2:
+                validateName(getName()) ? setGameStartName(getName()) : chooseCardDisplayed(1);
                 $(".landing-card").hide();
                 $(".gamestart-card").show();
                 $(".gameplay").hide();   
                 break;   
             
             case 3:
+                turn = 1;
+                validateName(getName()) ? setGamePlayName(getName()) : chooseCardDisplayed(1);
                 $(".landing-card").hide();
                 $(".gamestart-card").hide();
                 $(".gameplay").show();   
@@ -69,8 +108,7 @@ $('document').ready(function(){
                 $(".gameplay").hide();  
                 break;           
         }
-    }
-
+    } 
     function setGameStartName(name) {
         $(".gamestart-card-name")
             .text(name);
@@ -89,9 +127,8 @@ $('document').ready(function(){
             .html(`has <span style="font-size: 2rem; color: white">${stackTwo.length}</span> out of <span style="font-size: 2rem;color: white">${gameObj.cards.length}</span> Cards`);
     }
 
-    function calculateScore(categoryScore1, categoryScore2){
-        var diff = categoryScore1 - categoryScore2;
-        return diff ^ 2;
+    function calculateShowdownPointsGained(score1, score2, winner){
+        return (winner == 1 ? score1 - score2 : 0) * 2;
     }
 
     function updateScore(score) {
@@ -135,17 +172,8 @@ $('document').ready(function(){
                 .text(currentHigh);
         }
     }
+ 
 
-    function storeChosenThemeInMemory(theme){
-        $.getJSON(`assets/json/${theme}.json`, function(result){
-            console.log(`Storing Game Object for ${theme} theme`);
-            var json = JSON.stringify(result);
-            sessionStorage.setItem("gameObj", json);
-            gameObj = JSON.parse(json);
-            categories = gameObj.categories;
-            units = gameObj.units;
-        });
-    }
 
     function dealCardsRandomly() {         
         stackOne = []; //Empty stack
@@ -162,6 +190,7 @@ $('document').ready(function(){
             pushedStackOneCardIds.push(rnd); //push this Id to local Id store
             i++;
         } while(i <= (cards.length / 2))
+        //} while( i <= 23)
 
         for (var j = 1; j <= (cards.length); j++)
         {
@@ -170,11 +199,11 @@ $('document').ready(function(){
             stackTwo.push(card) //push this card to stackTwo
         }
 
-        console.log("P1 Cards:");
-        console.log(JSON.parse(JSON.stringify(stackOne)));
+        //console.log("P1 Cards:");
+        //console.log(JSON.parse(JSON.stringify(stackOne)));
 
-        console.log("P2 Cards:");
-        console.log(JSON.parse(JSON.stringify(stackTwo)));
+        //console.log("P2 Cards:");
+        //console.log(JSON.parse(JSON.stringify(stackTwo)));
     }
 
     function findCardInArray(cards, n) {
@@ -279,31 +308,25 @@ $('document').ready(function(){
         {
             case 1:
                 pushToArray(stackOne, stackTwo);
-                if(stackTwo.length === 0) {
-                    declareWinner(1);
-                    return;   
-                }
                 break;
 
             case 2:
                 pushToArray(stackTwo, stackOne);
-                if(stackOne.length === 0) {
-                    declareWinner(2);
-                    return;
-                }
                 break;
 
             default:
                 turn = 1
         }
+        if(stackOne.length === 0 || stackTwo.length === 0) {
+            return true;   
+        }
         renderCards(winner);
         updateTotals();
-        console.log(`SCORE: P1 has ${stackOne.length} cards, P2 has ${stackTwo.length} cards`);
+        return false;
     }
 
     function declareWinner(winner){
-        alert(`P${winner} has won!`);
-        turn = 0;
+        matchWinnerAlert(winner);
         setTimeout(function(){ 
             processing = false;
         }, 2000);
@@ -323,22 +346,25 @@ $('document').ready(function(){
          }, 0);
 
         setTimeout(function() {
-            winnerAlert(winner, category, 7000);
+            showdownWinnerAlert(winner, category, 7000);
+            updateScore(calculateShowdownPointsGained(stackOne[0].values[category], stackTwo[0].values[category], winner));
         }, 7000);
 
         setTimeout(function() {    
-            goToNextShowdown(winner);    
+            var isWinner = goToNextShowdown(winner);   
+            if(isWinner) {
+                winner == 1 ? declareWinner(1) : declareWinner(2);
+                return;   
+             } 
             nextMoveAlert(winner);
-            updateScore(calculateScore(stackOne[0].values[category], stackTwo[0].values[category]));
             $(".alert-bg").toggleClass("opacity-cover");
             clearInterval(animationInterval);
         }, 14000);
 
         setTimeout(function(){
-            var positive1 = new Audio("assets/sounds/game-positive.mp3");
-            var error2 = new Audio("assets/sounds/game-error-2.mp3");
-            winner == 1 ? positive1.play() : error2.play();
-            $("#player-score-value").flash(2, 500,'', function() { $("#player-score-value").css("color", "#fff") });
+            winner == 1 ? sounds["game-positive-1"].play() : sounds["game-error-2"].play();
+            var color = $("#player-score-value").css("color");
+            $("#player-score-value").flash(2, 500,'', function() { $("#player-score-value").css("color", color) });
         }, 16000);
     }
 
@@ -367,15 +393,18 @@ $('document').ready(function(){
         $("#showdown-value-1").text(stackOne[0].values[category] + " " + units[category]);
         
         $("#showdown-value-2").text("?");
-            setTimeout(function() {
-                $("#showdown-value-2").animate({opacity:0},function(){
-                    $("#showdown-value-2").text(stackTwo[0].values[category] + units[category])
-                        .animate({opacity:1});
-                });
-            }, 3000);
+        
+        setTimeout(function() {
+            $("#showdown-value-2").animate({ opacity: 0 }, function() {
+                $("#showdown-value-2").text(stackTwo[0].values[category] + "" + units[category])
+                    .animate({ opacity: 1 });
+                var color = $("#showdown-value-2").css('color');
+                $("#showdown-value-2")
+                    .flash(3, 500,'', function() { $("#showdown-value-2").css('color', color) }, "#0000ff");
+            });
+        }, 3000);
 
-        var drum = new Audio("assets/sounds/tension-drum.mp3");
-        drum.play();
+        sounds["tension-drum"].play();
 
         showAlert(
             $(".showdown-alert"),
@@ -386,7 +415,7 @@ $('document').ready(function(){
             showFor);
     }
 
-    function winnerAlert(winner, category, showFor) {
+    function showdownWinnerAlert(winner, category, showFor) {
         var nameWinner = winner == 1 ? getName() : "Player 2";
         var winningCard = winner == 1 ? stackOne[0] : stackTwo[0];
         var losingCard = winner == 1 ? stackTwo[0] : stackOne[0];
@@ -398,17 +427,25 @@ $('document').ready(function(){
         $(".losing-card").text(losingCard.name);
         $("#player-1-name").text(getName());
 
-        //https://www.zapsplat.com//
-        var positive2 = new Audio("assets/sounds/game-positive-2.mp3");
-        var error1 = new Audio("assets/sounds/game-error.mp3");
+        winner == 1 ? 
+        sounds["game-positive-2"].play(): 
+        sounds["game-error-1"].play();
         
-        winner == 1 ? positive2.play() : error1.play();
-        
-        winner == 1 ? animationInterval = setInterval(animateArrowsLeft, 1000) : animationInterval = setInterval(animateArrowsRight, 1000);
+        winner == 1 ? 
+        animationInterval = setInterval(animateArrowsLeft, 1000): 
+        animationInterval = setInterval(animateArrowsRight, 1000);
 
         setTimeout(function() {
-            console.log("trying");
-             winner == 1 ? $("#losing-gamecard-name").blindLeftOut(1000) : $("#losing-gamecard-name").blindRightOut(1000)
+            if(winner == 1){
+                $("#losing-gamecard-name").blindLeftOut(3000, function(){ setTimeout(function() { $("#losing-gamecard-name").css("margin-left", 0)}, 4000); });
+                $("#player-1-name").flash(3, 500,'', function() { $("#player-1-name").css("color", "#000") }, "#0000ff");
+            }
+            else {
+                $("#losing-gamecard-name").blindRightOut(3000, function(){ setTimeout(function() { $("#losing-gamecard-name").css("margin-left", 0)}, 4000); })
+                $("#player-2-name").flash(3, 500,'', function() { $("#player-2-name").css("color","#000") }, "#0000ff");
+            }
+            $(".score-update").html(`<p>${getName()} you now have <span class="emphasise">${winner == 1 ? (stackOne.length) + 1 : (stackOne.length) - 1}</span> Cards</p>`);  
+            $(".emphasise").flash(3, 500,'', function() { $(".emphasise").css("color","#000") }, "#0000ff");     
         }, 2000);
 
         showAlert(
@@ -418,6 +455,19 @@ $('document').ready(function(){
             true, 
             winner == 1 ? "#ff3399" :"#ace600", 
             showFor);
+    }
+
+    function matchWinnerAlert(winner) {
+        var nameWinner = winner == 1 ? getName() : "Player 2";
+
+        $(".winner-name").text(nameWinner);
+
+        showAlert(
+            $(".match-winner-alert"),
+            ``,
+            1, 
+            false, 
+            "#ff99ff");
     }
 
     //https://github.com/yckart/jquery-custom-animations
@@ -433,12 +483,12 @@ $('document').ready(function(){
         }, jQuery.speed(duration, easing, complete));
     };
 
-    jQuery.fn.flash = function (times, duration, easing, complete) {
+    jQuery.fn.flash = function (times, duration, easing, complete, color = "#ffff00") {
         times = (times || 2) * 2;
         while(times--){
             this.animate({
                 opacity: !(times % 2), 
-                color: "#ffff00"
+                color: color
             }, duration, easing, complete);
         }
         return this;
@@ -513,33 +563,40 @@ $('document').ready(function(){
                         .val();
         storeName(name);
         
-        if(name != null && name.length > 0){
-            setGameStartName(name);
+        if(validateName(name)){
             chooseCardDisplayed(2);
         }
         else{         
            showAlert($(".alert"), "Please enter your name", 1, 1, "#fbd000", 2000);
-           var error1 = new Audio("assets/sounds/game-error.mp3");
-           error1.play();
+           sounds["game-error-1"].play();
         }
     });
 
-    $(".gamestart-button").click(function() {
+    $(".gamestart-theme-button").click(function() {
+        gameObj = {}; //clear global value before resetting
+        gameObj = JSON.parse(sessionStorage.getItem(this.id));
+        categories = gameObj.categories;
+        units = gameObj.units;
+        var gamestartSound = new Audio(gameObj.sound).play();
+
         dealCardsRandomly(); 
         chooseCardDisplayed(3);
         renderCards(1);
-        setGamePlayName(getName());
         updateTotals();
         resetScore();
         updateScore(0);
         nextMoveAlert(1);
-        var chant = new Audio("assets/sounds/soccer-chant.mp3");
-        chant.play();
     })
 
     var processing = false;
     $(".gamecard-category-1").click(function() {
-        if(turn != 1 || processing) {
+        if(turn != 1) {
+            sounds["game-error-1"].play();
+            var color = $(".gameplay-alert").css("color");
+            $(".gameplay-alert").flash(2, 500,'', function() { $(".gameplay-alert").css("color", color) });
+            return;
+        }
+        if(processing) {
             return;
         }
         
@@ -572,7 +629,13 @@ $('document').ready(function(){
     })
 
     $(".restart").click(function() {
+        $(".alert-bg").removeClass("opacity-cover");
+        $(".match-winner-alert").hide();
         chooseCardDisplayed(2);
+    })
+
+    $(".change-name").click(function() {
+        chooseCardDisplayed(1);
     })
 });
 
