@@ -171,7 +171,6 @@ header{
 .flashing-border-2{
     border: 6px solid #ace600;
 }
-
 .gamecard-name {
     margin: 10px 10px;
     height: 60px;
@@ -184,9 +183,6 @@ header{
     display: flex;
     justify-content: center;
     flex-direction: column;
-}
-.gamecard-name > p{
-    margin: auto;
 }
 .gamecard-img {
     margin: 30px auto;

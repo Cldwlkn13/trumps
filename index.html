@@ -23,7 +23,7 @@
             <br>
             <p class="landing-card-prompt">Enter your name and have a go!</p>
             <input class="landing-card-name-input" type="text" placeholder="Enter your name here">
-            <button class="card-button">Submit</button>
+            <button class="card-button" id="submit-name-btn">Submit</button>
         </div>
         <div class="card-base gamestart-card" id="gamestart-card">
             <h2 class="gamestart-card-name">Name </h2>
@@ -267,9 +267,27 @@
         <script src="https://code.jquery.com/color/jquery.color-2.1.2.js"></script>
     
     <!-- MY SCRIPTS -->
+        <script>
+            //GLOBALS
+            var turn = 1;
+            var stackOne = [];
+            var stackTwo = [];
+            var themes = [];
+            var gameObj = {};
+            var categories = {};
+            var units = {};
+            var sounds = {};
+            var arrowAnimationInterval;
+        </script>
+
         <script src="assets/js/main.js"></script> 
-        <script src="assets/js/helpers.js"></script>
-        
+        <script src="assets/js/registrations.js"></script>
+        <script src="assets/js/gameplay-engine.js"></script>
+        <script src="assets/js/card-rendering.js"></script> 
+        <script src="assets/js/scoring.js"></script>
+        <script src="assets/js/alerts.js"></script>
+        <script src="assets/js/function-helpers.js"></script>
+  
     <!-- BOOTSTRAP SCRIPTS -->
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
