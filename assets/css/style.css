@@ -21,11 +21,28 @@ header{
 .bg-header{
     background-color: #ccff33;
 }
+.header-row{
+    flex-wrap: nowrap;
+    margin: 0;
+}
 .header-text{
     text-align: center;
 }
+#rules-col, #header-col, #restart-col{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0;
+}
+#rules-popover, #header-restart{
+    color: #000;
+    text-align: center;
+}
+#rules-popover{
+    text-align: right;
+}
 #header-restart{
-    font-size: 2rem;
+    text-align: left;
 }
 
 /*MAIN*/

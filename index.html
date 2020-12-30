@@ -12,13 +12,21 @@
 </head>
 <body>
     <header class="bg-header">
-        <h1 class="header-text">
-            <i class="fa fa-futbol-o" aria-hidden="true"></i>   
-            Trumps 
-            <i class="fa fa-rocket" aria-hidden="true"></i> 
-            &nbsp &nbsp
-            <span id="header-restart"><i class="fa fa-repeat restart" aria-hidden="true"></i></span>
-        </h1> 
+        <div class="row header-row">
+            <div class="col-1" id="rules-col">
+                <a tabindex="0" id="rules-popover" role="button" data-toggle="popover" data-trigger="focus" title="Rules" data-placement="bottom" data-html="true" data-content="Right?"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+            </div>
+            <div class="col-10 header-text" id="header-col">
+                <h1>
+                    <i class="fa fa-futbol-o" aria-hidden="true"></i>   
+                    Trumps 
+                    <i class="fa fa-rocket" aria-hidden="true"></i> 
+                </h1> 
+            </div>
+            <div class="col-1" id="restart-col">
+                <span id="header-restart"><i class="fa fa-repeat restart" aria-hidden="true"></i></span>
+            </div>
+        </div>
     </header>
     <section class="main bg-main">
         <div class="alert"></div>

@@ -5,6 +5,7 @@ registerSounds();
 $('document').ready(function(){   
 
     addThemeChoiceButtons();
+    loadRulesText();
     
     if(!validateName(sessionStorage.getItem("name"))) {
         chooseCardDisplayed(1);
@@ -22,6 +23,12 @@ $('document').ready(function(){
             buttons = buttons.add(btn)
         }
         $("#gamestart-buttons").html(buttons);
+    }
+
+    function loadRulesText(){
+        $.get('../rules.txt', function(data) {
+            $("#rules-popover").attr('data-content',data); 
+        });
     }
 
     function chooseCardDisplayed(e) {
@@ -168,6 +175,12 @@ $('document').ready(function(){
     $(".change-name").click(function() {
         stopSounds();
         chooseCardDisplayed(1);
+    })
+
+    $("[data-toggle=popover]").popover();
+
+    $('.popover-dismiss').popover({
+        trigger: 'focus'
     })
 });
 

@@ -1,0 +1,17 @@
+- You are playing against the AI of the computer, who is known as "Player 2". <br><br>
+
+- Both players start with an equal amount of cards, that are randomly dealt for each game.<br><br>
+
+- Player 1 always starts first.<br><br>
+
+- On your turn, select a category from your card that you believe will beat your opponents value.<br><br>
+
+- The highest value wins. You must have the higher value to win the showdown. In the event of identical values, the player who's turn it is loses the showdown.<br><br>
+
+- The player who wins the showdown gets to choose the category for the next showdown.<br><br>
+
+- In the event of Player 2 winning the showdown, the program will simulate decisions. This will continue until Player 1 wins a showdown, or the game is over.<br><br>
+
+- The aim is to collect all of your opponents cards. When a player has no cards left, their opponent will be declared the winner.<br><br>  
+
+- You can restart the game at any point by clicking the icon in the top right corner of the header bar.<br><br>
