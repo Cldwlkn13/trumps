@@ -5,6 +5,9 @@ function nextMoveAlert(winner){
 }
 
 function showdownAlert(category, caller, displayForMs) {                
+    if(!continueProcessing) {
+        return;
+    }
     //SET CONTENT
     $("#showdown-player-name-1").text(getName());
     $("#showdown-player-name-2").text("Player 2");
@@ -28,7 +31,7 @@ function showdownAlert(category, caller, displayForMs) {
     $("#showdown-value-2").text("?");
         
     //BUILD TENSION AUDIO
-    sounds["tension-drum"].play();
+    sounds.find(n => n.name == "tension-drum").audio.play()
         
     //ANIMATE FLASHING REVEAL
     setTimeout(function() {
@@ -53,6 +56,9 @@ function showdownAlert(category, caller, displayForMs) {
 }
 
 function showdownWinnerAlert(winner, category, displayForMs) {
+    if(!continueProcessing) {
+        return;
+    }
     var nameWinner = winner == 1 ? getName() : "Player 2";
     var winningCard = winner == 1 ? stackOne[0] : stackTwo[0];
     var losingCard = winner == 1 ? stackTwo[0] : stackOne[0];
@@ -68,11 +74,11 @@ function showdownWinnerAlert(winner, category, displayForMs) {
 
     //ANIMATION & AUDIO
     if(winner == 1){
-        sounds["game-positive-2"].play();
+        sounds.find(n => n.name == "game-positive-2").audio.play();
         arrowAnimationInterval = setInterval(animateArrowsLeft, 1000);
     }
     else {
-        sounds["game-error-1"].play();
+        sounds.find(n => n.name == "game-error-1").audio.play();
         arrowAnimationInterval = setInterval(animateArrowsRight, 1000);
     }
 
@@ -105,6 +111,9 @@ function showdownWinnerAlert(winner, category, displayForMs) {
 }
 
 function matchWinnerAlert(winner) {
+    if(!continueProcessing) {
+        return;
+    }
     //SET CONTENT
     var nameWinner = winner == 1 ? getName() : "Player 2";
     $(".winner-name").text(nameWinner);

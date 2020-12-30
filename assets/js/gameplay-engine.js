@@ -23,6 +23,10 @@ function dealCardsRandomly() {
 }
 
 function handlePlayerAction(category, caller){       
+    if(!continueProcessing) {
+        return;
+    }
+    
     //DIM BACKGROUND TO FOCUS ALERTS
     $(".alert-bg").toggleClass("opacity-cover");
 
@@ -40,6 +44,7 @@ function handlePlayerAction(category, caller){
         showdownWinnerAlert(winner, category, 7000);
         updateScore(calculateShowdownPointsGained(stackOne[0].values[category], stackTwo[0].values[category], winner));
     }, 7000);
+    
 
     //AFTER 14s CLEAR DOWN ALERTS AND SET UP UI FOR NEXT MOVE 
     setTimeout(function() {    
@@ -51,6 +56,14 @@ function handlePlayerAction(category, caller){
             return;   
         } 
 
+        if(winner == 1){
+            renderCards(winner);
+            updateTotals();
+        }
+        else {
+            handlePlayerAction(stackTwo[0].best, 2); //IF P2 WINS THEN RECALL THIS FOR THEIR NEXT MOVE
+        }
+
         nextMoveAlert(winner); //SET UP THE ALERT TO PROMPT THE NEXT MOVE
         $(".alert-bg").toggleClass("opacity-cover"); //RESET THE DIMMED BACKGROUND
         clearInterval(arrowAnimationInterval); //RESET THE ARROW ANIMATION
@@ -58,7 +71,10 @@ function handlePlayerAction(category, caller){
 
     //AFTER 1 FURTHER SECOND PLAY SOME ADDITIONAL ANIMATION & AUDIO
     setTimeout(function(){
-        winner == 1 ? sounds["game-positive-1"].play() : sounds["game-error-2"].play();
+        if(!continueProcessing) {
+            return;
+        }   
+        winner == 1 ? sounds.find(n => n.name == "game-positive-1").audio.play() : sounds.find(n => n.name == "game-error-2").audio.play();
         var color = $("#player-score-value").css("color");
         $("#player-score-value").flash(2, 500,'', function() { $("#player-score-value").css("color", color) });
     }, 15000);
@@ -99,8 +115,7 @@ function goToNextShowdown(winner) {
     if(stackOne.length === 0 || stackTwo.length === 0) {
         return true; //IF EITHER STACK HAS NO CARDS LEFT, RETURN FLAG THAT MATCH IS WON
     }
-    renderCards(winner);
-    updateTotals();
+
     return false; //IF EITHER STACK HAS SOME CARDS LEFT, RETURN FLAG THAT MATCH IS NOT WON
 }
 

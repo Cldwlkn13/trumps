@@ -8,15 +8,40 @@ function registerThemes(){
         //TO ADD NEW THEME TO GAME, COMPILE .json FILE TO /assets/json/ AND REFERENCE FROM HERE
     ];
     themes.forEach(t => storeThemeInMemory(t)); 
+    console.log(themes);
 }
 
  //SOUNDS AQUIRED FROM https://www.zapsplat.com//
 function registerSounds(){
-    sounds["game-positive-1"] = new Audio("/assets/sounds/game-positive.mp3");
-    sounds["game-positive-2"] = new Audio("/assets/sounds/game-positive-2.mp3");
-    sounds["game-error-1"] = new Audio("/assets/sounds/game-error.mp3");
-    sounds["game-error-2"] = new Audio("/assets/sounds/game-error-2.mp3");
-    sounds["tension-drum"] = new Audio("/assets/sounds/tension-drum.mp3");
+    sounds = [
+        {
+            name:"game-positive-1", 
+            audio: new Audio("/assets/sounds/game-positive.mp3")
+        },
+        {
+            name:"game-positive-2", 
+            audio: new Audio("/assets/sounds/game-positive-2.mp3")
+        },
+        {
+            name:"game-error-1", 
+            audio: new Audio("/assets/sounds/game-error.mp3")
+        },
+        {
+            name:"game-error-2", 
+            audio: new Audio("/assets/sounds/game-error-2.mp3")
+        },
+        {
+            name:"tension-drum", 
+            audio: new Audio("/assets/sounds/tension-drum.mp3")
+        },
+    ]
+
+    themes.forEach(function(t) {
+        var audio = new Audio(JSON.parse(sessionStorage.getItem(t.id)).sound);
+        sounds.push({
+            name: t.id, audio: audio
+        })
+    });
 }
 
 function storeThemeInMemory(theme){

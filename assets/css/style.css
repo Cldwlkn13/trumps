@@ -24,6 +24,9 @@ header{
 .header-text{
     text-align: center;
 }
+#header-restart{
+    font-size: 2rem;
+}
 
 /*MAIN*/
 .main{
@@ -246,22 +249,20 @@ header{
     color: #fff;
 }
 
-.restart {
+#console-restart, #winner-alert-restart {
     margin-top: 60px;
     text-align: center;
     color: #ffff66;
 }
 
-.restart > i{
+#console-restart > i, #winner-alert-restart > i{
     font-size: 100px;
     margin: auto; 
 }
 
-.restart:hover {
+#console-restart:hover {
     color: #cccc00;
 }
-
-
 
 /* ALERTS */
 .alert {
@@ -561,6 +562,9 @@ footer{
     }
     .gamecard-name > p{
         font-size: 0.85rem;
+    }
+    #name-1 p, #name2 p{
+        font-size: 1.25rem;
     }
     .winner-alert p{
         font-size: 1rem;

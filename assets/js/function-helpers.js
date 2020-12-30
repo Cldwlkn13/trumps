@@ -79,3 +79,9 @@ function validateName(name) {
         name.length > 0 && 
         name.length < 18; //SET HARD CHARACTER LIMIT TO PROTECT STYLING FROM EXTRA LONG NAME STRINGS
 }
+
+function stopSounds(){
+    sounds.forEach(function(s) { 
+        s.audio.pause();
+    });
+}

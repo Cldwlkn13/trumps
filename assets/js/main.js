@@ -1,8 +1,9 @@
+//STARTUP
+registerThemes();
+registerSounds();
+
 $('document').ready(function(){   
-    
-    //STARTUP
-    registerThemes();
-    registerSounds();
+
     addThemeChoiceButtons();
     
     if(!validateName(localStorage.getItem("name"))) {
@@ -65,12 +66,6 @@ $('document').ready(function(){
             .text(name); 
     }
 
-    
-
-    
-
-    
-
     //DOM EVENTS
     $("#submit-name-btn").click(function() {
         let name = $(".landing-card-name-input").val();
@@ -81,7 +76,7 @@ $('document').ready(function(){
         }
         else{         
            showAlert($(".alert"), "Please enter your name", 1, 1, "#fbd000", 2000);
-           sounds["game-error-1"].play();
+           sounds.find(n => n.name == "game-error-1").audio.play()
         }
     });
 
@@ -90,7 +85,7 @@ $('document').ready(function(){
         gameObj = JSON.parse(sessionStorage.getItem(this.id));
         categories = gameObj.categories;
         units = gameObj.units;
-        var gamestartSound = new Audio(gameObj.sound).play();
+        sounds.find(s => { return s.name === gameObj.theme }).audio.play();
 
         dealCardsRandomly(); 
         chooseCardDisplayed(3);
@@ -99,12 +94,13 @@ $('document').ready(function(){
         resetScore();
         updateScore(0);
         nextMoveAlert(1);
+        continueProcessing = true;
     })
 
     var processing = false; //FLAG TO DISABLE EVENTS WHILE BACKGROUND PROCESSING IS CONTINUING
     $(".gamecard-category-1").click(function() {
         if(turn != 1) {
-            sounds["game-error-1"].play();
+            sounds.find(n => n.name == "game-error-1").audio.play();
             var color = $(".gameplay-alert").css("color");
             $(".gameplay-alert").flash(2, 500,'', function() { $(".gameplay-alert").css("color", color) });
             return;
@@ -112,6 +108,8 @@ $('document').ready(function(){
         if(processing) {
             return;
         }
+
+        stopSounds();
         
         console.log(`P1 selected Category: 
             ${$(this).find(".cat-name").text()}${$(this).find(".cat-score").text()}`);
@@ -142,12 +140,15 @@ $('document').ready(function(){
     })
 
     $(".restart").click(function() {
+        continueProcessing = false;
+        stopSounds();
         $(".alert-bg").removeClass("opacity-cover");
         $(".match-winner-alert").hide();
         chooseCardDisplayed(2);
     })
 
     $(".change-name").click(function() {
+        stopSounds();
         chooseCardDisplayed(1);
     })
 });
