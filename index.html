@@ -27,7 +27,7 @@
             <h3 class="landing-card-goading">THINK <u>YOU</u> KNOW ENOUGH TO BEAT <u>ME</u> AT TRUMPS?</h3>
             <br>
             <p class="landing-card-prompt">Enter your name and have a go!</p>
-            <input class="landing-card-name-input" type="text" placeholder="Enter your name here">
+            <input id="landing-card-name-input" type="text" placeholder="Enter your name here">
             <button class="card-button" id="submit-name-btn">Submit</button>
         </div>
         <div class="card-base gamestart-card" id="gamestart-card">
@@ -208,8 +208,12 @@
                             <p id="player-cards-total-2"></p>
                         </div>
                         <div class="gamecard" id="gamecard-2">
-                            <div class="gamecard-name" id="name-2">
-                                <p></p>
+                            <div class="row justify-content-center float-offscreen">
+                                <div class="col">
+                                    <div class="gamecard-name" id="name-2">
+                                        <p></p>
+                                    </div>
+                                </div>
                             </div>
                             <div class="gamecard-img" id="img-2">
                                 <img src="#" alt="">
@@ -270,6 +274,8 @@
     <!-- JQUERY -->
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+
+        <script src="assets/plugins/jquery.visible.js" type="text/javascript"></script>
     
     <!-- MY SCRIPTS -->
         <script>

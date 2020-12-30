@@ -6,7 +6,7 @@ $('document').ready(function(){
 
     addThemeChoiceButtons();
     
-    if(!validateName(localStorage.getItem("name"))) {
+    if(!validateName(sessionStorage.getItem("name"))) {
         chooseCardDisplayed(1);
     }
     else {
@@ -68,7 +68,7 @@ $('document').ready(function(){
 
     //DOM EVENTS
     $("#submit-name-btn").click(function() {
-        let name = $(".landing-card-name-input").val();
+        let name = $("#landing-card-name-input").val();
 
         if(validateName(name)){
             storeName(name);
@@ -95,7 +95,25 @@ $('document').ready(function(){
         updateScore(0);
         nextMoveAlert(1);
         continueProcessing = true;
+
+        //IF CARD 2 NAME NOT AUTO VISIBLE IN VIEWPORT THEN DISPLAY FIXED TO BOTTOM 
+        if($(".float-offscreen").visible() === false) {
+            $(".float-offscreen").css({"position":"fixed","bottom":"10px", "opacity":"0.8"});
+            $("#name-2").css({"background-color": "#000", "padding": "10px"});
+        }
     })
+
+    $(function(){
+        $(window).scroll(function(){
+            if($("#img-2").visible()) { //ON SCROLL CHECK FOR VISIBILITY OF CARD 2
+                $(".float-offscreen").css({"position":"","bottom":"", "opacity":"1"});
+                $("#name-2").css({"background-color": "#b30000"})
+            }else {
+                $(".float-offscreen").css({"position":"fixed","bottom":"10px", "opacity":"0.75"});
+                $("#name-2").css({"background-color": "#000", "padding": "10px"})
+            }
+        });
+    });
 
     var processing = false; //FLAG TO DISABLE EVENTS WHILE BACKGROUND PROCESSING IS CONTINUING
     $(".gamecard-category-1").click(function() {

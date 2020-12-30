@@ -186,6 +186,7 @@ header{
     display: flex;
     justify-content: center;
     flex-direction: column;
+    padding: 10px;
 }
 .gamecard-img {
     margin: 30px auto;
@@ -279,7 +280,9 @@ header{
   border-radius: 7px;
 }
 
-
+.float-offscreen{
+    margin: 0px;
+}
 
 .gameplay-alert {
   padding: 20px;
@@ -493,8 +496,6 @@ footer{
     .gamecard-name {
         margin: 3px 3px;
         font-size: 1rem;
-        padding-top: 3px;
-        padding-bottom: 3px;
     }
     .gamecard-img {
         margin: 5px auto;
@@ -521,10 +522,10 @@ footer{
         margin-top: 10px;
         font-size: 1.25rem;
     }
-    .restart {
+    #console-restart {
         margin-top: 10px;
     }
-    .restart > i{
+    #console-restart > i{
         font-size: 40px;
     }
     .showdown-alert, .winner-alert, .match-winner-alert {
@@ -563,7 +564,7 @@ footer{
     .gamecard-name > p{
         font-size: 0.85rem;
     }
-    #name-1 p, #name2 p{
+    #name-1 p, #name-2 p{
         font-size: 1.25rem;
     }
     .winner-alert p{
