@@ -122,6 +122,21 @@ $('document').ready(function(){
         });
     });
 
+    $("#theme-idea-input").on('keydown', function(e) {
+        if (e.key === 'Enter' || e.keyCode === 13 || e.key === 'Tab' || e.keyCode === 9) {
+            if(!validateName(getName())) {
+                sounds.find(n => n.name == "game-error-1").audio.play();
+                showAlert($(".alert"), "Please enter your name to send suggestion", 1, 1, "#ff0000", 2000);
+                return;
+            }
+            emailjs.send("service_rngxglh", "template_vc4w01v",{from_name: getName(), message: $(this).val()})
+            $(this).val('');
+            $(this).attr("placeholder","Your suggestion has been sent!");
+            $(this).flash(2, 500,'', function() { $(this).css("color", "#000") });
+        }
+    });
+
+
     var processing = false; //FLAG TO DISABLE EVENTS WHILE BACKGROUND PROCESSING IS CONTINUING
     $(".gamecard-category-1").click(function() {
         if(turn != 1) {
