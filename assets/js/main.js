@@ -1,17 +1,20 @@
 $('document').ready(function(){   
     //STARTUP
     registerThemes();
-    registerSounds(); 
-
+    registerSounds();
     addThemeChoiceButtons();
     loadRulesText();
-    
-    if(!validateName(sessionStorage.getItem("name"))) {
+
+    setTimeout(function(){
+        decorateSounds();
+
+        if(!validateName(sessionStorage.getItem("name"))) {
         chooseCardDisplayed(1);
-    }
-    else {
-        chooseCardDisplayed(2);
-    }
+        }
+        else {
+            chooseCardDisplayed(2);
+        }
+    }, 300);
     
     //DOM FUNCTIONS
     function addThemeChoiceButtons(){
@@ -87,6 +90,7 @@ $('document').ready(function(){
     });
 
     $(".gamestart-theme-button").click(function() {
+        console.log("waaaaaaaa");
         gameObj = {}; //clear global value before resetting
         gameObj = JSON.parse(sessionStorage.getItem(this.id));
         categories = gameObj.categories;
