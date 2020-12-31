@@ -136,7 +136,6 @@ $('document').ready(function(){
         }
     });
 
-
     var processing = false; //FLAG TO DISABLE EVENTS WHILE BACKGROUND PROCESSING IS CONTINUING
     $(".gamecard-category-1").click(function() {
         if(turn != 1) {
