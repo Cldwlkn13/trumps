@@ -25,7 +25,7 @@ $('document').ready(function(){
     }
 
     function loadRulesText(){
-        $.get('./rules.txt', function(data) {
+        $.get('rules.txt', function(data) {
             $("#rules-popover").attr('data-content',data); 
         });
     }
