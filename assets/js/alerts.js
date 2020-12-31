@@ -1,6 +1,6 @@
 function nextMoveAlert(winner){
     winner === 1 ? 
-        showAlert($(".gameplay-alert"), `${getName()}\nit is your turn, choose your category!`, 0.8, false, "#ff3399") :
+        showAlert($(".gameplay-alert"), `<h2>${getName()}</h2> it is your turn, choose your category!`, 0.8, false, "#ff3399") :
         showAlert($(".gameplay-alert"),`Click here to force Player 2 move!`, 0.8, false, "#ace600");
 }
 
@@ -36,7 +36,7 @@ function showdownAlert(category, caller, displayForMs) {
     //ANIMATE FLASHING REVEAL
     setTimeout(function() {
         $("#showdown-value-2").animate({ opacity: 0 }, function() {
-            $("#showdown-value-2").text(stackTwo[0].values[category] + "" + units[category])
+            $("#showdown-value-2").text(stackTwo[0].values[category] + " " + units[category])
                 .animate({ opacity: 1 });
             var color = $("#showdown-value-2").css('color');
             $("#showdown-value-2")

@@ -13,7 +13,7 @@ function renderCards(winner) {
 function renderCard(stackId, winner, card) {
     console.log(`P${stackId} rendering card ${card.name}`);
     $("#name-" + stackId)
-        .children("p")
+        .children("h2")
         .first()
         .text(card.name);
 
@@ -32,7 +32,7 @@ function renderCard(stackId, winner, card) {
         container
             .children(".cat-name")
             .first()
-            .text(gameObj.categories[i] + " - "); 
+            .html(`<strong>${gameObj.categories[i] + " - "}</strong>`); 
 
         container
             .children(".cat-value")

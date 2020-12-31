@@ -1,7 +1,7 @@
-@import url(https://db.onlinewebfonts.com/c/d66fa62dabed66f2226a1b2d17da0579?family=Showcard+Gothic);
+@import url('https://fonts.googleapis.com/css?family=Just+Another+Hand:100,200,300,400,500,600,700|');
 
 body{
-    font-family: "Showcard Gothic", sans-serif
+    font-family: "Just Another Hand", sans-serif
 }
 
 /* HEADER */
@@ -614,7 +614,7 @@ footer{
         height: 50px;
         overflow: hidden;
     }
-    .gamecard-name > p{
+    .gamecard-name > h2{
         font-size: 0.85rem;
     }
     #name-1 p, #name-2 p{
