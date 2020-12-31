@@ -1,8 +1,7 @@
-//STARTUP
-registerThemes();
-registerSounds();
-
 $('document').ready(function(){   
+    //STARTUP
+    registerThemes();
+    registerSounds(); 
 
     addThemeChoiceButtons();
     loadRulesText();

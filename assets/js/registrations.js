@@ -1,3 +1,4 @@
+
 //This would be better done with server side code such as php. But this project js only.
 function registerThemes(){ 
     themes = [
@@ -8,7 +9,7 @@ function registerThemes(){
         //TO ADD NEW THEME TO GAME, COMPILE .json FILE TO /assets/json/ AND REFERENCE FROM HERE
     ];
     themes.forEach(t => storeThemeInMemory(t)); 
-    console.log(themes);
+    console.log(`The following themes are available: ${themes}`);
 }
 
  //SOUNDS AQUIRED FROM https://www.zapsplat.com//
