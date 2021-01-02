@@ -81,13 +81,18 @@ $('document').ready(function(){
     $("#submit-name-btn").click(function() {
         let name = $("#landing-card-name-input").val();
 
-        if(validateName(name)){
+        if(validateName(name) && validateNameLength(name)){
             storeName(name);
             chooseCardDisplayed(2);
+            return;
+        }
+        if(!validateNameLength(name)) {
+            showAlert($(".alert"), "Your name is too long!", 1, 1, "#fbd000", 2000);
+            sounds.find(n => n.name == "game-error-1").audio.play();
         }
         else{         
-           showAlert($(".alert"), "Please enter your name", 1, 1, "#fbd000", 2000);
-           sounds.find(n => n.name == "game-error-1").audio.play();
+            showAlert($(".alert"), "Please enter your name", 1, 1, "#fbd000", 2000);
+            sounds.find(n => n.name == "game-error-1").audio.play();
         }
     });
 
