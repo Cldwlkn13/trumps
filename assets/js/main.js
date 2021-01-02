@@ -40,14 +40,14 @@ $('document').ready(function(){
                 removeName();
                 $(".landing-card").show();
                 $(".gamestart-card").hide();
-                $(".gameplay").hide();    
+                $(".gameplay").hide();   
                 break; 
 
             case 2:
                 validateName(getName()) ? setGameStartName(getName()) : chooseCardDisplayed(1);
                 $(".landing-card").hide();
                 $(".gamestart-card").show();
-                $(".gameplay").hide();   
+                $(".gameplay").hide(); 
                 break;   
             
             case 3:
@@ -55,7 +55,7 @@ $('document').ready(function(){
                 validateName(getName()) ? setGamePlayName(getName()) : chooseCardDisplayed(1);
                 $(".landing-card").hide();
                 $(".gamestart-card").hide();
-                $(".gameplay").show();   
+                $(".gameplay").show();  
                 break;  
             
             default:
@@ -64,6 +64,8 @@ $('document').ready(function(){
                 $(".gameplay").hide();  
                 break;           
         }
+
+        $('html, body').animate({ scrollTop: 0 }, 'fast');
     } 
     function setGameStartName(name) {
         $("#gamestart-card-name")
