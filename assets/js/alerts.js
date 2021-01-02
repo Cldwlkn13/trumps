@@ -147,3 +147,20 @@ function animateArrowsLeft() {
     $('.middle').delay(250).fadeTo(500, 1).delay(500).fadeTo(500, 0);
     $('.right').delay(500).fadeTo(500, 1).delay(500).fadeTo(500, 0);
 }
+
+function showAlert(alert, html = "", opacity, hide, backgroundColor, showForMs = 0) {
+    if(html != "") {
+        alert.html(html)
+    }
+    alert.css("opacity", opacity).css("background-color", backgroundColor); 
+    alert.slideDown("slow");            
+    if(hide){
+        setTimeout(function() { 
+            hideAlert(alert) 
+        }, showForMs);
+    }
+}
+
+function hideAlert(alert) {
+    $(alert).slideUp("slow"); 
+}

@@ -45,23 +45,6 @@ function findCardInArray(cards, n) {
     return card;
 }
 
-function showAlert(alert, html = "", opacity, hide, backgroundColor, showForMs = 0) {
-    if(html != "") {
-        alert.html(html)
-    }
-    alert.css("opacity", opacity).css("background-color", backgroundColor); 
-    alert.slideDown("slow");            
-    if(hide){
-        setTimeout(function() { 
-            hideAlert(alert) 
-        }, showForMs);
-    }
-}
-
-function hideAlert(alert) {
-    $(alert).slideUp("slow"); 
-}
-
 function getName() {
     return sessionStorage.getItem("name");
 }
