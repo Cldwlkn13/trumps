@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Nerko+One:100,200,300,400,500,600,700|');
+@import url('https://fonts.googleapis.com/css?family=Anton:400|');
 
 body{
-    font-family: "Nerko One", sans-serif;
+    font-family: "Anton", sans-serif;
 }
 
 /* HEADER */
@@ -85,9 +85,9 @@ header{
     font-size: 1rem;
 }
 .landing-card > input {
-    font-size: 0.75rem;
+    font-size: 1.5rem;
     margin: 3px;
-    text-align: left;
+    text-align: center;
     border-radius: 7px;
     width: 90%;
 }
@@ -115,14 +115,13 @@ header{
 .gamestart-card-prompt{
     font-size: 1.5rem; 
 }
-
 .gamestart-card span{
-    font-size: 0.7rem;
+    font-size: 1rem;
 }
 .gamestart-theme-button {
     height: 50px;
     background-color: #47d147;
-    font-size: 0.75rem;
+    font-size: 1rem;
     margin: 3px;
     text-align: center;
     border-radius: 7px;
@@ -548,7 +547,7 @@ footer{
     }
     .gamecard-name {
         margin: 3px 3px;
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
     .gamecard-img {
         margin: 5px auto;
@@ -614,11 +613,11 @@ footer{
         height: 50px;
         overflow: hidden;
     }
-    .gamecard-name > h2{
-        font-size: 0.85rem;
+    #losing-gamecard-name, #showdown-name-1, #showdown-name-2{
+        font-size: 1rem;
     }
     #name-1 p, #name-2 p{
-        font-size: 1.25rem;
+        font-size: 1rem;
     }
     .winner-alert p{
         font-size: 1rem;

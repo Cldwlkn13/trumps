@@ -9,7 +9,7 @@ $('document').ready(function(){
         decorateSounds();
 
         if(!validateName(sessionStorage.getItem("name"))) {
-        chooseCardDisplayed(1);
+            chooseCardDisplayed(1);
         }
         else {
             chooseCardDisplayed(2);
@@ -66,8 +66,8 @@ $('document').ready(function(){
         }
     } 
     function setGameStartName(name) {
-        $(".gamestart-card-name")
-            .text(name);
+        $("#gamestart-card-name")
+            .html(`<strong>${name}</strong>`);
     }
 
     function setGamePlayName(name){
@@ -85,7 +85,7 @@ $('document').ready(function(){
         }
         else{         
            showAlert($(".alert"), "Please enter your name", 1, 1, "#fbd000", 2000);
-           sounds.find(n => n.name == "game-error-1").audio.play()
+           sounds.find(n => n.name == "game-error-1").audio.play();
         }
     });
 
@@ -153,8 +153,7 @@ $('document').ready(function(){
 
         stopSounds();
         
-        console.log(`P1 selected Category: 
-            ${$(this).find(".cat-name").text()}${$(this).find(".cat-score").text()}`);
+        console.log(`P1 selected Category: ${$(this).find(".cat-name").text()}${$(this).find(".cat-score").text()}`);
 
         var category = this.id.split("-")[3];
 
