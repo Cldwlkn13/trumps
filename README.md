@@ -2,7 +2,11 @@
 
 ## UX
 
-Trumps is a interactive card game based upon [Top Trumps](https://en.wikipedia.org/wiki/Top_Trumps). The game is intended to be a tribute, and to avoid copyright infringement will not be monetized. The cards are traditionally based upon a theme (The theme will be Soccer Players), and each card has a series of "categories" (Trumps will have 4). The player will play against an AI algorithm in the code. 
+Trumps is a interactive card game based upon [Top Trumps](https://en.wikipedia.org/wiki/Top_Trumps). 
+The game is intended to be a tribute, and to avoid copyright infringement will not be monetized. 
+The cards are traditionally based upon a theme (The first theme will be Soccer Players), and each card has a series of "categories" (Trumps will have 4).
+The player will play against an AI algorithm in the code. 
+The game is designed to be game theme agnostic. New themes can be easily added by adding a .json file to the assets/json & registering the theme at startup.  
 
 ### Rules of the Game
 - The game is for 2 "players", the user (PLAYER 1) and the computer (PLAYER 2). 
@@ -147,7 +151,7 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
 ---
 
 ## Features 
-- All setup and gameplay is conducted on one page.
+- All setup and gameplay is conducted on one html page.
 
 **Header** contains
 - Title of the game.
@@ -160,11 +164,22 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
 - Links to social media accounts for the game.
 *The footer is available at the bottom of the page
 
-**Landing Card**
-- This is shown to the user when they are on the page and there is no name property in the session storage of the browser.
+**Landing Card** (This is shown to the user when they are on the page and there is no name property in the session storage of the browser)
+- Input to enter name. On entry name cached in sessionStorage.
+
+**GameStart Card** (This is shown when inputted name is validated or when user restarts game)
+- Option to change the cached name. 
+- Options to select the theme of the game.
+
+**Gameplay** (This is shown when the user selects the theme to play)
+- Two playing cards are shown. 
+- Player names shown above cards, with details on how many of the cards they hold.
+- "Alert" windows pop up to detail the game narrative. 
+- "Console" divides the 2 cards, where user can view game score, high score and option to restart. 
 
 ### Feature Roadmap
-
+- Add new game themes as suggestions surface from users. 
+- Develop features that allow users to choose color themes for gameplay. 
   
  ## Technologies
 
@@ -172,7 +187,7 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
 - [GitHub](https://github.com/) - site host.
 - [Gitpod](https://gitpod.io/) - dev IDE.
 
-**Key content and styling:**
+**Key content, styling & logic:**
 - [HTML5](https://en.wikipedia.org/wiki/HTML5) site content
 - [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) site styling
 - [Bootstrap](https://getbootstrap.com/) - project layout & additional styling
@@ -180,6 +195,10 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
 
 **Supplementary technologies**
 - [JustInMind](https://www.justinmind.com/) wireframes and site prototype
+- [Jasmine](https://jasmine.github.io/) javascript testing framework
+- [FontAwesome](https://fontawesome.com/) inline icons
+- [GoogleFonts](https://fonts.google.com/) font faces
+- [EmailJS](https://www.emailjs.com/) Email automation library
 
 ## Testing
 
