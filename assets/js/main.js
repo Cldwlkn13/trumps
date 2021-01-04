@@ -3,7 +3,7 @@ $('document').ready(function(){
     registerThemes();
     registerSounds();
     addThemeChoiceButtons();
-    loadRulesText();
+    loadRulesText('rules.txt', $("#rules-popover"));
 
     setTimeout(function(){
         decorateSounds();
@@ -27,9 +27,9 @@ $('document').ready(function(){
         $("#gamestart-buttons").html(buttons);
     }
 
-    function loadRulesText(){
-        $.get('rules.txt', function(data) {
-            $("#rules-popover").attr('data-content',data); 
+    function loadRulesText(path, element){
+        $.get(path, function(data) {
+            element.attr('data-content',data); 
         });
     }
 
@@ -44,7 +44,7 @@ $('document').ready(function(){
                 break; 
 
             case 2:
-                validateName(getName()) ? setGameStartName(getName()) : chooseCardDisplayed(1);
+                validateName(getName()) ? setElementNameWithStrong($("#gamestart-card-name"), getName()) : chooseCardDisplayed(1);
                 $(".landing-card").hide();
                 $(".gamestart-card").show();
                 $(".gameplay").hide(); 
@@ -52,7 +52,7 @@ $('document').ready(function(){
             
             case 3:
                 turn = 1;
-                validateName(getName()) ? setGamePlayName(getName()) : chooseCardDisplayed(1);
+                validateName(getName()) ? setElementName($("#player-name-1 > .name-value"), getName()) : chooseCardDisplayed(1);
                 $(".landing-card").hide();
                 $(".gamestart-card").hide();
                 $(".gameplay").show();  
@@ -67,15 +67,7 @@ $('document').ready(function(){
 
         $('html, body').animate({ scrollTop: 0 }, 'fast');
     } 
-    function setGameStartName(name) {
-        $("#gamestart-card-name")
-            .html(`<strong>${name}</strong>`);
-    }
 
-    function setGamePlayName(name){
-        $("#player-name-1 > .name-value")
-            .text(name); 
-    }
 
     //DOM EVENTS
     $("#submit-name-btn").click(function() {

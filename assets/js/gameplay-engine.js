@@ -45,7 +45,8 @@ function handlePlayerAction(category, caller){
         var gameScore = getGameScore();
         gameScore = calculateGameScore(calculateShowdownPointsGained(stackOne[0].values[category], stackTwo[0].values[category], winner), gameScore);
         setGameScore(gameScore, $("#player-score-value"));
-        updateHighScore(gameScore, $("#player-high-score-value"));
+        var currentHigh = getCurrentHighScore();
+        updateHighScore(gameScore, currentHigh, $("#player-high-score-value"));
     }, 7000);
     
 
