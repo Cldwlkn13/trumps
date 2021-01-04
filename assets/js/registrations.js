@@ -9,7 +9,7 @@ function registerThemes(){
         //TO ADD NEW THEME TO GAME, COMPILE .json FILE TO /assets/json/ AND REFERENCE FROM HERE
     ];
     themes.forEach(t => storeThemeInMemory(t)); 
-    console.log(`The following themes are available: ${themes.length}`);
+    console.log(`The following # themes are available: ${themes.length}`);
 }
 
  //SOUNDS AQUIRED FROM https://www.zapsplat.com//
@@ -38,14 +38,7 @@ function registerSounds(){
     ]
 }
 
-function decorateSounds() {
-    themes.forEach(function(t) {
-        var audio = new Audio(JSON.parse(sessionStorage.getItem(t.id)).sound);
-        sounds.push({
-            name: t.id, audio: audio
-        })
-    });
-}
+
 
 function storeThemeInMemory(theme){
     $.getJSON(`${theme.path}`, function(result){

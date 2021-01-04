@@ -1,4 +1,4 @@
-describe("Scoring", function(){
+describe("Scoring Specs", function(){
     describe("calculateShowdownPointsGained() Tests", function(){
         it("should return 2", function(){
             expect(calculateShowdownPointsGained(1, 0, 1)).toBe(2);

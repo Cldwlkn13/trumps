@@ -1,7 +1,9 @@
 $('document').ready(function(){   
-    //STARTUP
+    //STARTUP REGISTRATIONS
     registerThemes();
     registerSounds();
+
+    //CALL SETUP ENGINE
     addThemeChoiceButtons();
     loadRulesText('rules.txt', $("#rules-popover"));
 
@@ -14,72 +16,13 @@ $('document').ready(function(){
         else {
             chooseCardDisplayed(2);
         }
-    }, 300);
-    
-    //DOM FUNCTIONS
-    function addThemeChoiceButtons(){
-        var buttons = $();
-        for(var i = 0; i < themes.length; i++) {
-            var theme = themes[i];
-            var btn = $(`<button class="gamestart-theme-button" id="${theme.id}">${theme.id}</button>`);
-            buttons = buttons.add(btn)
-        }
-        $("#gamestart-buttons").html(buttons);
-    }
-
-    function loadRulesText(path, element){
-        $.get(path, function(data) {
-            element.attr('data-content',data); 
-        });
-    }
-
-    function chooseCardDisplayed(e) {
-        switch(e)
-        {
-            case 1:
-                removeName();
-                $(".landing-card").show();
-                $(".gamestart-card").hide();
-                $(".gameplay").hide();   
-                break; 
-
-            case 2:
-                validateName(getName()) ? 
-                    setElementNameWithStrong($("#gamestart-card-name"), getName()) : 
-                    chooseCardDisplayed(1);
-
-                $(".landing-card").hide();
-                $(".gamestart-card").show();
-                $(".gameplay").hide(); 
-                break;   
-            
-            case 3:
-                turn = 1;
-                validateName(getName()) ? 
-                    setElementName($("#player-name-1 > .name-value"), getName()) : 
-                    chooseCardDisplayed(1);
-                    
-                $(".landing-card").hide();
-                $(".gamestart-card").hide();
-                $(".gameplay").show();  
-                break;  
-            
-            default:
-                $(".landing-card").show();
-                $(".gamestart-card").hide();
-                $(".gameplay").hide();  
-                break;           
-        }
-
-        $('html, body').animate({ scrollTop: 0 }, 'fast');
-    } 
-
+    }, 300); //WAIT 300ms for REGISTRATIONS TO FULLY COMPLETE
 
     //DOM EVENTS
     $("#submit-name-btn").click(function() {
         let name = $("#landing-card-name-input").val();
 
-        if(validateName(name) && validateNameLength(name)){
+        if(validateName(name)){
             storeName(name);
             chooseCardDisplayed(2);
             return;
@@ -95,7 +38,6 @@ $('document').ready(function(){
     });
 
     $(".gamestart-theme-button").click(function() {
-        console.log("waaaaaaaa");
         gameObj = {}; //clear global value before resetting
         gameObj = JSON.parse(sessionStorage.getItem(this.id));
         categories = gameObj.categories;
