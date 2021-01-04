@@ -38,12 +38,14 @@ function registerSounds(){
     ]
 }
 
-
-
 function storeThemeInMemory(theme){
-    $.getJSON(`${theme.path}`, function(result){
+    getLocalJson(theme.path, function(result){
         console.log(`Storing Game Object for ${theme.id}`);
         var json = JSON.stringify(result);
         sessionStorage.setItem(`${theme.id}`, json);
     });
+}
+
+function getLocalJson(path){
+    return $.getJSON(`${path}`);
 }

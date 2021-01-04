@@ -1,8 +1,7 @@
-function dealCardsRandomly() {         
+function dealCardsRandomly(cards) {         
     stackOne = []; //Empty stack
     stackTwo = []; //Empty stack
     var pushedStackOneCardIds = []; //Array to store ids of stackOne locally
-    var cards = gameObj.cards; //Extract cards array
  
     var i = 1;
     do {

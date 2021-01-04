@@ -44,13 +44,13 @@ $('document').ready(function(){
         units = gameObj.units;
         sounds.find(s => { return s.name === gameObj.theme }).audio.play();
 
-        dealCardsRandomly(); 
+        dealCardsRandomly(gameObj.cards); 
         chooseCardDisplayed(3);
         renderCards(1);
         updateTotals();
         resetGameScore($("#player-score-value"));
         setGameScore(0, $("#player-score-value"));
-        updateHighScore(0, $("#player-high-score-value"));
+        updateHighScore(0, getCurrentHighScore(), $("#player-high-score-value"));
         nextMoveAlert(1);
         continueProcessing = true;
 

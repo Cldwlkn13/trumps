@@ -17,13 +17,15 @@ function chooseCardDisplayed(e) {
             $(".landing-card").hide();
             $(".gamestart-card").show();
             $(".gameplay").hide(); 
+            setElementNameWithStrong($("#gamestart-card-name"), getName());
             break;   
             
         case 3:
             turn = 1;                  
             $(".landing-card").hide();
             $(".gamestart-card").hide();
-            $(".gameplay").show();  
+            $(".gameplay").show();
+            setElementName($("#player-name-1 > .name-value"), getName());  
             break;  
             
         default:
