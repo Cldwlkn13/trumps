@@ -38,17 +38,22 @@ function registerSounds(){
     ]
 }
 
-function storeThemeInMemory(theme){
-    getLocalJson(theme.path, function(result){
-        console.log(`Storing Game Object for ${theme.id}`);
-        var json = JSON.stringify(result);
-        sessionStorage.setItem(`${theme.id}`, json);
-    });
+function storeThemeInMemory(theme){  
+    getLocalJson(theme.path)
+        .then(function(value){
+            sessionStorage
+                .setItem(`${theme.id}`,JSON.stringify(value))
+            });
 }
 
-function getLocalJson(path, callback = null){
-    let json = $.getJSON(`${path}`);
-    if(callback != null){
-        callback(json);
-    }
+function getLocalJson(path){   
+    return $.getJSON(`${path}`)
+    .done(
+        function(json){ 
+            return json;
+        })
+    .fail(
+        function(error){
+            console.log(error);
+    });
 }

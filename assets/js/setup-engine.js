@@ -42,6 +42,7 @@ function decorateSounds() {
     try {
         themes.forEach(function(t) {
             var audio = new Audio(JSON.parse(sessionStorage.getItem(t.id)).sound);
+            console.log("pushing audio for " + t.id + " to sounds");
             sounds.push({
                 name: t.id, audio: audio
             })
