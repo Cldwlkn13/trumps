@@ -6,15 +6,19 @@ function getGameScore(){
     return parseInt(sessionStorage.getItem("score"));
 }
 
-function setGameScore(gameScore, element){
-    element.text(gameScore);
+function setGameScore(gameScore, element = null){
+    if(element != null) {
+        element.text(gameScore);
+    }
     sessionStorage.setItem("score", gameScore);
     console.log(`Score Updated: ${gameScore}`); 
 }
 
-function resetGameScore(element){
-    sessionStorage.removeItem("score");
-    element.text(0);
+function resetGameScore(element = null){
+    if(element != null){
+        element.text(0);
+    }
+    sessionStorage.removeItem("score");   
 }
 
 function calculateGameScore(showdownPointsGained, gameScore) {
@@ -26,19 +30,40 @@ function calculateGameScore(showdownPointsGained, gameScore) {
     }
 }
 
-function updateHighScore(gameScore, element){
-    var currentHigh = parseInt(localStorage.getItem("high-score"));
-    if (isNaN(currentHigh)) {
-        element.text(0);
-        localStorage.setItem("high-score", 0);
+function getCurrentHighScore(){
+    return parseInt(localStorage.getItem("high-score"));
+}
+
+function setCurrentHighScore(gameScore){
+    localStorage.setItem("high-score", gameScore);
+}
+
+function updateHighScore(gameScore, currentHigh, element = null){   
+    if (isNaN(currentHigh) && gameScore == 0) {
+        if(element != null) { 
+            element.text(0);
+        }
+        setCurrentHighScore(0);
+        return;
+    }
+    if (isNaN(currentHigh) && gameScore > 0) {
+        if(element != null) { 
+            element.text(gameScore);
+        }
+        setCurrentHighScore(gameScore);
         return;
     }
     if(gameScore >= currentHigh) {
-        element.text(gameScore);
-        localStorage.setItem("high-score", gameScore);
+        if(element != null) { 
+            element.text(gameScore);
+        }
+        setCurrentHighScore(gameScore);
         console.log(`High Score Updated: ${gameScore}`);
     }
     else {
-        element.text(currentHigh);
+        if(element != null) { 
+            element.text(currentHigh);
+        }
+        setCurrentHighScore(currentHigh);
     }
 }
