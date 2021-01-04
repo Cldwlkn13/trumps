@@ -44,7 +44,10 @@ $('document').ready(function(){
                 break; 
 
             case 2:
-                validateName(getName()) ? setElementNameWithStrong($("#gamestart-card-name"), getName()) : chooseCardDisplayed(1);
+                validateName(getName()) ? 
+                    setElementNameWithStrong($("#gamestart-card-name"), getName()) : 
+                    chooseCardDisplayed(1);
+
                 $(".landing-card").hide();
                 $(".gamestart-card").show();
                 $(".gameplay").hide(); 
@@ -52,7 +55,10 @@ $('document').ready(function(){
             
             case 3:
                 turn = 1;
-                validateName(getName()) ? setElementName($("#player-name-1 > .name-value"), getName()) : chooseCardDisplayed(1);
+                validateName(getName()) ? 
+                    setElementName($("#player-name-1 > .name-value"), getName()) : 
+                    chooseCardDisplayed(1);
+                    
                 $(".landing-card").hide();
                 $(".gamestart-card").hide();
                 $(".gameplay").show();  

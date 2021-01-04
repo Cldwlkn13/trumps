@@ -311,6 +311,10 @@ header{
   margin: auto;
 }
 
+.gameplay-alert h2 {
+    overflow-wrap: break-word;
+}
+
 .showdown-alert {
   position: absolute;
   top: 100px;
