@@ -5,9 +5,9 @@
 Trumps is a interactive card game based upon [Top Trumps](https://en.wikipedia.org/wiki/Top_Trumps). The game is intended to be a tribute, and to avoid copyright infringement will not be monetized. The cards are traditionally based upon a theme (The theme will be Soccer Players), and each card has a series of "categories" (Trumps will have 4). The player will play against an AI algorithm in the code. 
 
 ### Rules of the Game
-- The game is for 2 "players", the user and the computer. 
-- Both players are dealt an equal amount of cards. (This game will have a total of 24 cards)
-- The starting player will be determined by a random number generator. 
+- The game is for 2 "players", the user (PLAYER 1) and the computer (PLAYER 2). 
+- Both players are dealt an equal amount of cards. (This game will have a total of 24 cards, but could be any even amount)
+- The starting player will be always be PLAYER 1. 
 
 - Scenario 1 - It is the user's turn: 
 User can see their full card.
@@ -17,12 +17,12 @@ Once selected the values of the opponents card are revealed.
 If the value is higher, then they take the card from the opponent, if not then the card goes to the opponent.
  
 - Scenario 2 - It is the computer's turn:
-User can see their full card. 
-User can see the computer's full card. 
+The computer will automatically take their turns until they lose a showdown, or the match is won.
 The algorithm knows the best category to select for the card they have. (It will know nothing of what the user holds)
 The user is shown the selection and whether that beats their equivalent category. 
 If their value is higher, then they take the card from the opponent, if not then the card goes to the opponent.
 
+- The winner of the showdown takes the next turn. 
 - Game is continued until one player has all the cards. 
 
 ### User Stories 
@@ -147,16 +147,21 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
 ---
 
 ## Features 
+- All setup and gameplay is conducted on one page.
 
 **Header** contains
-- **** 
-- **** 
-*The header is fixed at the top of each page, always visible. 
+- Title of the game.
+- Dismissable popover detailing the rules of the game.
+- Restart button.
+*The header is fixed at the top of the page, always visible. 
 
 **Footer** contains
-- **** 
-- **** 
-*The footer is available at the bottom of each page
+- Input where users can email in their suggestions for new themes. 
+- Links to social media accounts for the game.
+*The footer is available at the bottom of the page
+
+**Landing Card**
+- This is shown to the user when they are on the page and there is no name property in the session storage of the browser.
 
 ### Feature Roadmap
 
