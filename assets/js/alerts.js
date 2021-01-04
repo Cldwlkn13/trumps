@@ -31,7 +31,7 @@ function showdownAlert(category, caller, displayForMs) {
     $("#showdown-value-2").text("?");
         
     //BUILD TENSION AUDIO
-    sounds.find(n => n.name == "tension-drum").audio.play()
+    sounds.find(n => n.name == "tension-drum").audio.play();
         
     //ANIMATE FLASHING REVEAL
     setTimeout(function() {
