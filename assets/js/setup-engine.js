@@ -39,12 +39,17 @@ function chooseCardDisplayed(e) {
 }
     
 function decorateSounds() {
-    themes.forEach(function(t) {
-        var audio = new Audio(JSON.parse(sessionStorage.getItem(t.id)).sound);
-        sounds.push({
-            name: t.id, audio: audio
-        })
-    });
+    try {
+        themes.forEach(function(t) {
+            var audio = new Audio(JSON.parse(sessionStorage.getItem(t.id)).sound);
+            sounds.push({
+                name: t.id, audio: audio
+            })
+        });
+    }
+    catch(error){
+        console.error(error);
+    }
 }
 
 function addThemeChoiceButtons(){

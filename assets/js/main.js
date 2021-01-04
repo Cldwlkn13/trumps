@@ -2,7 +2,7 @@ $('document').ready(function(){
     //STARTUP REGISTRATIONS
     registerThemes();
     registerSounds();
-
+    
     //CALL SETUP ENGINE
     addThemeChoiceButtons();
     loadRulesText('rules.txt', $("#rules-popover"));
@@ -16,7 +16,7 @@ $('document').ready(function(){
         else {
             chooseCardDisplayed(2);
         }
-    }, 1000); //WAIT 1s for REGISTRATIONS TO FULLY COMPLETE
+    }, 300); //WAIT 300ms for REGISTRATIONS TO FULLY COMPLETE
 
     //DOM EVENTS
     $("#submit-name-btn").click(function() {
