@@ -108,8 +108,9 @@ $('document').ready(function(){
         chooseCardDisplayed(3);
         renderCards(1);
         updateTotals();
-        resetScore();
-        updateScore(0);
+        resetGameScore($("#player-score-value"));
+        setGameScore(0, $("#player-score-value"));
+        updateHighScore(0, $("#player-high-score-value"));
         nextMoveAlert(1);
         continueProcessing = true;
 

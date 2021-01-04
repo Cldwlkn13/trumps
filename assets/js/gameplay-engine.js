@@ -42,7 +42,10 @@ function handlePlayerAction(category, caller){
     //AFTER 7s DISPLAY WINNER SHOWDOWN FOR ANOTHER 7s; UPDATE SCORE
     setTimeout(function() {
         showdownWinnerAlert(winner, category, 7000);
-        updateScore(calculateShowdownPointsGained(stackOne[0].values[category], stackTwo[0].values[category], winner));
+        var gameScore = getGameScore();
+        gameScore = calculateGameScore(calculateShowdownPointsGained(stackOne[0].values[category], stackTwo[0].values[category], winner), gameScore);
+        setGameScore(gameScore, $("#player-score-value"));
+        updateHighScore(gameScore, $("#player-high-score-value"));
     }, 7000);
     
 

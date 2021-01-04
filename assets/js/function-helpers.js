@@ -1,12 +1,3 @@
-//https://www.sitepoint.com/delay-sleep-pause-wait/
-function sleep(milliseconds) {
-    const date = Date.now();
-    let currentDate = null;
-    do {
-        currentDate = Date.now();
-    } while (currentDate - date < milliseconds);
-}
-
 //https://github.com/yckart/jquery-custom-animations
 jQuery.fn.blindRightOut = function (duration, easing, complete) {
     return this.animate({
@@ -45,6 +36,7 @@ function findCardInArray(cards, n) {
     return card;
 }
 
+//NAME STORAGE AND RETRIEVAL FUNCTIONS
 function getName() {
     return sessionStorage.getItem("name");
 }

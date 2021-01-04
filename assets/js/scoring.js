@@ -2,44 +2,43 @@ function calculateShowdownPointsGained(score1, score2, winner){
     return (winner == 1 ? score1 - score2 : 0) * 2;
 }
 
-function updateScore(score) {
-    var newScore = 0;
-    var currentScore = parseInt(localStorage.getItem("score"));
-    if (isNaN(currentScore)){
-        newScore = score;
+function getGameScore(){
+    return parseInt(sessionStorage.getItem("score"));
+}
+
+function setGameScore(gameScore, element){
+    element.text(gameScore);
+    sessionStorage.setItem("score", gameScore);
+    console.log(`Score Updated: ${gameScore}`); 
+}
+
+function resetGameScore(element){
+    sessionStorage.removeItem("score");
+    element.text(0);
+}
+
+function calculateGameScore(showdownPointsGained, gameScore) {
+    if (isNaN(gameScore)){
+        return showdownPointsGained;
     }
     else {
-        newScore = currentScore + score;
+        return gameScore + showdownPointsGained;
     }
-    $("#player-score-value")
-        .text(newScore);
-    sessionStorage.setItem("score", newScore);
-    console.log(`Score Updated: ${newScore}`);  
-    updateHighScore(newScore);
 }
 
-function resetScore(){
-    sessionStorage.removeItem("score");
-    $("#player-score-value")
-        .text(0);
-}
-
-function updateHighScore(currentGameScore){
-    var currentHigh = parseInt(sessionStorage.getItem("high-score"));
+function updateHighScore(gameScore, element){
+    var currentHigh = parseInt(localStorage.getItem("high-score"));
     if (isNaN(currentHigh)) {
-        $("#player-high-score-value")
-            .text(0);
+        element.text(0);
         localStorage.setItem("high-score", 0);
         return;
     }
-    if(currentGameScore >= currentHigh) {
-        $("#player-high-score-value")
-            .text(currentGameScore);
-        console.log(`High Score Updated: ${currentGameScore}`);
-        localStorage.setItem("high-score", currentGameScore);
+    if(gameScore >= currentHigh) {
+        element.text(gameScore);
+        localStorage.setItem("high-score", gameScore);
+        console.log(`High Score Updated: ${gameScore}`);
     }
     else {
-        $("#player-high-score-value")
-            .text(currentHigh);
+        element.text(currentHigh);
     }
 }
