@@ -463,7 +463,7 @@ footer{
 
 /* ----------- tablet ----------- */
 @media only screen 
-  and (max-device-width: 992px)  { 
+  and (max-width: 992px)  { 
     .card-base{
         height: 80vh;
         width: 80vw;
@@ -497,7 +497,7 @@ footer{
 
 /* ----------- large mobile----------- */
 @media only screen 
-  and (max-device-width: 767px)  { 
+  and (max-width: 767px)  { 
     .card-base{
         width: 90vw;
         margin: 10px auto;
@@ -575,7 +575,7 @@ footer{
 
 /* ----------- small mobile ----------- */
 @media only screen 
-  and (max-device-width: 480px) {
+  and (max-width: 480px) {
     .showdown-alert h2{
         font-size: 3rem;
     }
