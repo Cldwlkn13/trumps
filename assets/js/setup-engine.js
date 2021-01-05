@@ -45,7 +45,7 @@ function decorateSounds() {
             console.log("pushing audio for " + t.id + " to sounds");
             sounds.push({
                 name: t.id, audio: audio
-            })
+            });
         });
     }
     catch(error){
@@ -58,7 +58,7 @@ function addThemeChoiceButtons(){
     for(var i = 0; i < themes.length; i++) {
         var theme = themes[i];
         var btn = $(`<button class="gamestart-theme-button" id="${theme.id}">${theme.id}</button>`);
-        buttons = buttons.add(btn)
+        buttons = buttons.add(btn);
     }
     $("#gamestart-buttons").html(buttons);
 }

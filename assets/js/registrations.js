@@ -35,14 +35,14 @@ function registerSounds(){
             name:"tension-drum", 
             audio: new Audio("./assets/sounds/tension-drum.mp3")
         },
-    ]
+    ];
 }
 
 function storeThemeInMemory(theme){  
     getLocalJson(theme.path)
         .then(function(value){
             sessionStorage
-                .setItem(`${theme.id}`,JSON.stringify(value))
+                .setItem(`${theme.id}`,JSON.stringify(value));
             });
 }
 

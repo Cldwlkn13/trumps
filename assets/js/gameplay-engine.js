@@ -2,22 +2,23 @@ function dealCardsRandomly(cards) {
     stackOne = []; //Empty stack
     stackTwo = []; //Empty stack
     var pushedStackOneCardIds = []; //Array to store ids of stackOne locally
- 
+    var card = {};
+
     var i = 1;
     do {
         var rnd = getRandomInt(1, cards.length); //get random number between 1 and total cards length
         if(pushedStackOneCardIds.includes(rnd)) { continue; } //if pushed cards already contains Id continue 
-        var card = findCardInArray(cards, rnd); //find card by its Id
+        card = findCardInArray(cards, rnd); //find card by its Id
         stackOne.push(card); //push this card to stackOne
         pushedStackOneCardIds.push(rnd); //push this Id to local Id store
         i++;
-    } while(i <= (cards.length / 2))
+    } while(i <= (cards.length / 2));
 
     for (var j = 1; j <= (cards.length); j++)
     {
         if(pushedStackOneCardIds.includes(j)) { continue; } //if stackOne already has this card        
-        var card = findCardInArray(cards, j); //find card by its Id
-        stackTwo.push(card) //push this card to stackTwo
+        card = findCardInArray(cards, j); //find card by its Id
+        stackTwo.push(card); //push this card to stackTwo
     }
 }
 
@@ -79,7 +80,7 @@ function handlePlayerAction(category, caller){
         }   
         winner == 1 ? sounds.find(n => n.name == "game-positive-1").audio.play() : sounds.find(n => n.name == "game-error-2").audio.play();
         var color = $("#player-score-value").css("color");
-        $("#player-score-value").flash(2, 500,'', function() { $("#player-score-value").css("color", color) });
+        $("#player-score-value").flash(2, 500,'', function() { $("#player-score-value").css("color", color); });
     }, 15000);
 }
 
@@ -113,7 +114,7 @@ function goToNextShowdown(winner) {
             break;
 
         default:
-            turn = 1
+            turn = 1;
     }
     if(stackOne.length === 0 || stackTwo.length === 0) {
         return true; //IF EITHER STACK HAS NO CARDS LEFT, RETURN FLAG THAT MATCH IS WON

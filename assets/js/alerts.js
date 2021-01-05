@@ -1,7 +1,7 @@
 function nextMoveAlert(winner){
     winner === 1 ? 
-        showAlert($(".gameplay-alert"), `<h2>${getName()}</h2> it is your turn, choose your category!`, 0.8, false, "#ff3399") :
-        showAlert($(".gameplay-alert"),`Click here to force Player 2 move!`, 0.8, false, "#ace600");
+        showAlert($(".gameplay-alert"), 0.8, false, "#ff3399", `<h2>${getName()}</h2> it is your turn, choose your category!`) :
+        showAlert($(".gameplay-alert"), 0.8, false, "#ace600", `Click here to force Player 2 move!`);
 }
 
 function showdownAlert(category, caller, displayForMs) {                
@@ -40,17 +40,17 @@ function showdownAlert(category, caller, displayForMs) {
                 .animate({ opacity: 1 });
             var color = $("#showdown-value-2").css('color');
             $("#showdown-value-2")
-                .flash(3, 500,'', function() { $("#showdown-value-2").css('color', color) }, "#0000ff");
+                .flash(3, 500,'', function() { $("#showdown-value-2").css('color', color); }, "#0000ff");
         });
     }, 3000);
 
     //SHOW ALERT
     showAlert(
         $(".showdown-alert"), //ELEMENT TO SHOW
-        ``, //TEXT
         1, //OPACITY
         true, //HIDES ITSELF?
         "#99d6ff", //BACKGROUND-COLOR
+        '', //TEXT
         displayForMs //DISPLAY FOR MS BEFORE HIDING
     );
 }
@@ -86,26 +86,26 @@ function showdownWinnerAlert(winner, category, displayForMs) {
     setTimeout(function() {
         if(winner == 1){
             //PUSH LOSING CARD NAME TO LEFT & FLASH PLAYER 1 NAME 
-            $("#losing-gamecard-name").blindLeftOut(3000, function(){ setTimeout(function() { $("#losing-gamecard-name").css("margin-left", 0)}, 4000); });
-            $("#player-1-name").flash(3, 500,'', function() { $("#player-1-name").css("color", "#000") }, "#0000ff");
+            $("#losing-gamecard-name").blindLeftOut(3000, function(){ setTimeout(function() { $("#losing-gamecard-name").css("margin-left", 0); }, 4000); });
+            $("#player-1-name").flash(3, 500,'', function() { $("#player-1-name").css("color", "#000"); }, "#0000ff");
         }
         else {
             //PUSH LOSING CARD NAME TO RIGHT & FLASH PLAYER 2 NAME 
-            $("#losing-gamecard-name").blindRightOut(3000, function(){ setTimeout(function() { $("#losing-gamecard-name").css("margin-left", 0)}, 4000); })
-            $("#player-2-name").flash(3, 500,'', function() { $("#player-2-name").css("color","#000") }, "#0000ff");
+            $("#losing-gamecard-name").blindRightOut(3000, function(){ setTimeout(function() { $("#losing-gamecard-name").css("margin-left", 0);}, 4000); });
+            $("#player-2-name").flash(3, 500,'', function() { $("#player-2-name").css("color","#000"); }, "#0000ff");
         }
         //UPDATE SCORE WITH AUDIO AND FLASH
         $(".score-update").html(`<p>${getName()} you now have <span class="emphasise">${winner == 1 ? (stackOne.length) + 1 : (stackOne.length) - 1}</span> Cards</p>`);  
-        $(".emphasise").flash(3, 500,'', function() { $(".emphasise").css("color","#000") }, "#0000ff");     
+        $(".emphasise").flash(3, 500,'', function() { $(".emphasise").css("color","#000"); }, "#0000ff");     
     }, 2000);
 
     //SHOW ALERT
     showAlert(
         $(".winner-alert"), //ELEMENT TO SHOW
-        ``, //TEXT
         1, //OPACITY  
         true, //HIDES ITSELF?
         winner == 1 ? "#ff3399" :"#ace600", //BACKGROUND-COLOR
+        '', //TEXT
         displayForMs //DISPLAY FOR MS BEFORE HIDING
     );
 }
@@ -121,7 +121,6 @@ function matchWinnerAlert(winner) {
     //SHOW ALERT
     showAlert(
         $(".match-winner-alert"), //ELEMENT TO SHOW
-        ``, //TEXT
         1, //OPACITY
         false, //HIDES ITSELF?
         "#ff99ff" //BACKGROUND-COLOR
@@ -148,15 +147,15 @@ function animateArrowsLeft() {
     $('.right').delay(500).fadeTo(500, 1).delay(500).fadeTo(500, 0);
 }
 
-function showAlert(alert, html = "", opacity, hide, backgroundColor, showForMs = 0) {
+function showAlert(alert, opacity, hide, backgroundColor, html = "", showForMs = 0) {
     if(html != "") {
-        alert.html(html)
+        alert.html(html);
     }
     alert.css("opacity", opacity).css("background-color", backgroundColor); 
     alert.slideDown("slow");            
     if(hide){
         setTimeout(function() { 
-            hideAlert(alert) 
+            hideAlert(alert); 
         }, showForMs);
     }
 }

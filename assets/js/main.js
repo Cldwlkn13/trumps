@@ -28,11 +28,11 @@ $('document').ready(function(){
             return;
         }
         if(!validateNameLength(name)) {
-            showAlert($(".alert"), "Your name is too long!", 1, 1, "#fbd000", 2000);
+            showAlert($(".alert"), 1, 1, "#fbd000", "Your name is too long!", 2000);
             sounds.find(n => n.name == "game-error-1").audio.play();
         }
         else{         
-            showAlert($(".alert"), "Please enter your name", 1, 1, "#fbd000", 2000);
+            showAlert($(".alert"), 1, 1, "#fbd000", "Please enter your name", 2000);
             sounds.find(n => n.name == "game-error-1").audio.play();
         }
     });
@@ -42,7 +42,7 @@ $('document').ready(function(){
         gameObj = JSON.parse(sessionStorage.getItem(this.id));
         categories = gameObj.categories;
         units = gameObj.units;
-        sounds.find(s => { return s.name === gameObj.theme }).audio.play();
+        sounds.find(s => { return s.name === gameObj.theme; }).audio.play();
 
         dealCardsRandomly(gameObj.cards); 
         chooseCardDisplayed(3);
@@ -59,16 +59,16 @@ $('document').ready(function(){
             $(".float-offscreen").css({"position":"fixed","bottom":"10px", "opacity":"0.8"});
             $("#name-2").css({"background-color": "#000", "padding": "10px"});
         }
-    })
+    });
 
     $(function(){
         $(window).scroll(function(){
             if($("#img-2").visible()) { //ON SCROLL CHECK FOR VISIBILITY OF CARD 2
                 $(".float-offscreen").css({"position":"","bottom":"", "opacity":"1"});
-                $("#name-2").css({"background-color": "#b30000"})
+                $("#name-2").css({"background-color": "#b30000"});
             }else {
                 $(".float-offscreen").css({"position":"fixed","bottom":"10px", "opacity":"0.75"});
-                $("#name-2").css({"background-color": "#000", "padding": "10px"})
+                $("#name-2").css({"background-color": "#000", "padding": "10px"});
             }
         });
     });
@@ -77,13 +77,13 @@ $('document').ready(function(){
         if (e.key === 'Enter' || e.keyCode === 13 || e.key === 'Tab' || e.keyCode === 9) {
             if(!validateName(getName())) {
                 sounds.find(n => n.name == "game-error-1").audio.play();
-                showAlert($(".alert"), "Please enter your name to send suggestion", 1, 1, "#ff0000", 2000);
+                showAlert($(".alert"), 1, 1, "#ff0000",  "Please enter your name to send suggestion", 2000);
                 return;
             }
-            emailjs.send("service_rngxglh", "template_vc4w01v",{from_name: getName(), message: $(this).val()})
+            emailjs.send("service_rngxglh", "template_vc4w01v",{from_name: getName(), message: $(this).val()});
             $(this).val('');
             $(this).attr("placeholder","Your suggestion has been sent!");
-            $(this).flash(2, 500,'', function() { $(this).css("color", "#000") });
+            $(this).flash(2, 500,'', function() { $(this).css("color", "#000"); });
         }
     });
 
@@ -92,7 +92,7 @@ $('document').ready(function(){
         if(turn != 1) {
             sounds.find(n => n.name == "game-error-1").audio.play();
             var color = $(".gameplay-alert").css("color");
-            $(".gameplay-alert").flash(2, 500,'', function() { $(".gameplay-alert").css("color", color) });
+            $(".gameplay-alert").flash(2, 500,'', function() { $(".gameplay-alert").css("color", color); });
             return;
         }
         if(processing) {
@@ -111,7 +111,7 @@ $('document').ready(function(){
         setTimeout(function(){ 
             processing = false;
         }, 2000);
-    })
+    });
 
    
     $("#stack-2, .gameplay-alert").on("click",function() {
@@ -126,7 +126,7 @@ $('document').ready(function(){
         setTimeout(function(){ 
             processing = false;
         }, 2000);
-    })
+    });
 
     $(".restart").click(function() {
         continueProcessing = false;
@@ -134,17 +134,17 @@ $('document').ready(function(){
         $(".alert-bg").removeClass("opacity-cover");
         $(".match-winner-alert").hide();
         chooseCardDisplayed(2);
-    })
+    });
 
     $(".change-name").click(function() {
         stopSounds();
         chooseCardDisplayed(1);
-    })
+    });
 
     $("[data-toggle=popover]").popover();
 
     $('.popover-dismiss').popover({
         trigger: 'focus'
-    })
+    });
 });
 
