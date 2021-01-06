@@ -24,7 +24,7 @@ function dealCardsRandomly(cards) {
 
 function handlePlayerAction(category, caller){       
     if(!continueGamePlayProcessing) { 
-        console.log("isGamePlayProcessing false")
+        console.log("isGamePlayProcessing false");
         isGamePlayProcessing = false; //SET GAMEPLAY PROCESSING FLAG TO FALSE
         return; 
     } //CHECK CONTINUE FLAG NOT SET TO FALSE
@@ -73,7 +73,7 @@ function handlePlayerAction(category, caller){
         if(winner == 1){
             renderCards(winner);
             updateTotals();
-            console.log("isGamePlayProcessing false")
+            console.log("isGamePlayProcessing false");
             isGamePlayProcessing = false; //SET GAMEPLAY PROCESSING FLAG TO FALSE
         }
         else {

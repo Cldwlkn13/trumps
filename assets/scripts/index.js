@@ -65,7 +65,7 @@ $('document').ready(function(){
         setGameScore(0, $("#player-score-value"));
         updateHighScore(0, getCurrentHighScore(), $("#player-high-score-value"));
 
-        console.log("setting continueGamePlayProcessing = true")
+        console.log("setting continueGamePlayProcessing = true");
         continueGamePlayProcessing = true; //SET CONTINUE TO TRUE
         nextMoveAlert(1);
 
