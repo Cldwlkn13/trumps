@@ -32,18 +32,18 @@ If their value is higher, then they take the card from the opponent, if not then
 - Scoring is fairly arbitary, in that P1 gets point for the difference in value from their showdown value to P2 showdown value, times by 2.
 
 ### User Stories 
-#US001 As the site owner, I want to entice players to play a game of Trumps
+##### #US001 As the site owner, I want to entice players to play a game of Trumps
 
     - Given a user has landed upon the page
     - When the page loads, and the user does not have their name stored in the cache
     - Then the user is presented with the 'landing-card' feature
     - And the 'landing-card' feature offers them the challenge to play
     
-#US002 As the site owner, I want the design to appeal to an audience of 5+ years & adults alike
+##### #US002 As the site owner, I want the design to appeal to an audience of 5+ years & adults alike
 
     - The colour palette/icons/images used are fun, but not too garish as to be unappealing to adults
     
-#US003 As the site owner, I want to personalize the experience for a player where possible
+##### #US003 As the site owner, I want to personalize the experience for a player where possible
 
     - Given the 'landing-card' feature is visible
     - When the user is encouraged to enter their name to play
@@ -67,7 +67,7 @@ If their value is higher, then they take the card from the opponent, if not then
     - When they are prompted or presented with information
     - They are referred to where appropriate by the name they entered
     
-#US004 As the site owner, I want users to have the option to suggest new ideas for card themes
+##### #US004 As the site owner, I want users to have the option to suggest new ideas for card themes
 
     - Given the user has navigated to the site
     - When the user browses to the footer
@@ -77,7 +77,7 @@ If their value is higher, then they take the card from the opponent, if not then
     - When the user clicks "submit"
     - Then the site owner is emailed the contents
     
-#US005 As the site owner, I want users to be clear on the rules and gameflow of Trumps with intuitive design/prompts
+##### #US005 As the site owner, I want users to be clear on the rules and gameflow of Trumps with intuitive design/prompts
 
     - Given the user is active on the site
     - When the user is unsure of the rules 
@@ -91,7 +91,7 @@ If their value is higher, then they take the card from the opponent, if not then
     - When the "close" button is clicked
     - Then the rules dialog closes.
     
-#US006 As the site owner, I want to provide links to the social media accounts associated with Trumps
+##### #US006 As the site owner, I want to provide links to the social media accounts associated with Trumps
 
     - Given the user has navigated to the site
     - When the user browses to the footer
@@ -103,7 +103,7 @@ If their value is higher, then they take the card from the opponent, if not then
     - Then it is a new window
     - And the link is correct
     
-#US007 As the site owner, I want gameplay to be effective on all devices
+##### #US007 As the site owner, I want gameplay to be effective on all devices
 
     - Given the user is using a Desktop device
     - When the user is active on the site
@@ -117,19 +117,19 @@ If their value is higher, then they take the card from the opponent, if not then
     - When the user is active on the site
     - Then all features are available and work correctly
     
-#US008 As a user, I want to know my best score recorded
+##### #US008 As a user, I want to know my best score recorded
 
     - Given the user is playing a game of Trumps
     - When the user searches for their best score
     - Then the best score is shown to them
     
-#US009 As a user, I want to know the game state while playing
+##### #US009 As a user, I want to know the game state while playing
 
     - Given the user has started a game of Trumps
     - When the user views the page
     - Then the latest game state (player cards remaining, score, etc) is clear to them 
     
-#US010 As a user, I want to be able to start a new game at any point
+##### #US010 As a user, I want to be able to start a new game at any point
 
     - Given the user has navigated beyond the landing-card
     - When a user wishes to start a new game
@@ -158,16 +158,18 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
 **Header** contains
 - Title of the game.
 - Dismissable popover detailing the rules of the game.
-- Restart button.
+- Restart button.  
+
 *The header is fixed at the top of the page, always visible. 
 
 **Footer** contains
 - Input where users can email in their suggestions for new themes. 
-- Links to social media accounts for the game.
+- Links to social media accounts for the game.  
+
 *The footer is available at the bottom of the page
 
 **Landing Card** (This is shown to the user when they are on the page and there is no name property in the session storage of the browser)
-- Input to enter name. On entry name cached in sessionStorage.
+- Input to enter name.
 
 **GameStart Card** (This is shown when inputted name is validated or when user restarts game)
 - Option to change the cached name. 
@@ -183,19 +185,19 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
 - Add new game themes as suggestions surface from users. 
 - Develop features that allow users to choose color themes for gameplay. 
   
- ## Technologies
+## Technologies
 
-**Development:**
+#### Development:
 - [GitHub](https://github.com/) - site host.
 - [Gitpod](https://gitpod.io/) - dev IDE.
 
-**Key content, styling & logic:**
+#### Key content, styling & logic:
 - [HTML5](https://en.wikipedia.org/wiki/HTML5) - site content
 - [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) - site styling
 - [Bootstrap](https://getbootstrap.com/) - project layout & additional styling
 - [Javascript](https://en.wikipedia.org/wiki/JavaScript) - functional logic & gameplay
 
-**Supplementary technologies**
+#### Supplementary technologies
 - [JustInMind](https://www.justinmind.com/) - wireframes and site prototype
 - [Jasmine](https://jasmine.github.io/) - javascript testing framework
 - [FontAwesome](https://fontawesome.com/) - inline icons
@@ -204,25 +206,25 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
 
 ## Testing
 
-**Code Validation**
+#### Code Validation
 - [HTML Validation](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcldwlkn13.github.io%2Ftrumps%2F) 
     3 [Errors](readme-files/html-validation.JPG) identified. All empty headers, that are included as placeholders.
 
 - [CSS Validation](https://jigsaw.w3.org/css-validator/validator)
     0 [Errors](readme-files/css-validation.JPG).
 
-- [Javascript Validation](https://jshint.com/)
-    [index.js](readme-files/index-js-validation.JPG)
-    [alerts.js](readme-files/alerts-js-validation.JPG)
-    [card-rendering.js](readme-files/card-rendering-validation.JPG)
-    [function-helpers.js](readme-files/function-helpers-validation.JPG)
-    [gameplay-engine.js](readme-files/gameplay-engine-validation.JPG)
-    [name-repository.js](readme-files/name-repository-validation.JPG)
-    [registrations.js](readme-files/registrations-validation.JPG)
-    [scoring.js](readme-files/scoring-validation.JPG)
+- [Javascript Validation - JSHint](https://jshint.com/)  
+    [index.js](readme-files/index-js-validation.JPG)     
+    [alerts.js](readme-files/alerts-js-validation.JPG)  
+    [card-rendering.js](readme-files/card-rendering-validation.JPG)  
+    [function-helpers.js](readme-files/function-helpers-validation.JPG)  
+    [gameplay-engine.js](readme-files/gameplay-engine-validation.JPG)  
+    [name-repository.js](readme-files/name-repository-validation.JPG)  
+    [registrations.js](readme-files/registrations-validation.JPG)  
+    [scoring.js](readme-files/scoring-validation.JPG)  
     [setup-engine.js](readme-files/setup-engine-validation.JPG)
 
-**Browser Compatibility**
+#### Browser Compatibility
 
 - **Google Chrome** No issues identified; Game perfroms well throughout. All specs pass.
  
@@ -235,22 +237,21 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
   - **Microsoft Internet Explorer**
     - [IE Issue](readme-files/ie-issue.JPG) Page loads but Game will not play. This is due to the JS used in the application. 
 
-**Responsiveness Quality Testing**
+#### Responsiveness Quality Testing  
     Testing conducted on [Responsive Design Checker](https://responsivedesignchecker.com/)
 
 -   [Mobile](readme-files/mobile-testing.JPG) - 0 issues
 -   [Tablet](readme-files/tablet-testing.JPG) - 0 issues
 -   [Desktop](readme-files/desktop-testing.JPG) - 1 issue: 10" Notebook where Footer is not fixed to bottom of page.
 
-**Automated Testing - Jasmine**
+#### Automated Testing - Jasmine  
     Jasmine Test Specs are available in the index.html file. They are commented out by default. Please pull repo, uncomment and run them if required. 
     [Jasmine Specs 1](readme-files/jasmine-1.JPG)
     [Jasmine Specs 2](readme-files/jasmine-2.JPG)
     [Jasmine Specs 3](readme-files/jasmine-3.JPG)
 
-**User Story Testing**
-
-#US001 As the site owner, I want to entice players to play a game of Trumps &check;
+#### User Story Testing  
+##### #US001 As the site owner, I want to entice players to play a game of Trumps &check;
 
     - Given a user has landed upon the page 
     - When the page loads, and the user does not have their name stored in the cache
@@ -261,13 +262,13 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
 * The challenge to play is clearly seen [here](readme-files/us001.JPG).  
 * Can be verifed by starting new browser session.
 
-#US002 As the site owner, I want the design to appeal to an audience of 5+ years & adults alike &check;
+##### #US002 As the site owner, I want the design to appeal to an audience of 5+ years & adults alike &check;
 
     - The colour palette/icons/images used are fun, but not too garish as to be unappealing to adults
 
 * The palette of colors used are bold and largely primary.
 
-#US003 As the site owner, I want to personalize the experience for a player where possible (5 tests) &check;
+##### #US003 As the site owner, I want to personalize the experience for a player where possible (5 tests) &check;
 
     - Given the 'landing-card' feature is visible
     - When the user is encouraged to enter their name to play
@@ -296,7 +297,7 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
 * If they do not enter a valid name, then a [warning dialog](readme-files/us003-2.JPG) appears informing them.  
 * The name submitted is then used in other parts of the game, and that name is correct, e.g. [here](readme-files/us003-3.JPG).   
 
-#US004 As the site owner, I want users to have the option to suggest new ideas for card themes (2 tests) &check;
+##### #US004 As the site owner, I want users to have the option to suggest new ideas for card themes (2 tests) &check;
 
     - Given the user has navigated to the site
     - When the user browses to the footer
@@ -309,7 +310,7 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
 * In the footer there is an [input box](readme-files/us004-1.JPG) to enter suggestions for new themes.  
 * On enter/tab the suggestion is emailed to the site proprietor, [see here](readme/email.JPG)  
   
-#US005 As the site owner, I want users to be clear on the rules and gameflow of Trumps with intuitive design/prompts (3 tests) &check;
+##### #US005 As the site owner, I want users to be clear on the rules and gameflow of Trumps with intuitive design/prompts (3 tests) &check;
 
     - Given the user is active on the site
     - When the user is unsure of the rules 
@@ -326,7 +327,7 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
 * Game rules are available at all times from the header bar in the form of a popover by selecting the [info icon](readme-files/us005-1.JPG).   
 * The popover is dismissable with a click.  
 
-#US006 As the site owner, I want to provide links to the social media accounts associated with Trumps (2 tests) &check;
+##### #US006 As the site owner, I want to provide links to the social media accounts associated with Trumps (2 tests) &check;
 
     - Given the user has navigated to the site
     - When the user browses to the footer
@@ -340,7 +341,7 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
 
 * Social media [links](readme-files/us006-1.JPG) are available in the footer.
 
-#US007 As the site owner, I want gameplay to be effective on all devices (3 tests) &check;
+##### #US007 As the site owner, I want gameplay to be effective on all devices (3 tests) &check;
 
     - Given the user is using a Desktop device
     - When the user is active on the site
@@ -360,7 +361,7 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
 * [Desktop](readme-files/us007-3.JPG)
 
     
-#US008 As a user, I want to know my best score recorded &check;
+##### #US008 As a user, I want to know my best score recorded &check;
 
     - Given the user is playing a game of Trumps
     - When the user searches for their best score
@@ -369,7 +370,7 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
 * During gameplay the highest score is [visible](readme-files/us008-1.JPG) to the user in the central "console".
 * Ideally this could be shown in the header to be viewed at all times. 
     
-#US009 As a user, I want to know the game state while playing &check;
+##### #US009 As a user, I want to know the game state while playing &check;
 
     - Given the user has started a game of Trumps
     - When the user views the page
@@ -377,7 +378,7 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
 
 * The state of the game is clearly [visible](readme-files/us009-1.JPG) on the gameplay page but also in the "Winner Alert" 
     
-#US010 As a user, I want to be able to start a new game at any point (2 tests) &check;
+##### #US010 As a user, I want to be able to start a new game at any point (2 tests) &check;
 
     - Given the user has navigated beyond the landing-card
     - When a user wishes to start a new game
@@ -399,7 +400,7 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
 
 ## Deployment
 
-**To deploy**
+#### To deploy
 
 Trumps is hosted on **GitHub Pages**
 
@@ -408,7 +409,7 @@ Trumps is hosted on **GitHub Pages**
 3. In the **Source** dropdown menu select **master**.
 4. The website is now deployed.
 
-**To clone from Github**
+#### To clone from Github
 
 1. In the Github repository click the green **Code** button.
 2. Select clone protocol of your choice (SSL/HTTP/CLI)
@@ -425,7 +426,7 @@ Trumps is hosted on **GitHub Pages**
 - Plugin acquired from https://github.com/yckart/jquery-custom-animations for some funcky custom animations.  
 - Sounds for the game aquired from https://www.zapsplat.com/ under license. 
 - getRandomInt() aquired from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-- coding tips from [W3Scools](https://www.w3schools.com/) & [freecodecamp](https://www.freecodecamp.org/news/) 
+- coding tips from [W3Schools](https://www.w3schools.com/) & [freecodecamp](https://www.freecodecamp.org/news/) 
 
 ## Acknowledgments
 [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/?originalSubdomain=ng) for all his support and guidance.
