@@ -210,7 +210,7 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
 - [HTML Validation](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcldwlkn13.github.io%2Ftrumps%2F) 
     3 [Errors](readme-files/html-validation.JPG) identified. All empty headers, that are included as placeholders.
 
-- [CSS Validation](https://jigsaw.w3.org/css-validator/validator)
+- CSS Validation
     0 [Errors](readme-files/css-validation.JPG).
 
 - [Javascript Validation - JSHint](https://jshint.com/)  
