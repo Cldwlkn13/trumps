@@ -23,9 +23,11 @@ function dealCardsRandomly(cards) {
 }
 
 function handlePlayerAction(category, caller){       
-    if(!continueProcessing) {
-        return;
-    }
+    if(!continueGamePlayProcessing) { 
+        console.log("isGamePlayProcessing false")
+        isGamePlayProcessing = false; //SET GAMEPLAY PROCESSING FLAG TO FALSE
+        return; 
+    } //CHECK CONTINUE FLAG NOT SET TO FALSE
     
     //DIM BACKGROUND TO FOCUS ALERTS
     $(".alert-bg").toggleClass("opacity-cover");
@@ -36,22 +38,30 @@ function handlePlayerAction(category, caller){
             stackTwo[0].values[category]
         );
 
-    //DISPLAY SHOWDOWN ALERT FOR 7s
-    showdownAlert(category, caller, 7000);
+    //DISPLAY SHOWDOWN ALERT FOR 5s
+    showdownAlert(category, caller, showAlertsForMs);
 
-    //AFTER 7s DISPLAY WINNER SHOWDOWN FOR ANOTHER 7s; UPDATE SCORE
-    setTimeout(function() {
-        showdownWinnerAlert(winner, category, 7000);
+    //AFTER 5s DISPLAY WINNER SHOWDOWN FOR ANOTHER 7s; UPDATE SCORE
+    winnerShowdownTimeout = setTimeout(function() {
+        if(!continueGamePlayProcessing) { return; } //CHECK CONTINUE FLAG NOT SET TO FALSE
+
+        //DISPLAY SHOWDOWN WINNER ALERT
+        showdownWinnerAlert(winner, category, showAlertsForMs - 500);
+
+        //UPDATE SCORES
         var gameScore = getGameScore();
         gameScore = calculateGameScore(calculateShowdownPointsGained(stackOne[0].values[category], stackTwo[0].values[category], winner), gameScore);
         setGameScore(gameScore, $("#player-score-value"));
         var currentHigh = getCurrentHighScore();
         updateHighScore(gameScore, currentHigh, $("#player-high-score-value"));
-    }, 7000);
+
+        }, showAlertsForMs);
     
 
     //AFTER 14s CLEAR DOWN ALERTS AND SET UP UI FOR NEXT MOVE 
-    setTimeout(function() {    
+    nextMoveSetupTimeout = setTimeout(function() {    
+        if(!continueGamePlayProcessing) { return; } //CHECK CONTINUE FLAG NOT SET TO FALSE
+
         var isMatchWinner = goToNextShowdown(winner); 
 
         //IF FLAG RETURNED THAT EITHER STACK IS EMPTY THEN RE-ROUTE TO MATCH WINNER ALERT FLOW
@@ -63,25 +73,26 @@ function handlePlayerAction(category, caller){
         if(winner == 1){
             renderCards(winner);
             updateTotals();
+            console.log("isGamePlayProcessing false")
+            isGamePlayProcessing = false; //SET GAMEPLAY PROCESSING FLAG TO FALSE
         }
         else {
             handlePlayerAction(stackTwo[0].best, 2); //IF P2 WINS THEN RECALL THIS FOR THEIR NEXT MOVE
         }
 
         nextMoveAlert(winner); //SET UP THE ALERT TO PROMPT THE NEXT MOVE
-        $(".alert-bg").toggleClass("opacity-cover"); //RESET THE DIMMED BACKGROUND
+        $(".alert-bg").toggleClass("opacity-cover"); //RESET THE OPAGUE BACKGROUND
         clearInterval(arrowAnimationInterval); //RESET THE ARROW ANIMATION
-    }, 14000);
+    }, showAlertsForMs * 2);
 
     //AFTER 1 FURTHER SECOND PLAY SOME ADDITIONAL ANIMATION & AUDIO
-    setTimeout(function(){
-        if(!continueProcessing) {
-            return;
-        }   
+    addtionalAnimationTimeout = setTimeout(function(){
+        if(!continueGamePlayProcessing) { return; } //CHECK CONTINUE FLAG NOT SET TO FALSE 
+         
         winner == 1 ? sounds.find(n => n.name == "game-positive-1").audio.play() : sounds.find(n => n.name == "game-error-2").audio.play();
         var color = $("#player-score-value").css("color");
         $("#player-score-value").flash(2, 500,'', function() { $("#player-score-value").css("color", color); });
-    }, 15000);
+    }, (showAlertsForMs * 2) + 1000);
 }
 
 function determineShowdown(value1, value2){

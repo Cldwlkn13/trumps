@@ -19,6 +19,7 @@ $('document').ready(function(){
     }, 300); //WAIT 300ms for REGISTRATIONS TO FULLY COMPLETE
 
     //DOM EVENTS
+    //FLAG TO DISABLE EVENTS WHILE BACKGROUND PROCESSING IS CONTINUING
     $("#submit-name-btn").click(function() {
         let name = $("#landing-card-name-input").val();
 
@@ -28,22 +29,34 @@ $('document').ready(function(){
             return;
         }
         if(!validateNameLength(name)) {
+            clearTimeout(alertTimeout);
+            hideAlert($(".alert"));
             showAlert($(".alert"), 1, 1, "#fbd000", "Your name is too long!", 2000);
             sounds.find(n => n.name == "game-error-1").audio.play();
         }
         else{         
+            clearTimeout(alertTimeout);
+            hideAlert($(".alert"));
             showAlert($(".alert"), 1, 1, "#fbd000", "Please enter your name", 2000);
             sounds.find(n => n.name == "game-error-1").audio.play();
         }
     });
 
     $(".gamestart-theme-button").click(function() {
+        if(isGamePlayProcessing) { //WAIT UNTIL PROCESSING OF GAMEPLAY FINISHED BEFORE INITIATING NEW GAME
+            clearTimeout(alertTimeout);
+            hideAlert($(".alert"));
+            showAlert($(".alert"), 1, 1, "#fbd000", "Game will be ready in a few seconds, I will notify you when!", 3000);
+            return; 
+        } 
+
         gameObj = {}; //clear global value before resetting
         gameObj = JSON.parse(sessionStorage.getItem(this.id));
         categories = gameObj.categories;
         units = gameObj.units;
         sounds.find(s => { return s.name === gameObj.theme; }).audio.play();
 
+        turn = 1;
         dealCardsRandomly(gameObj.cards); 
         chooseCardDisplayed(3);
         renderCards(1);
@@ -51,8 +64,10 @@ $('document').ready(function(){
         resetGameScore($("#player-score-value"));
         setGameScore(0, $("#player-score-value"));
         updateHighScore(0, getCurrentHighScore(), $("#player-high-score-value"));
+
+        console.log("setting continueGamePlayProcessing = true")
+        continueGamePlayProcessing = true; //SET CONTINUE TO TRUE
         nextMoveAlert(1);
-        continueProcessing = true;
 
         //IF CARD 2 NAME NOT AUTO VISIBLE IN VIEWPORT THEN DISPLAY FIXED TO BOTTOM 
         if($(".float-offscreen").visible() === false) {
@@ -77,6 +92,8 @@ $('document').ready(function(){
         if (e.key === 'Enter' || e.keyCode === 13 || e.key === 'Tab' || e.keyCode === 9) {
             if(!validateName(getName())) {
                 sounds.find(n => n.name == "game-error-1").audio.play();
+                clearTimeout(alertTimeout);
+                hideAlert($(".alert"));
                 showAlert($(".alert"), 1, 1, "#ff0000",  "Please enter your name to send suggestion", 2000);
                 return;
             }
@@ -87,53 +104,63 @@ $('document').ready(function(){
         }
     });
 
-    var processing = false; //FLAG TO DISABLE EVENTS WHILE BACKGROUND PROCESSING IS CONTINUING
+    
     $(".gamecard-category-1").click(function() {
+        if(isGamePlayProcessing) { //CHECK IS GAMEPLAY STILL PROCESSING FROM A PREVIOUS MOVE
+            console.log("Game Play is still processing...");
+            return; 
+        } 
+
         if(turn != 1) {
             sounds.find(n => n.name == "game-error-1").audio.play();
             var color = $(".gameplay-alert").css("color");
             $(".gameplay-alert").flash(2, 500,'', function() { $(".gameplay-alert").css("color", color); });
             return;
         }
-        if(processing) {
-            return;
-        }
 
-        stopSounds();
+        stopSounds(); //STOP PLAYING ANY AUDIO THAT MIGHT BE PLAYING FROM PREVIOUS GAME
         
         console.log(`P1 selected Category: ${$(this).find(".cat-name").text()}${$(this).find(".cat-score").text()}`);
 
         var category = this.id.split("-")[3];
 
-        processing = true;
+        console.log("setting isGamePlayProcessing = true");
+        isGamePlayProcessing = true; //SET GAMEPLAY PROCESSING FLAG TO TRUE
         handlePlayerAction(category, 1);
-
-        setTimeout(function(){ 
-            processing = false;
-        }, 2000);
-    });
-
-   
-    $("#stack-2, .gameplay-alert").on("click",function() {
-        if(turn != 2 || processing) {
-            console.log("Please wait");
-            return;
-        }
-
-        processing = true;
-        handlePlayerAction(stackTwo[0].best, 2);
-
-        setTimeout(function(){ 
-            processing = false;
-        }, 2000);
     });
 
     $(".restart").click(function() {
-        continueProcessing = false;
-        stopSounds();
-        $(".alert-bg").removeClass("opacity-cover");
-        $(".match-winner-alert").hide();
-        chooseCardDisplayed(2);
+        console.log("setting continueGamePlayProcessing = false");
+        continueGamePlayProcessing = false; //SET CONTINUE FLAG TO FALSE - THIS WILL CUT THE GAMEPLAY ENGINE AT THE NEXT STAGE
+
+        stopSounds(); //STOP PLAYING ANY AUDIO THAT MIGHT BE PLAYING FROM PREVIOUS GAME
+        $(".alert-bg").removeClass("opacity-cover"); //REMOVE OPAQUE BG 
+
+        //CLEAR GAMEPLAY ENGINE TIMEOUTS THAT MAY BE SET
+        clearTimeout(alertTimeout);
+        clearTimeout(winnerShowdownTimeout); 
+        clearTimeout(nextMoveSetupTimeout);
+        clearTimeout(addtionalAnimationTimeout);
+
+        if(window.getComputedStyle(document.getElementsByClassName("showdown-alert")[0]).display === "block" || 
+           window.getComputedStyle(document.getElementsByClassName("winner-alert")[0]).display === "block") { 
+            showAlert($(".alert"), 1, 1, "#fbd000", "Restarting Game!", 1000);
+            setTimeout(function(){
+                console.log("setting isGamePlayProcessing = false");
+                isGamePlayProcessing = false; //SET PROCESSING FLAG TO FALSE
+                $(".gamestart-theme-button").flash(2, 200,'', function() { $(".gamestart-theme-button").css('color', "#000"); }, "#0000ff");
+                clearTimeout(alertTimeout);
+                hideAlert($(".alert"));
+                showAlert($(".alert"), 1, 1, "#47d147", "Ready To Play!", 1000);
+            }, showAlertsForMs);
+        }
+
+        //HIDE THE ALERTS
+        hideAlert($(".showdown-alert")); 
+        hideAlert($(".winner-alert")); 
+        hideAlert($(".match-winner-alert"));
+
+        chooseCardDisplayed(2); //SHOW GAMESTART CARD
     });
 
     $(".change-name").click(function() {

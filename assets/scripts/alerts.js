@@ -1,13 +1,18 @@
 function nextMoveAlert(winner){
+    if(!continueGamePlayProcessing) { return; } //CHECK CONTINUE FLAG NOT SET TO FALSE
+
     winner === 1 ? 
-        showAlert($(".gameplay-alert"), 0.8, false, "#ff3399", `<h2>${getName()}</h2> it is your turn, choose your category!`) :
-        showAlert($(".gameplay-alert"), 0.8, false, "#ace600", `Click here to force Player 2 move!`);
+        $(".gameplay-alert").html(`<h2>${getName()}</h2> it is your turn, choose your category!`) :
+        $(".gameplay-alert").html(``);
 }
 
 function showdownAlert(category, caller, displayForMs) {                
-    if(!continueProcessing) {
-        return;
+    if(!continueGamePlayProcessing) { return; } //CHECK CONTINUE FLAG NOT SET TO FALSE
+
+    if(caller == 2){
+        showAlert($(".alert"), 1, 1, "#ff6666", "PLAYER 2 is taking their turn!", 2000);
     }
+
     //SET CONTENT
     $("#showdown-player-name-1").text(getName());
     $("#showdown-player-name-2").text("Player 2");
@@ -35,14 +40,15 @@ function showdownAlert(category, caller, displayForMs) {
         
     //ANIMATE FLASHING REVEAL
     setTimeout(function() {
+        if(!continueGamePlayProcessing) { return; } //CHECK CONTINUE FLAG NOT SET TO FALSE
         $("#showdown-value-2").animate({ opacity: 0 }, function() {
             $("#showdown-value-2").text(stackTwo[0].values[category] + " " + units[category])
                 .animate({ opacity: 1 });
             var color = $("#showdown-value-2").css('color');
             $("#showdown-value-2")
-                .flash(3, 500,'', function() { $("#showdown-value-2").css('color', color); }, "#0000ff");
+                .flash(2, 500,'', function() { $("#showdown-value-2").css('color', color); }, "#0000ff");
         });
-    }, 3000);
+    }, 2000);
 
     //SHOW ALERT
     showAlert(
@@ -56,9 +62,8 @@ function showdownAlert(category, caller, displayForMs) {
 }
 
 function showdownWinnerAlert(winner, category, displayForMs) {
-    if(!continueProcessing) {
-        return;
-    }
+    if(!continueGamePlayProcessing) { return; } //CHECK CONTINUE FLAG NOT SET TO FALSE
+
     var nameWinner = winner == 1 ? getName() : "Player 2";
     var winningCard = winner == 1 ? stackOne[0] : stackTwo[0];
     var losingCard = winner == 1 ? stackTwo[0] : stackOne[0];
@@ -84,36 +89,36 @@ function showdownWinnerAlert(winner, category, displayForMs) {
 
     //ANIMATIONS WAITING 2s
     setTimeout(function() {
+        if(!continueGamePlayProcessing) { return; } //CHECK CONTINUE FLAG NOT SET TO FALSE
         if(winner == 1){
             //PUSH LOSING CARD NAME TO LEFT & FLASH PLAYER 1 NAME 
-            $("#losing-gamecard-name").blindLeftOut(3000, function(){ setTimeout(function() { $("#losing-gamecard-name").css("margin-left", 0); }, 4000); });
-            $("#player-1-name").flash(3, 500,'', function() { $("#player-1-name").css("color", "#000"); }, "#0000ff");
+            $("#losing-gamecard-name").blindLeftOut(2000, function(){ setTimeout(function() { $("#losing-gamecard-name").css("margin-left", 0); }, 4000); });
+            $("#player-1-name").flash(2, 500,'', function() { $("#player-1-name").css("color", "#000"); }, "#0000ff");
         }
         else {
             //PUSH LOSING CARD NAME TO RIGHT & FLASH PLAYER 2 NAME 
-            $("#losing-gamecard-name").blindRightOut(3000, function(){ setTimeout(function() { $("#losing-gamecard-name").css("margin-left", 0);}, 4000); });
-            $("#player-2-name").flash(3, 500,'', function() { $("#player-2-name").css("color","#000"); }, "#0000ff");
+            $("#losing-gamecard-name").blindRightOut(2000, function(){ setTimeout(function() { $("#losing-gamecard-name").css("margin-left", 0);}, 4000); });
+            $("#player-2-name").flash(2, 500,'', function() { $("#player-2-name").css("color","#000"); }, "#0000ff");
         }
         //UPDATE SCORE WITH AUDIO AND FLASH
         $(".score-update").html(`<p>${getName()} you now have <span class="emphasise">${winner == 1 ? (stackOne.length) + 1 : (stackOne.length) - 1}</span> Cards</p>`);  
-        $(".emphasise").flash(3, 500,'', function() { $(".emphasise").css("color","#000"); }, "#0000ff");     
-    }, 2000);
+        $(".emphasise").flash(2, 500,'', function() { $(".emphasise").css("color","#000"); }, "#0000ff");     
+    }, 1500);
 
     //SHOW ALERT
     showAlert(
         $(".winner-alert"), //ELEMENT TO SHOW
         1, //OPACITY  
         true, //HIDES ITSELF?
-        winner == 1 ? "#ff3399" :"#ace600", //BACKGROUND-COLOR
+        "#99d6ff", //BACKGROUND-COLOR
         '', //TEXT
         displayForMs //DISPLAY FOR MS BEFORE HIDING
     );
 }
 
 function matchWinnerAlert(winner) {
-    if(!continueProcessing) {
-        return;
-    }
+    if(!continueGamePlayProcessing) { return; } //CHECK CONTINUE FLAG NOT SET TO FALSE
+
     //SET CONTENT
     var nameWinner = winner == 1 ? getName() : "Player 2";
     $(".winner-name").text(nameWinner);
@@ -154,12 +159,16 @@ function showAlert(alert, opacity, hide, backgroundColor, html = "", showForMs =
     alert.css("opacity", opacity).css("background-color", backgroundColor); 
     alert.slideDown("slow");            
     if(hide){
-        setTimeout(function() { 
-            hideAlert(alert); 
+        alertTimeout = setTimeout(function() { 
+            hideAlert(alert, 'slow'); 
         }, showForMs);
     }
 }
 
-function hideAlert(alert) {
-    $(alert).slideUp("slow"); 
+function hideAlert(alert, slide) {
+    if(slide != null) {
+        $(alert).slideUp(slide); 
+        return;
+    }
+    $(alert).hide();
 }

@@ -343,10 +343,10 @@ header {
 /* ALERTS */
 
 .alert {
-	position: absolute;
-	top: 200px;
-	margin-left: 24vw;
-	width: 50%;
+    position: fixed;
+    right: 20px;
+	bottom: 20px;
+	margin-left: 5vw;
 	padding: 20px;
 	border: 3px solid black;
 	color: black;
@@ -364,11 +364,11 @@ header {
 	padding: 20px;
 	border: 3px solid black;
 	color: black;
-	display: none;
 	z-index: 5;
 	text-align: center;
 	border-radius: 7px;
-	margin: auto;
+    margin: auto;
+    background-color: #ff6666;
 }
 
 .gameplay-alert h2 {
@@ -646,9 +646,9 @@ footer {
 	.gamecard-img {
 		margin: 5px auto;
 	}
-	.gamecard-img>img {
-		height: 140px;
-		width: 140px;
+	.gamecard-img >img {
+		height: 100px;
+		width: 100px;
 	}
 	.gamecard-category {
 		margin: 5px 5px;
@@ -679,7 +679,9 @@ footer {
 	.winner-alert,
 	.match-winner-alert {
 		width: 95vw;
-		margin-left: 2.5vw;
+        margin-left: 2.5vw;
+        height: 85vh;
+        top: 70px;
 	}
 	#showdown-card-1,
 	#showdown-card-2,
@@ -691,8 +693,7 @@ footer {
 		font-size: 2rem;
 	}
 	#arrows {
-		height: 100px;
-		margin-left: 35%;
+		display: none
 	}
 }
 

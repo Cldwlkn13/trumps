@@ -326,7 +326,13 @@
          var units = {};
          var sounds = [];
          var arrowAnimationInterval;
-         var continueProcessing = true;
+         var continueGamePlayProcessing = true; //FLAG THAT DETERMINES WHETHER GAMEPLAY ENGINE CAN CONTINUE TO NEXT STAGE (i.e. RESTART NOT BEEN TRIGGERED)
+         var isGamePlayProcessing = false; //FLAG THAT DETERMINES IF THE GAMEPLAY ENGINE IS PROCESSING (MUST WAIT ON OPERATIONS TO COMPLETE BEFORE OTHER ACTIONS CAN PROCESS)
+         var alertTimeout;
+         var winnerShowdownTimeout;
+         var nextMoveSetupTimeout;
+         var addtionalAnimationTimeout;
+         const showAlertsForMs = 5000;
       </script>
       <script src="assets/scripts/registrations.js"></script>
       <script src="assets/scripts/gameplay-engine.js"></script>
