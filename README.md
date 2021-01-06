@@ -146,8 +146,8 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
 |    Wireframes   |   
 |      :----:     |    
 |[Landing](wireframes/landing.PNG)|
-|[Game Start](wireframes/gamestart-desktop.PNG)|
-|[Gameplay](wireframes/gameplay-desktop.PNG)|
+|[Game Start](wireframes/gamestart.PNG)|
+|[Gameplay](wireframes/gameplay.PNG)|
 
 ---
 
@@ -189,17 +189,17 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
 - [Gitpod](https://gitpod.io/) - dev IDE.
 
 **Key content, styling & logic:**
-- [HTML5](https://en.wikipedia.org/wiki/HTML5) site content
-- [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) site styling
+- [HTML5](https://en.wikipedia.org/wiki/HTML5) - site content
+- [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) - site styling
 - [Bootstrap](https://getbootstrap.com/) - project layout & additional styling
 - [Javascript](https://en.wikipedia.org/wiki/JavaScript) - functional logic & gameplay
 
 **Supplementary technologies**
-- [JustInMind](https://www.justinmind.com/) wireframes and site prototype
-- [Jasmine](https://jasmine.github.io/) javascript testing framework
-- [FontAwesome](https://fontawesome.com/) inline icons
-- [GoogleFonts](https://fonts.google.com/) font faces
-- [EmailJS](https://www.emailjs.com/) Email automation library
+- [JustInMind](https://www.justinmind.com/) - wireframes and site prototype
+- [Jasmine](https://jasmine.github.io/) - javascript testing framework
+- [FontAwesome](https://fontawesome.com/) - inline icons
+- [GoogleFonts](https://fonts.google.com/) - font faces
+- [EmailJS](https://www.emailjs.com/) - email automation library
 
 ## Testing
 
@@ -257,7 +257,7 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
     - And the 'landing-card' feature offers them the challenge to play 
 
 * When user navigates to page, if the name property in the sessionStorage is empty then the "landing-card" is shown.
-* The challenge to play is clearly seen too.  
+* The challenge to play is clearly seen [here](readme-files/us001.JPG).  
 * Can be verifed by starting new browser session.
 
 #US002 As the site owner, I want the design to appeal to an audience of 5+ years & adults alike &check;
@@ -290,10 +290,10 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
     - When they are prompted or presented with information
     - They are referred to where appropriate by the name they entered 
 
-* On the "landing-card" the user can clearly see they need to enter their name, and where to do it.  
+* On the "landing-card" the user can clearly [see](readme-files/us003-1.JPG) they need to enter their name, and where to do it.  
 * The name is persisted to the cache on submit.  
-* If they do not enter a valid name, then a warning dialog appears informing them.  
-* The name submitted is then used in other parts of the game, and that name is correct.   
+* If they do not enter a valid name, then a [warning dialog](readme-files/us003-2.JPG) appears informing them.  
+* The name submitted is then used in other parts of the game, and that name is correct, e.g. [here](readme-files/us003-3.JPG).   
 
 #US004 As the site owner, I want users to have the option to suggest new ideas for card themes (2 tests) &check;
 
@@ -305,7 +305,7 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
     - When the user clicks "submit"
     - Then the site owner is emailed the contents 
 
-* In the footer there is an input box to enter suggestions for new themes.  
+* In the footer there is an [input box](readme-files/us004-1.JPG) to enter suggestions for new themes.  
 * On enter/tab the suggestion is emailed to the site proprietor, [see here](readme/email.JPG)  
   
 #US005 As the site owner, I want users to be clear on the rules and gameflow of Trumps with intuitive design/prompts (3 tests) &check;
@@ -322,7 +322,7 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
     - When the "close" button is clicked
     - Then the rules dialog closes. 
     
-* Game rules are available at all times from the header bar in the form of a popover by selecting the info icon.   
+* Game rules are available at all times from the header bar in the form of a popover by selecting the [info icon](readme-files/us005-1.JPG).   
 * The popover is dismissable with a click.  
 
 #US006 As the site owner, I want to provide links to the social media accounts associated with Trumps (2 tests) &check;
@@ -337,7 +337,7 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
     - Then it is a new window 
     - And the link is correct 
 
-* Social media links are available in the footer.
+* Social media [links](readme-files/us006-1.JPG) are available in the footer.
 
 #US007 As the site owner, I want gameplay to be effective on all devices (3 tests) &check;
 
@@ -353,7 +353,11 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
     - When the user is active on the site
     - Then all features are available and work correctly 
 
-* Responsiveness testing can be seen above. 
+* Responsiveness testing can be seen above.
+* [Mobile](readme-files/us007-1.JPG)
+* [Tablet](readme-files/us007-2.JPG)
+* [Desktop](readme-files/us007-3.JPG)
+
     
 #US008 As a user, I want to know my best score recorded &check;
 
@@ -361,7 +365,7 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
     - When the user searches for their best score
     - Then the best score is shown to them
 
-* During gameplay the highest score is visible to the user in the central "console".
+* During gameplay the highest score is [visible](readme-files/us008-1.JPG) to the user in the central "console".
 * Ideally this could be shown in the header to be viewed at all times. 
     
 #US009 As a user, I want to know the game state while playing &check;
@@ -370,7 +374,7 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
     - When the user views the page
     - Then the latest game state (player cards remaining, score, etc) is clear to them 
 
-* The state of the game is clearly visible on the gameplay page but also in the "Winner Alert" 
+* The state of the game is clearly [visible](readme-files/us009-1.JPG) on the gameplay page but also in the "Winner Alert" 
     
 #US010 As a user, I want to be able to start a new game at any point (2 tests) &check;
 
@@ -382,13 +386,15 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
     - When the user clicks the element 
     - Then the game-start card is shown 
 
-* Restart buttons are available in the header bar, central console and on the match winner alert. 
+* Restart buttons are available in the [header bar](readme-files/us010-1.JPG), [central console](readme-files/us010-2.JPG) and on the match winner alert. 
+* When one of these is clicked the gamestart card is shown. Can be verified in game. 
 
 **Bugs**
 - Animated arrows do not always appear justified to the centre of the parent div on the Winner Alert. (Not fixed) 
 - User clicks restart during gameplay, if gameplay-engine running then alerts do not hide before next game. (Fixed with refactor of restart flow)
 - Popup alerts changing content. (Fixed with refactor, hiding existing alert immediately before showing next)
 - Offscreen float of Player 2 Card Name appears even when div is visible (not desired). (Not fixed but can be recified with a manual scroll)
+- Occasionally on personal mobile device, gamecard images don't render. Cannot replicate in dev env though. (Not fixed)
 
 ## Deployment
 
