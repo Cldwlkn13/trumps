@@ -308,7 +308,7 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
     - Then the site owner is emailed the contents 
 
 * In the footer there is an [input box](readme-files/us004-1.JPG) to enter suggestions for new themes.  
-* On enter/tab the suggestion is emailed to the site proprietor, [see here](readme/email.JPG)  
+* On enter/tab the suggestion is emailed to the site proprietor, [see here](readme-files/email.JPG)  
   
 ##### #US005 As the site owner, I want users to be clear on the rules and gameflow of Trumps with intuitive design/prompts (3 tests) &check;
 
