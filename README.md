@@ -216,13 +216,13 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
 - [Javascript Validation - JSHint](https://jshint.com/)  
     [index.js](readme-files/index-js-validation.JPG)     
     [alerts.js](readme-files/alerts-js-validation.JPG)  
-    [card-rendering.js](readme-files/card-rendering-validation.JPG)  
-    [function-helpers.js](readme-files/function-helpers-validation.JPG)  
-    [gameplay-engine.js](readme-files/gameplay-engine-validation.JPG)  
-    [name-repository.js](readme-files/name-repository-validation.JPG)  
-    [registrations.js](readme-files/registrations-validation.JPG)  
-    [scoring.js](readme-files/scoring-validation.JPG)  
-    [setup-engine.js](readme-files/setup-engine-validation.JPG)
+    [card-rendering.js](readme-files/card-rendering-js-validation.JPG)  
+    [function-helpers.js](readme-files/function-helpers-js-validation.JPG)  
+    [gameplay-engine.js](readme-files/gameplay-engine-js-validation.JPG)  
+    [name-repository.js](readme-files/name-repository-js-validation.JPG)  
+    [registrations.js](readme-files/registrations-js-validation.JPG)  
+    [scoring.js](readme-files/scoring-js-validation.JPG)  
+    [setup-engine.js](readme-files/setup-engine-js-validation.JPG)
 
 #### Browser Compatibility
 
