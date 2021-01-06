@@ -29,6 +29,7 @@ If their value is higher, then they take the card from the opponent, if not then
 
 - The winner of the showdown takes the next turn. 
 - Game is continued until one player has all the cards. 
+- Scoring is fairly arbitary, in that P1 gets point for the difference in value from their showdown value to P2 showdown value, times by 2.
 
 ### User Stories 
 #US001 As the site owner, I want to entice players to play a game of Trumps
