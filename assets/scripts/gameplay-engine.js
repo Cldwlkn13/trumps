@@ -67,7 +67,6 @@ function handlePlayerAction(category, caller){
         updateHighScore(gameScore, currentHigh, $("#player-high-score-value"));
 
         }, showAlertsForMs);
-    return;
 
     //AFTER 14s CLEAR DOWN ALERTS AND SET UP UI FOR NEXT MOVE 
     nextMoveSetupTimeout = setTimeout(function() {    
