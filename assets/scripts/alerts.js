@@ -6,7 +6,7 @@ function nextMoveAlert(winner){
     if(!continueGamePlayProcessing) { return; } //CHECK CONTINUE FLAG NOT SET TO FALSE
 
     winner === 1 ? 
-        $(".gameplay-alert").html(`<h2>${getName()}</h2> it is your turn, choose your category!`) :
+        $(".gameplay-alert").html(`<h3>${getName()}</h3> it is your turn, choose your category!`) :
         $(".gameplay-alert").html(``);
 }
 
@@ -120,7 +120,7 @@ function showdownWinnerAlert(winner, category, displayForMs) {
     showAlert(
         $(".winner-alert"), //ELEMENT TO SHOW
         1, //OPACITY  
-        true, //HIDES ITSELF?
+        false, //HIDES ITSELF?
         "#33cccc", //BACKGROUND-COLOR
         '', //TEXT
         displayForMs //DISPLAY FOR MS BEFORE HIDING

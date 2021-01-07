@@ -310,6 +310,10 @@ header {
 	margin: auto;
 }
 
+#console .col{
+	padding: 0px;
+}
+
 .console-feature {
 	text-align: center;
 	margin: auto;
@@ -396,7 +400,6 @@ header {
 	z-index: 5;
 	text-align: center;
 	border-radius: 7px;
-	height: 70vh;
 }
 
 .showdown-alert h2 {
@@ -473,7 +476,6 @@ header {
 	z-index: 5;
 	text-align: center;
 	border-radius: 7px;
-    height: 70vh;
     font-size: 2rem;
 }
 
@@ -592,6 +594,9 @@ footer {
 		width: 80vw;
 		margin: 30px auto;
     }
+    .gamecard-name{
+        padding: 0px;
+    }
     .gamecard-img >img {
 		height: 140px;
 		width: 140px;
@@ -603,10 +608,16 @@ footer {
 	}
 	#console {
 		padding: 0px;
-	}
+    }
 	.gameplay-alert {
 		padding: 2px;
-	}
+    }
+    .showdown-alert,
+    .winner-alert,
+    .match-winner-alert{
+        width: 70vw;
+        margin-left: 15vw;
+    }
 	#footer-row {
 		margin: 0px 5px;
 		padding-left: 5px;
@@ -677,7 +688,7 @@ footer {
 	}
 	#console {
 		margin: 10px auto;
-	}
+    }
 	.player-score {
 		margin-top: 10px;
 		font-size: 1.25rem;
