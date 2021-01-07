@@ -1,4 +1,23 @@
-$('document').ready(function(){   
+//GLOBALS
+var turn = 1;
+var stackOne = [];
+var stackTwo = [];
+var themes = [];
+var gameObj = {};
+var categories = {};
+var units = {};
+var sounds = [];
+var arrowAnimationInterval;
+var continueGamePlayProcessing = true; //FLAG THAT DETERMINES WHETHER GAMEPLAY ENGINE CAN CONTINUE TO NEXT STAGE (i.e. RESTART NOT BEEN TRIGGERED)
+var isGamePlayProcessing = false; //FLAG THAT DETERMINES IF THE GAMEPLAY ENGINE IS PROCESSING (MUST WAIT ON OPERATIONS TO COMPLETE BEFORE OTHER ACTIONS CAN PROCESS)
+var alertTimeout;
+var winnerShowdownTimeout;
+var nextMoveSetupTimeout;
+var addtionalAnimationTimeout;
+const showAlertsForMs = 5000;
+const maxNameCharLimit = 12;
+
+$('document').ready(function(){ 
     //STARTUP REGISTRATIONS
     registerThemes();
     registerSounds();
@@ -31,7 +50,7 @@ $('document').ready(function(){
         if(!validateNameLength(name)) {
             clearTimeout(alertTimeout);
             hideAlert($(".alert"));
-            showAlert($(".alert"), 1, 1, "#fbd000", "Your name is too long!", 2000);
+            showAlert($(".alert"), 1, 1, "#fbd000", `Name is too long, choose name of ${maxNameCharLimit} characters or less!`, 2000);
             sounds.find(n => n.name == "game-error-1").audio.play();
         }
         else{         
@@ -65,7 +84,7 @@ $('document').ready(function(){
         setGameScore(0, $("#player-score-value"));
         updateHighScore(0, getCurrentHighScore(), $("#player-high-score-value"));
 
-        console.log("setting continueGamePlayProcessing = true");
+
         continueGamePlayProcessing = true; //SET CONTINUE TO TRUE
         nextMoveAlert(1);
 
@@ -107,7 +126,6 @@ $('document').ready(function(){
     
     $(".gamecard-category-1").click(function() {
         if(isGamePlayProcessing) { //CHECK IS GAMEPLAY STILL PROCESSING FROM A PREVIOUS MOVE
-            console.log("Game Play is still processing...");
             return; 
         } 
 
@@ -119,18 +137,12 @@ $('document').ready(function(){
         }
 
         stopSounds(); //STOP PLAYING ANY AUDIO THAT MIGHT BE PLAYING FROM PREVIOUS GAME
-        
-        console.log(`P1 selected Category: ${$(this).find(".cat-name").text()}${$(this).find(".cat-score").text()}`);
-
         var category = this.id.split("-")[3];
-
-        console.log("setting isGamePlayProcessing = true");
         isGamePlayProcessing = true; //SET GAMEPLAY PROCESSING FLAG TO TRUE
         handlePlayerAction(category, 1);
     });
 
     $(".restart").click(function() {
-        console.log("setting continueGamePlayProcessing = false");
         continueGamePlayProcessing = false; //SET CONTINUE FLAG TO FALSE - THIS WILL CUT THE GAMEPLAY ENGINE AT THE NEXT STAGE
 
         stopSounds(); //STOP PLAYING ANY AUDIO THAT MIGHT BE PLAYING FROM PREVIOUS GAME
@@ -146,7 +158,6 @@ $('document').ready(function(){
            window.getComputedStyle(document.getElementsByClassName("winner-alert")[0]).display === "block") { 
             showAlert($(".alert"), 1, 1, "#fbd000", "Restarting Game!", 1000);
             setTimeout(function(){
-                console.log("setting isGamePlayProcessing = false");
                 isGamePlayProcessing = false; //SET PROCESSING FLAG TO FALSE
                 $(".gamestart-theme-button").flash(2, 200,'', function() { $(".gamestart-theme-button").css('color', "#000"); }, "#0000ff");
                 clearTimeout(alertTimeout);
