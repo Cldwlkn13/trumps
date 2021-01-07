@@ -143,7 +143,7 @@ $('document').ready(function(){
     });
 
     $(".restart").click(function() {
-        if (confirm('Are you sure?')) {
+        if (confirm('Are you sure you want to restart?')) {
             continueGamePlayProcessing = false; //SET CONTINUE FLAG TO FALSE - THIS WILL CUT THE GAMEPLAY ENGINE AT THE NEXT STAGE
 
             stopSounds(); //STOP PLAYING ANY AUDIO THAT MIGHT BE PLAYING FROM PREVIOUS GAME

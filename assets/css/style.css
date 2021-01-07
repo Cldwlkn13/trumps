@@ -147,6 +147,15 @@ header {
 	font-size: 1rem;
 }
 
+.change-name > a{
+    color: #000;
+}
+
+.change-name > a:hover{
+    text-decoration: underline;
+    color: #ff33cc;
+}
+
 .gamestart-theme-button {
 	height: 50px;
 	background-color: #47d147;
