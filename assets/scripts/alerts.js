@@ -6,7 +6,7 @@ function nextMoveAlert(winner){
     if(!continueGamePlayProcessing) { return; } //CHECK CONTINUE FLAG NOT SET TO FALSE
 
     winner === 1 ? 
-        $(".gameplay-alert").html(`<h2>${getName()}</h2> it is your turn, choose your category!`) :
+        $(".gameplay-alert").html(`<h3>${getName()}</h3> it is your turn, choose your category!`) :
         $(".gameplay-alert").html(``);
 }
 
