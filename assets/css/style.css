@@ -584,11 +584,31 @@ footer {
 	color: #cc00cc;
 }
 
+@media only screen and (max-height: 800px) {
+    .main{
+        min-height: 150vh;
+    }
 
+    .showdown-alert,
+	.winner-alert,
+	.match-winner-alert {
+        height: 85vh;
+        overflow: scroll;
+        top: 65px;
+	}
+}
+@media only screen and (max-height: 700px) {
+    .main{
+        min-height: 200vh;
+    }
+}
 /* ----------- tablet ----------- */
 
 @media only screen and (max-width: 992px) {
-	.card-base {
+    .main{
+        min-height: 100vh;
+    }
+    .card-base {
 		height: 80vh;
 		width: 80vw;
 		margin: 30px auto;
@@ -764,11 +784,5 @@ footer {
 	}
 	#arrows {
 		display: none;
-    }
-    
-    @media only screen and (max-height: 800px) and (min-width: 1024px) {
-        .main{
-            min-height: 200vh;
-        }
     }
 }

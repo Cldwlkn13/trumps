@@ -393,11 +393,12 @@ Jasmine Test Specs are available in the test.html file. Please see [here](https:
 * When one of these is clicked the gamestart card is shown. Can be verified in game. 
 
 **Bugs**
-- Animated arrows do not always appear justified to the centre of the parent div on the Winner Alert. (Not fixed) 
+- Animated arrows do not always appear justified to the centre of the parent div on the Winner Alert. (Not fixed, removed) 
 - User clicks restart during gameplay, if gameplay-engine running then alerts do not hide before next game. (Fixed with refactor of restart flow)
 - Popup alerts changing content. (Fixed with refactor, hiding existing alert immediately before showing next)
 - Offscreen float of Player 2 Card Name appears even when div is visible (not desired). (Not fixed but can be recified with a manual scroll)
 - Occasionally on personal mobile device, gamecard images don't render. Cannot replicate in dev env though. (Not fixed)
+- Shallow desktop screens (below 800px), the alerts overflow the screen. 
 
 ## Deployment
 
