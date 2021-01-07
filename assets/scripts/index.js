@@ -90,15 +90,17 @@ $('document').ready(function(){
         nextMoveAlert(1);
 
         //IF CARD 2 NAME NOT AUTO VISIBLE IN VIEWPORT THEN DISPLAY FIXED TO BOTTOM 
-        if($(".float-offscreen").visible() === false) {
-            $(".float-offscreen").css({"position":"fixed","bottom":"10px", "opacity":"0.8"});
-            $("#name-2").css({"background-color": "#000", "padding": "10px"});
-        }
+        setTimeout(function() { 
+            if($(".float-offscreen").visible() === false) {
+                $(".float-offscreen").css({"position":"fixed","bottom":"10px", "opacity":"0.8"});
+                $("#name-2").css({"background-color": "#000", "padding": "10px"});
+            }
+        }, 100);
     });
 
     $(function(){
         $(window).scroll(function(){
-            if($("#img-2").visible()) { //ON SCROLL CHECK FOR VISIBILITY OF CARD 2
+            if($("#gamecard-2").visible()) { //ON SCROLL CHECK FOR VISIBILITY OF CARD 2
                 $(".float-offscreen").css({"position":"","bottom":"", "opacity":"1"});
                 $("#name-2").css({"background-color": "#b30000"});
             }else {
@@ -172,7 +174,6 @@ $('document').ready(function(){
             hideAlert($(".showdown-alert")); 
             hideAlert($(".winner-alert")); 
             hideAlert($(".match-winner-alert"));
-
             chooseCardDisplayed(2); //SHOW GAMESTART CARD
         }
     });
