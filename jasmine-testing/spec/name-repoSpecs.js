@@ -14,11 +14,11 @@ describe("Name Repository Specs", function(){
         it("name empty be true", function(){
             expect(validateNameLength("")).toBeTruthy();
         });
-        it("name with length > 18 be false", function(){
+        it(`name with length > ${maxNameCharLimit} be false`, function(){
             expect(validateNameLength("abcdefghijklmnopqrstuvwxyz")).toBeFalsy();
         });
-        it("name with length <= 18 be true", function(){
-            expect(validateNameLength("abcdefghijklmnopq")).toBeTruthy();
+        it(`name with length <= ${maxNameCharLimit} be true`, function(){
+            expect(validateNameLength("abcdefghijk")).toBeTruthy();
         });
     });
 });
