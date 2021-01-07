@@ -120,7 +120,7 @@ function showdownWinnerAlert(winner, category, displayForMs) {
     showAlert(
         $(".winner-alert"), //ELEMENT TO SHOW
         1, //OPACITY  
-        false, //HIDES ITSELF?
+        true, //HIDES ITSELF?
         "#33cccc", //BACKGROUND-COLOR
         '', //TEXT
         displayForMs //DISPLAY FOR MS BEFORE HIDING
