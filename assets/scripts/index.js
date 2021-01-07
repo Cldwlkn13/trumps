@@ -56,7 +56,7 @@ $('document').ready(function(){
         else{         
             clearTimeout(alertTimeout);
             hideAlert($(".alert"));
-            showAlert($(".alert"), 1, 1, "#fbd000", "Please enter your name", 2000);
+            showAlert($(".alert"), 1, 1, "#fbd000", "Invalid name", 2000);
             sounds.find(n => n.name == "game-error-1").audio.play();
         }
     });
@@ -143,35 +143,37 @@ $('document').ready(function(){
     });
 
     $(".restart").click(function() {
-        continueGamePlayProcessing = false; //SET CONTINUE FLAG TO FALSE - THIS WILL CUT THE GAMEPLAY ENGINE AT THE NEXT STAGE
+        if (confirm('Are you sure?')) {
+            continueGamePlayProcessing = false; //SET CONTINUE FLAG TO FALSE - THIS WILL CUT THE GAMEPLAY ENGINE AT THE NEXT STAGE
 
-        stopSounds(); //STOP PLAYING ANY AUDIO THAT MIGHT BE PLAYING FROM PREVIOUS GAME
-        $(".alert-bg").removeClass("opacity-cover"); //REMOVE OPAQUE BG 
+            stopSounds(); //STOP PLAYING ANY AUDIO THAT MIGHT BE PLAYING FROM PREVIOUS GAME
+            $(".alert-bg").removeClass("opacity-cover"); //REMOVE OPAQUE BG 
 
-        //CLEAR GAMEPLAY ENGINE TIMEOUTS THAT MAY BE SET
-        clearTimeout(alertTimeout);
-        clearTimeout(winnerShowdownTimeout); 
-        clearTimeout(nextMoveSetupTimeout);
-        clearTimeout(addtionalAnimationTimeout);
+            //CLEAR GAMEPLAY ENGINE TIMEOUTS THAT MAY BE SET
+            clearTimeout(alertTimeout);
+            clearTimeout(winnerShowdownTimeout); 
+            clearTimeout(nextMoveSetupTimeout);
+            clearTimeout(addtionalAnimationTimeout);
 
-        if(window.getComputedStyle(document.getElementsByClassName("showdown-alert")[0]).display === "block" || 
-           window.getComputedStyle(document.getElementsByClassName("winner-alert")[0]).display === "block") { 
-            showAlert($(".alert"), 1, 1, "#fbd000", "Restarting Game!", 1000);
-            setTimeout(function(){
-                isGamePlayProcessing = false; //SET PROCESSING FLAG TO FALSE
-                $(".gamestart-theme-button").flash(2, 200,'', function() { $(".gamestart-theme-button").css('color', "#000"); }, "#0000ff");
-                clearTimeout(alertTimeout);
-                hideAlert($(".alert"));
-                showAlert($(".alert"), 1, 1, "#47d147", "Ready To Play!", 1000);
-            }, showAlertsForMs);
+            if(window.getComputedStyle(document.getElementsByClassName("showdown-alert")[0]).display === "block" || 
+            window.getComputedStyle(document.getElementsByClassName("winner-alert")[0]).display === "block") { 
+                showAlert($(".alert"), 1, 1, "#fbd000", "Restarting Game!", 1000);
+                setTimeout(function(){
+                    isGamePlayProcessing = false; //SET PROCESSING FLAG TO FALSE
+                    $(".gamestart-theme-button").flash(2, 200,'', function() { $(".gamestart-theme-button").css('color', "#000"); }, "#0000ff");
+                    clearTimeout(alertTimeout);
+                    hideAlert($(".alert"));
+                    showAlert($(".alert"), 1, 1, "#47d147", "Ready To Play!", 1000);
+                }, showAlertsForMs);
+            }
+
+            //HIDE THE ALERTS
+            hideAlert($(".showdown-alert")); 
+            hideAlert($(".winner-alert")); 
+            hideAlert($(".match-winner-alert"));
+
+            chooseCardDisplayed(2); //SHOW GAMESTART CARD
         }
-
-        //HIDE THE ALERTS
-        hideAlert($(".showdown-alert")); 
-        hideAlert($(".winner-alert")); 
-        hideAlert($(".match-winner-alert"));
-
-        chooseCardDisplayed(2); //SHOW GAMESTART CARD
     });
 
     $(".change-name").click(function() {
