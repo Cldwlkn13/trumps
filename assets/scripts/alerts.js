@@ -93,16 +93,11 @@ function showdownWinnerAlert(winner, category, displayForMs) {
     $(".losing-card").text(losingCard.name);
     $("#player-1-name").text(getName());
 
-    //ANIMATION & AUDIO
-    if(winner == 1){
-        sounds.find(n => n.name == "game-positive-2").audio.play();
-        arrowAnimationInterval = setInterval(animateArrowsLeft, 1000);
-    }
-    else {
+    //AUDIO
+    winner == 1 ?
+        sounds.find(n => n.name == "game-positive-2").audio.play() :
         sounds.find(n => n.name == "game-error-1").audio.play();
-        arrowAnimationInterval = setInterval(animateArrowsRight, 1000);
-    }
-
+    
     //ANIMATIONS WAITING 1.5s
     setTimeout(function() {
         if(!continueGamePlayProcessing) { return; } //CHECK CONTINUE FLAG NOT SET TO FALSE
@@ -150,32 +145,6 @@ function matchWinnerAlert(winner) {
         false, //HIDES ITSELF?
         "#ff99ff" //BACKGROUND-COLOR
     );
-}
-
-/**
-  * This function performs animations on the right arrows within the winner-alert
-*/
-function animateArrowsRight() {
-    $('.left').removeClass('arrow-left').addClass('arrow-right');
-    $('.middle').removeClass('arrow-left').addClass('arrow-right');
-    $('.right').removeClass('arrow-left').addClass('arrow-right');
-        
-    $('.left').fadeTo(500, 1).delay(500).fadeTo(500, 0);
-    $('.middle').delay(250).fadeTo(500, 1).delay(500).fadeTo(500, 0);
-    $('.right').delay(500).fadeTo(500, 1).delay(500).fadeTo(500, 0);
-}
-
-/**
-  * This function performs animations on the left arrows within the winner-alert
-*/
-function animateArrowsLeft() {     
-    $('.left').removeClass('arrow-right').addClass('arrow-left');
-    $('.middle').removeClass('arrow-right').addClass('arrow-left');
-    $('.right').removeClass('arrow-right').addClass('arrow-left');
-        
-    $('.left').fadeTo(500, 1).delay(500).fadeTo(500, 0);
-    $('.middle').delay(250).fadeTo(500, 1).delay(500).fadeTo(500, 0);
-    $('.right').delay(500).fadeTo(500, 1).delay(500).fadeTo(500, 0);
 }
 
 /**
