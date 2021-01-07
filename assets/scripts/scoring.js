@@ -10,8 +10,7 @@ function setGameScore(gameScore, element = null){
     if(element != null) {
         element.text(gameScore);
     }
-    sessionStorage.setItem("score", gameScore);
-    console.log(`Score Updated: ${gameScore}`); 
+    sessionStorage.setItem("score", gameScore); 
 }
 
 function resetGameScore(element = null){
@@ -65,7 +64,6 @@ function updateHighScore(gameScore, currentHigh, element = null){
             element.text(gameScore);
         }
         setCurrentHighScore(gameScore);
-        console.log(`High Score Updated: ${gameScore}`);
     }
     else {
         if(element != null) { 

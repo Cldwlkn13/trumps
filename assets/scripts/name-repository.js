@@ -14,6 +14,8 @@ function removeName() {
 function validateName(name) {
     return name != null &&
         name.length > 0 && 
+        name.charAt(0) != " " &&
+        !name.includes("  ") &&
         name.length < maxNameCharLimit; //SET HARD CHARACTER LIMIT TO PROTECT STYLING FROM EXTRA LONG NAME STRINGS
 }
 

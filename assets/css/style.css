@@ -464,8 +464,8 @@ header {
 	z-index: 5;
 	text-align: center;
 	border-radius: 7px;
-	height: 70vh;
-	font-size: 2rem;
+    height: 70vh;
+    font-size: 2rem;
 }
 
 .winner-name {

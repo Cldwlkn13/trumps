@@ -36,7 +36,6 @@ function dealCardsRandomly(cards) {
 */
 function handlePlayerAction(category, caller){       
     if(!continueGamePlayProcessing) { 
-        console.log("isGamePlayProcessing false");
         isGamePlayProcessing = false; //SET GAMEPLAY PROCESSING FLAG TO FALSE
         return; 
     } //CHECK CONTINUE FLAG NOT SET TO FALSE
@@ -85,7 +84,6 @@ function handlePlayerAction(category, caller){
         if(winner == 1){
             renderCards(winner);
             updateTotals();
-            console.log("isGamePlayProcessing false");
             isGamePlayProcessing = false; //SET GAMEPLAY PROCESSING FLAG TO FALSE
         }
         else {
@@ -117,10 +115,8 @@ function handlePlayerAction(category, caller){
 */
 function determineShowdown(value1, value2){
     if(value1 > value2){ //if value1 == value2 then P2 WINS
-        console.log(`P1 WINS Showdown: ${value1} beats ${value2}`);
         return 1;
     }
-    console.log(`P2 WINS Showdown with ${value2} beats ${value1}`);
     return 2;
 }
 

@@ -21,7 +21,6 @@ function renderCards(winner) {
   * @param {object} card data object that is to be rendered
 */
 function renderCard(stackId, winner, card) {
-    console.log(`P${stackId} rendering card ${card.name}`);
     $("#name-" + stackId)
         .children("h2")
         .first()

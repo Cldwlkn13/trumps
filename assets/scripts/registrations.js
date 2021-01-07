@@ -11,7 +11,6 @@ function registerThemes(){
         //TO ADD NEW THEME TO GAME, COMPILE .json FILE TO /assets/json/ AND REFERENCE FROM HERE
     ];
     themes.forEach(t => storeThemeInMemory(t)); 
-    themes.forEach(t => console.log(`Available Theme: ${t.id}`));
 }
 
 
