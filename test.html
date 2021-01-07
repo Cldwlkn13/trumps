@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!--BOOTSTRAP CSS-->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" type="text/css" />
+      <!--FONTAWESOME-->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+      <script src="https://kit.fontawesome.com/cba444aafb.js" crossorigin="anonymous"></script>
+      <!--MY CSS-->
+      <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+      <!--JASMINE-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.6.0/jasmine.js" integrity="sha512-dqL4nYnbiMiNNy/V2zRK55QXSRVyu26KCuGoL8Zf5lDfKRRf8pBFW8RXe8at36QlB8s8bnOjKP6b5YTalHO6wQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.6.0/jasmine-html.js" integrity="sha512-bqig44hBpNuvBzxsqbHiqwRximGm4UfJAvOeNQHjB7++0D2u/3bcw4ZwmVsqrooii2UJ91oDI/6aANdp3BwcQQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.6.0/boot.js" integrity="sha512-igPP1Xd0hsvXVZGyfIYeUD779NLEA1Sj/5ts2C/e/22zeUqR6ehA7M/nNLuONalznkHQkGPBESNwzGpwBQD60g==" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.6.0/jasmine.css" integrity="sha512-XKXP02aeSNI5HsDB3+4MM0tSDXJTBFZpt99xL7PvMz3+A3aRy0F0Ne/CATK+Z72ckE/4Ev9OiosWQr5LtU284Q==" crossorigin="anonymous" />    
+      <!--EMAILJS-->
+      <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+      <script>
+         (function(){
+             emailjs.init("user_Dk2Ie9gpuQG9sObXVvcDF");
+         })();
+      </script>
+      <!--FAVICON-->
+      <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+      <link rel="manifest" crossorigin="use-credentials" href="./assets/favicon/site.webmanifest"/>
+      <!--TITLE-->
+      <title>Trumps - Testing</title>
+   </head>
+   <body>
+      <header class="bg-header">
+         <div class="row header-row">
+            <div class="col-1" id="rules-col">
+               <a tabindex="0" id="rules-popover" role="button" data-toggle="popover" data-trigger="focus" title="Rules" data-placement="bottom" data-html="true" data-content="Right?"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+            </div>
+            <div class="col-10 header-text" id="header-col">
+               <h1>
+                  <i class="fa fa-futbol-o" aria-hidden="true"></i>   
+                  Trumps 
+                  <i class="fa fa-rocket" aria-hidden="true"></i> 
+               </h1>
+            </div>
+            <div class="col-1" id="restart-col">
+               <span id="header-restart"><i class="fa fa-repeat restart" aria-hidden="true"></i></span>
+            </div>
+         </div>
+      </header>
+      <section class="main bg-main">
+         <div class="alert"></div>
+         <div class="card-base landing-card" id="landing-card">
+            <h2 class="landing-card-question">?</h2>
+            <h3 class="landing-card-goading">THINK <u>YOU</u> KNOW ENOUGH TO BEAT <u>ME</u> AT TRUMPS?</h3>
+            <br>
+            <p class="landing-card-prompt">Enter your name and have a go!</p>
+            <input id="landing-card-name-input" type="text" placeholder="Enter your name here">
+            <button class="card-button" id="submit-name-btn">Submit</button>
+         </div>
+         <div class="card-base gamestart-card" id="gamestart-card">
+            <h2 id="gamestart-card-name"></h2>
+            <br>
+            <span class="change-name"><i>*Change Player Name</i>  <i class="fas fa-redo"></i></span>
+            <br>
+            <br>
+            <p class="gamestart-card-prompt">ARE YOU READY?</p>
+            <p class="gamestart-card-prompt">PLEASE CHOOSE YOUR THEME...</p>
+            <div id="gamestart-buttons"></div>
+            <br>
+            <p>More themes coming soon...</p>
+            <p>Send us your theme suggestions at the bottom on the page</p>
+         </div>
+         <div class="gameplay">
+            <div class="alert-bg">
+               <div class="showdown-alert">
+                  <div class="row">
+                     <div class="col">
+                        <h2>SHOWDOWN</h2>
+                     </div>
+                  </div>
+                  <div class="row showdown">
+                     <div class="col-5" id="showdown-card-1">
+                        <div class="gamecard-name">
+                           <p id="showdown-name-1"></p>
+                        </div>
+                        <div class="gamecard-img" id="showdown-img-1">
+                           <img src="#" alt="">
+                        </div>
+                        <div class="showdown-player-name">
+                           <p id="showdown-player-name-1"></p>
+                        </div>
+                        <p id="showdown-selected-1">selects</p>
+                        <div class="showdown-category">
+                           <p id="showdown-category-1"></p>
+                        </div>
+                        <div class="showdown-value">
+                           <p id="showdown-value-1"></p>
+                        </div>
+                     </div>
+                     <div class="col-2" id="divisor">
+                        <p>VS.</p>
+                     </div>
+                     <div class="col-5" id="showdown-card-2">
+                        <div class="gamecard-name">
+                           <p id="showdown-name-2"></p>
+                        </div>
+                        <div class="gamecard-img" id="showdown-img-2">
+                           <img src="#" alt="">
+                        </div>
+                        <div class="showdown-player-name">
+                           <p id="showdown-player-name-2"></p>
+                        </div>
+                        <p id="showdown-selected-2">selects</p>
+                        <div class="showdown-category">
+                           <p id="showdown-category-2"></p>
+                        </div>
+                        <div class="showdown-value">
+                           <p id="showdown-value-2"></p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="winner-alert">
+                  <p class="winner-name"></p>
+                  <p>WINS SHOWDOWN</p>
+                  <p class="winner-category"></p>
+                  <p class="winner-value"></p>
+                  <br>
+                  <div class="row justify-content-center">
+                     <div class="col-6 col-sm-3 gamecard-name" id="losing-gamecard-name">
+                        <p class="losing-card"></p>
+                     </div>
+                  </div>
+                  <div class="row justify-content-center">
+                     <div class="col-5 col-sm-3 winner-player-name">
+                        <p id="player-1-name"></p>
+                     </div>
+                     <div class="col-1 col-sm-3">
+                        <div id="arrows">
+                           <div class="arrow-right left"></div>
+                           <div class="arrow-right middle"></div>
+                           <div class="arrow-right right"></div>
+                        </div>
+                     </div>
+                     <div class="col-5 col-sm-3 winner-player-name">
+                        <p id="player-2-name">PLAYER 2</p>
+                     </div>
+                  </div>
+                  <div class="row justify-content-center">
+                     <div class="col-10 score-update">
+                     </div>
+                  </div>
+               </div>
+               <div class="match-winner-alert">
+                  <p class="winner-name"></p>
+                  <p>WINS THE MATCH!</p>
+                  <p id="match-winner-score"></p>
+                  <br>
+                  <p>PLAY AGAIN?</p>
+                  <div class="console-feature restart" id="winner-alert-restart">
+                     <i class="fas fa-redo"></i>
+                  </div>
+               </div>
+            </div>
+            <div class="container gameplay-action">
+               <div class="row">
+                  <div class="col-12 col-sm-5" id="stack-1">
+                     <div class="player-name" id="player-name-1">
+                        <p class="name-value"></p>
+                        <p id="player-cards-total-1"></p>
+                     </div>
+                     <div class="gamecard" id="gamecard-1">
+                        <div class="gamecard-name" id="name-1">
+                           <h2></h2>
+                        </div>
+                        <div class="gamecard-img" id="img-1">
+                           <img src="#" alt="">
+                        </div>
+                        <div class="gamecard-category-1" id="s-1-cat-1">
+                           <div class="gamecard-details">
+                              <span class="cat-name"></span> 
+                              <span class="cat-value"></span>
+                              <span class="cat-unit"></span>
+                           </div>
+                        </div>
+                        <div class="gamecard-category-1" id="s-1-cat-2">
+                           <div class="gamecard-details">
+                              <span class="cat-name"></span> 
+                              <span class="cat-value"></span>
+                              <span class="cat-unit"></span>
+                           </div>
+                        </div>
+                        <div class="gamecard-category-1" id="s-1-cat-3">
+                           <div class="gamecard-details">
+                              <span class="cat-name"></span> 
+                              <span class="cat-value"></span>
+                              <span class="cat-unit"></span>
+                           </div>
+                        </div>
+                        <div class="gamecard-category-1" id="s-1-cat-4">
+                           <div class="gamecard-details">
+                              <span class="cat-name"></span> 
+                              <span class="cat-value"></span>
+                              <span class="cat-unit"></span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-12 col-sm-2" id="console">
+                     <div class="row">
+                        <div class="col">
+                           <div class="gameplay-alert"></div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-12 col-4">
+                           <div class="console-feature player-score">
+                              <p>SCORE</p>
+                              <p id="player-score-value"></p>
+                           </div>
+                        </div>
+                        <div class="col-md-12 col-4">
+                           <div class="console-feature player-score">
+                              <p>HIGH</p>
+                              <p id="player-high-score-value"></p>
+                           </div>
+                        </div>
+                        <div class="col-md-12 col-4">
+                           <div class="console-feature restart" id="console-restart">
+                              <i class="fas fa-redo"></i>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-12 col-sm-5" id="stack-2">
+                     <div class="player-name" id="player-name-2">
+                        <p>Player 2</p>
+                        <p id="player-cards-total-2"></p>
+                     </div>
+                     <div class="gamecard" id="gamecard-2">
+                        <div class="row justify-content-center float-offscreen">
+                           <div class="col">
+                              <div class="gamecard-name" id="name-2">
+                                 <h2></h2>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="gamecard-img" id="img-2">
+                           <img src="#" alt="">
+                        </div>
+                        <div class="gamecard-category-2" id="s-2-cat-1">
+                           <div class="gamecard-details">
+                              <span class="cat-name"></span> 
+                              <span class="cat-value"></span>
+                              <span class="cat-unit"></span>
+                           </div>
+                        </div>
+                        <div class="gamecard-category-2" id="s-2-cat-2">
+                           <div class="gamecard-details">
+                              <span class="cat-name"></span> 
+                              <span class="cat-value"></span>
+                              <span class="cat-unit"></span>
+                           </div>
+                        </div>
+                        <div class="gamecard-category-2" id="s-2-cat-3">
+                           <div class="gamecard-details">
+                              <span class="cat-name"></span> 
+                              <span class="cat-value"></span>
+                              <span class="cat-unit"></span>
+                           </div>
+                        </div>
+                        <div class="gamecard-category-2" id="s-2-cat-4">
+                           <div class="gamecard-details">
+                              <span class="cat-name"></span> 
+                              <span class="cat-value"></span>
+                              <span class="cat-unit"></span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <footer class="bg-footer">
+         <!--SOCIAL-->
+         <div class="row" id="footer-row">
+            <div class="col-lg-8 col-md-12" id="theme-ideas-col">
+               <input id="theme-idea-input" type="text" placeholder="Send Us Your Ideas for new themes!">
+            </div>
+            <div class="col-lg-4 col-md-12" id="social-links">
+               <ul class="list-inline footer-links">
+                  <li class="list-inline-item footer-link">
+                     <a href="https://facebook.com" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i>
+                     <span class="sr-only">Facebook</span></a>
+                  </li>
+                  <li class="list-inline-item footer-link">
+                     <a href="https://twitter.com" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i>
+                     <span class="sr-only">Twitter</span></a>
+                  </li>
+                  <li class="list-inline-item footer-link">
+                     <a href="https://instagram.com" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i>
+                     <span class="sr-only">Instagram</span></a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </footer>
+      <!-- JQUERY -->
+      <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+      <!--PLUGINS-->
+      <script src="assets/plugins/jquery.visible.js"></script>
+      <!-- MY SCRIPTS -->
+      <script src="assets/scripts/registrations.js"></script>
+      <script src="assets/scripts/gameplay-engine.js"></script>
+      <script src="assets/scripts/card-rendering.js"></script> 
+      <script src="assets/scripts/scoring.js"></script>
+      <script src="assets/scripts/alerts.js"></script>
+      <script src="assets/scripts/name-repository.js"></script>
+      <script src="assets/scripts/function-helpers.js"></script>
+      <script src="assets/scripts/setup-engine.js"></script>
+      <script src="assets/scripts/index.js"></script> 
+      <!--JASMINE SPECS-->
+      <script src="jasmine-testing/spec/scoringSpecs.js"></script>
+      <script src="jasmine-testing/spec/name-repoSpecs.js"></script>
+      <script src="jasmine-testing/spec/setup-engineSpecs.js"></script>
+      <script src="jasmine-testing/spec/gameplay-engineSpecs.js"></script>
+      <script src="jasmine-testing/spec/function-helpersSpecs.js"></script> 
+      <!-- BOOTSTRAP SCRIPTS -->
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+   </body>
+</html>
