@@ -591,6 +591,10 @@ footer {
 		height: 80vh;
 		width: 80vw;
 		margin: 30px auto;
+    }
+    .gamecard-img >img {
+		height: 140px;
+		width: 140px;
 	}
 	.gamecard-category-1,
 	.gamecard-category-2 {
