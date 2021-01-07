@@ -6,8 +6,14 @@ describe("Name Repository Specs", function(){
         it("name null be false", function(){
             expect(validateName(null)).toBeFalsy();
         });
-        it("name Tome be true", function(){
+        it("name Tom be true", function(){
             expect(validateName("Tom")).toBeTruthy();
+        });
+        it("name starts with space to be false", function(){
+            expect(validateName(" Tom")).toBeFalsy();
+        });
+        it("name has double space to be false", function(){
+            expect(validateName("Tom  Tom")).toBeFalsy();
         });
     });
     describe("validateNameLength() Tests", function(){
