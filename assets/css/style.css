@@ -689,6 +689,9 @@ footer {
 	#console {
 		margin: 10px auto;
     }
+    #console .row {
+		padding: 0px 15px;
+    }
 	.player-score {
 		margin-top: 10px;
 		font-size: 1.25rem;
