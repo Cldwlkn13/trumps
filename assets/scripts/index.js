@@ -16,7 +16,7 @@ $('document').ready(function(){
         else {
             chooseCardDisplayed(2);
         }
-    }, 300); //WAIT 300ms for REGISTRATIONS TO FULLY COMPLETE
+    }, 1000); //WAIT 1s for REGISTRATIONS TO FULLY COMPLETE
 
     //DOM EVENTS
     //FLAG TO DISABLE EVENTS WHILE BACKGROUND PROCESSING IS CONTINUING
