@@ -38,6 +38,13 @@ function setCurrentHighScore(gameScore){
     localStorage.setItem("high-score", gameScore);
 }
 
+
+/**
+  * This function updates the High Score based upon context of current score
+  * @param {int} gameScore current game score
+  * @param {int} currentHigh current persisted high score
+  * @param {string} element element to update if required
+*/
 function updateHighScore(gameScore, currentHigh, element = null){   
     if (isNaN(currentHigh) && gameScore == 0) {
         if(element != null) { 

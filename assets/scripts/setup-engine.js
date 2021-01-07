@@ -1,3 +1,8 @@
+/**
+  * This function chooses the modal card to show
+  * @param {int} e requested enum of card to show 
+  * 1 == landing card; 2 == gamestart; 3 == gameplay
+*/
 function chooseCardDisplayed(e) {
     if(!validateName(getName())) {
         e = 1;
@@ -37,7 +42,11 @@ function chooseCardDisplayed(e) {
 
     $('html, body').animate({ scrollTop: 0 }, 'fast');
 }
-    
+   
+
+/**
+  * This function adds theme specific sounds to the global sound registration
+*/
 function decorateSounds() {
     try {
         themes.forEach(function(t) {
@@ -53,6 +62,11 @@ function decorateSounds() {
     }
 }
 
+
+
+/**
+  * This function adds buttons to the gamestart card depending on the registered themes
+*/
 function addThemeChoiceButtons(){
     var buttons = $();
     for(var i = 0; i < themes.length; i++) {
@@ -63,6 +77,12 @@ function addThemeChoiceButtons(){
     $("#gamestart-buttons").html(buttons);
 }
 
+
+/**
+  * This function loads the rules text to the popover
+  * @param {string} path dir path of rules.txt file 
+  * @param {int} element element to update with content
+*/
 function loadRulesText(path, element){
     $.get(path, function(data) {
         element.attr('data-content', data); 

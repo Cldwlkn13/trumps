@@ -14,11 +14,11 @@ function removeName() {
 function validateName(name) {
     return name != null &&
         name.length > 0 && 
-        name.length < 18; //SET HARD CHARACTER LIMIT TO PROTECT STYLING FROM EXTRA LONG NAME STRINGS
+        name.length < maxNameCharLimit; //SET HARD CHARACTER LIMIT TO PROTECT STYLING FROM EXTRA LONG NAME STRINGS
 }
 
 function validateNameLength(name){
-    return name.length < 18; //SET HARD CHARACTER LIMIT TO PROTECT STYLING FROM EXTRA LONG NAME STRINGS
+    return name.length < maxNameCharLimit; //SET HARD CHARACTER LIMIT TO PROTECT STYLING FROM EXTRA LONG NAME STRINGS
 }
 
 function setElementNameWithStrong(element, name) {

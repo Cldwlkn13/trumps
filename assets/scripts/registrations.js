@@ -1,5 +1,7 @@
-
-//This would be better done with server side code such as php. But this project js only.
+/**
+  * This function takes registers the global themes to an array, calls a function to store them in memory
+  * This would be better done with server side code such as php. But this project js only.
+  */
 function registerThemes(){ 
     themes = [
         { 
@@ -12,7 +14,11 @@ function registerThemes(){
     themes.forEach(t => console.log(`Available Theme: ${t.id}`));
 }
 
-//SOUNDS AQUIRED FROM https://www.zapsplat.com//
+
+/**
+  * This function takes registers the global sounds to an array
+  * Sounds aquired from https://www.zapsplat.com//
+  */
 function registerSounds(){
     sounds = [
         {
@@ -38,6 +44,10 @@ function registerSounds(){
     ];
 }
 
+ /**
+  * This function takes in a registered theme, pulls it from the dir & saves it in sessionStorage
+  * @param {object} theme Theme registration object.
+  */
 function storeThemeInMemory(theme){  
     getLocalJson(theme.path)
         .then(function(value){
@@ -46,6 +56,10 @@ function storeThemeInMemory(theme){
             });
 }
 
+ /**
+  * This function takes in a string for dir path, queries the dir & returns json in a promise
+  * @param {string} path dir path of .json file
+  */
 function getLocalJson(path){   
     return $.getJSON(`${path}`)
     .done(

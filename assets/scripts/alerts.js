@@ -1,3 +1,7 @@
+/**
+  * This function takes in an int, performs action on gameplay-alert element
+  * @param {int} winner winner of previous showdown (range 1 ---> 2)
+*/
 function nextMoveAlert(winner){
     if(!continueGamePlayProcessing) { return; } //CHECK CONTINUE FLAG NOT SET TO FALSE
 
@@ -6,6 +10,12 @@ function nextMoveAlert(winner){
         $(".gameplay-alert").html(``);
 }
 
+/**
+  * This function performs actions on the showdown-alert
+  * @param {int} category category selected by player (range 1 ---> 2)
+  * @param {int} caller which player called the function (range 1 ---> 2)
+  * @param {int} displayForMs how long should the alert display for
+*/
 function showdownAlert(category, caller, displayForMs) {                
     if(!continueGamePlayProcessing) { return; } //CHECK CONTINUE FLAG NOT SET TO FALSE
 
@@ -61,6 +71,12 @@ function showdownAlert(category, caller, displayForMs) {
     );
 }
 
+/**
+  * This function performs actions on the winner-alert (The alert that follows the showdown, that displays the winner of that showdown to the user)
+  * @param {int} winner winner of the showdown (range 1 ---> 2)
+  * @param {int} category category selected by player (range 1 ---> categories.length)
+  * @param {int} displayForMs how long should the alert display for
+*/
 function showdownWinnerAlert(winner, category, displayForMs) {
     if(!continueGamePlayProcessing) { return; } //CHECK CONTINUE FLAG NOT SET TO FALSE
 
@@ -87,7 +103,7 @@ function showdownWinnerAlert(winner, category, displayForMs) {
         arrowAnimationInterval = setInterval(animateArrowsRight, 1000);
     }
 
-    //ANIMATIONS WAITING 2s
+    //ANIMATIONS WAITING 1.5s
     setTimeout(function() {
         if(!continueGamePlayProcessing) { return; } //CHECK CONTINUE FLAG NOT SET TO FALSE
         if(winner == 1){
@@ -116,6 +132,10 @@ function showdownWinnerAlert(winner, category, displayForMs) {
     );
 }
 
+/**
+  * This function performs actions on the match-winner-alert
+  * @param {int} winner winner of match showdown (range 1 ---> 2)
+*/
 function matchWinnerAlert(winner) {
     if(!continueGamePlayProcessing) { return; } //CHECK CONTINUE FLAG NOT SET TO FALSE
 
@@ -132,6 +152,9 @@ function matchWinnerAlert(winner) {
     );
 }
 
+/**
+  * This function performs animations on the right arrows within the winner-alert
+*/
 function animateArrowsRight() {
     $('.left').removeClass('arrow-left').addClass('arrow-right');
     $('.middle').removeClass('arrow-left').addClass('arrow-right');
@@ -142,6 +165,9 @@ function animateArrowsRight() {
     $('.right').delay(500).fadeTo(500, 1).delay(500).fadeTo(500, 0);
 }
 
+/**
+  * This function performs animations on the left arrows within the winner-alert
+*/
 function animateArrowsLeft() {     
     $('.left').removeClass('arrow-right').addClass('arrow-left');
     $('.middle').removeClass('arrow-right').addClass('arrow-left');
@@ -152,6 +178,15 @@ function animateArrowsLeft() {
     $('.right').delay(500).fadeTo(500, 1).delay(500).fadeTo(500, 0);
 }
 
+/**
+  * This function performs actions on the match-winner-alert
+  * @param {object} alert alert element context
+  * @param {int} opacity opacity to display alert at (range 0 ---> 1)
+  * @param {bool} hide do you want to call the hideAlert function 
+  * @param {string} backgroundColor bg color to display
+  * @param {string} html default html for the alert
+  * @param {int} showForMs show for ms before hiding
+*/
 function showAlert(alert, opacity, hide, backgroundColor, html = "", showForMs = 0) {
     if(html != "") {
         alert.html(html);
@@ -165,6 +200,11 @@ function showAlert(alert, opacity, hide, backgroundColor, html = "", showForMs =
     }
 }
 
+/**
+  * This function performs actions on the match-winner-alert
+  * @param {object} alert alert element context
+  * @param {string} slide speed of slide if requested
+*/
 function hideAlert(alert, slide) {
     if(slide != null) {
         $(alert).slideUp(slide); 

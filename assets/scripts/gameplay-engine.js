@@ -1,8 +1,12 @@
+/**
+  * This function pushes cards to each stack array in a random assignment
+  * @param {object[]} cards array of cards
+*/
 function dealCardsRandomly(cards) {         
-    stackOne = []; //Empty stack
-    stackTwo = []; //Empty stack
+    stackOne = []; //Empty the stack
+    stackTwo = []; //Empty the stack
     var pushedStackOneCardIds = []; //Array to store ids of stackOne locally
-    var card = {};
+    var card = {}; //card to be pushed
 
     var i = 1;
     do {
@@ -22,6 +26,14 @@ function dealCardsRandomly(cards) {
     }
 }
 
+
+
+
+/**
+  * This function is the main engine for handling the action by either player. 
+  * @param {int} category category selected by player (range 1 -----> categories.length)
+  * @param {int} caller player who has invoked function (range 1 -----> 2)
+*/
 function handlePlayerAction(category, caller){       
     if(!continueGamePlayProcessing) { 
         console.log("isGamePlayProcessing false");
@@ -95,8 +107,16 @@ function handlePlayerAction(category, caller){
     }, (showAlertsForMs * 2) + 1000);
 }
 
+
+
+
+/**
+  * This function determines the winner of the showdown based on the values in the category selected
+  * @param {int} value1 P1 value
+  * @param {int} value2 P2 value
+*/
 function determineShowdown(value1, value2){
-    if(value1 > value2){
+    if(value1 > value2){ //if value1 == value2 then P2 WINS
         console.log(`P1 WINS Showdown: ${value1} beats ${value2}`);
         return 1;
     }
@@ -104,6 +124,14 @@ function determineShowdown(value1, value2){
     return 2;
 }
 
+
+
+
+/**
+  * This function pushes the losing card to the winning array
+  * @param {object[]} winningCardArray the array of cards held by the winning player of the showdown
+  * @param {object[]} losingCardArray the array of cards held by the losing player of the showdown
+*/
 function pushToArray(winningCardArray, losingCardArray){
     var winningCard = winningCardArray.splice(0, 1)[0]; //TAKE WINNING CARD
     var losingCard = losingCardArray.splice(0, 1)[0]; //TAKE LOSING CARD
@@ -112,6 +140,12 @@ function pushToArray(winningCardArray, losingCardArray){
     winningCardArray.push(losingCard); //PUSH LOSING CARD TO BACK OF WINNING ARRAY
 }
 
+
+
+/**
+  * This function handles the transition to the next showdown 
+  * @param {int} winner winner of previous showdown (range 1 -----> 2)
+*/
 function goToNextShowdown(winner) {
     turn = winner; //SET NEXT TURN TO THE WINNING PLAYER
     switch(winner)
@@ -134,6 +168,13 @@ function goToNextShowdown(winner) {
     return false; //IF EITHER STACK HAS SOME CARDS LEFT, RETURN FLAG THAT MATCH IS NOT WON
 }
 
+
+
+
+/**
+  * This function invokes the matchWinnerAlert function 
+  * @param {int} winner winner of previous showdown (range 1 -----> 2)
+*/
 function declareWinner(winner){
     matchWinnerAlert(winner);
     setTimeout(function(){ 
