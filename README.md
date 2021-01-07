@@ -1,13 +1,13 @@
 # Trumps  
 [site published here](https://cldwlkn13.github.io/trumps/)
 
-## UX
-
 Trumps is a interactive card game based upon [Top Trumps](https://en.wikipedia.org/wiki/Top_Trumps). 
 The game is intended to be a tribute, and to avoid copyright infringement will not be monetized. 
 The cards are traditionally based upon a theme (The first theme will be Soccer Players), and each card has a series of "categories" (Trumps will have 4).
 The player will play against an AI algorithm in the code. 
 The game is designed to be game theme agnostic. New themes can be easily added by adding a .json file to the assets/json & registering the theme at startup.  
+
+## UX
 
 ### Rules of the Game
 - The game is for 2 "players", the user (PLAYER 1) and the computer (PLAYER 2). 
@@ -238,17 +238,18 @@ Wireframes were designed using JustInMind and images of the slides can be viewed
     - [IE Issue](readme-files/ie-issue.JPG) Page loads but Game will not play. This is due to the JS used in the application. 
 
 #### Responsiveness Quality Testing  
-    Testing conducted on [Responsive Design Checker](https://responsivedesignchecker.com/)
+Testing conducted on [Responsive Design Checker](https://responsivedesignchecker.com/)
 
 -   [Mobile](readme-files/mobile-testing.JPG) - 0 issues
 -   [Tablet](readme-files/tablet-testing.JPG) - 0 issues
 -   [Desktop](readme-files/desktop-testing.JPG) - 1 issue: 10" Notebook where Footer is not fixed to bottom of page.
 
 #### Automated Testing - Jasmine  
-    Jasmine Test Specs are available in the index.html file. They are commented out by default. Please pull repo, uncomment and run them if required. 
-    [Jasmine Specs 1](readme-files/jasmine-1.JPG)
-    [Jasmine Specs 2](readme-files/jasmine-2.JPG)
-    [Jasmine Specs 3](readme-files/jasmine-3.JPG)
+Jasmine Test Specs are available in the test.html file. Please see [here](https://cldwlkn13.github.io/trumps/test.html)
+
+[Jasmine Specs 1](readme-files/jasmine-1.JPG)  
+[Jasmine Specs 2](readme-files/jasmine-2.JPG)  
+[Jasmine Specs 3](readme-files/jasmine-3.JPG)
 
 #### User Story Testing  
 ##### #US001 As the site owner, I want to entice players to play a game of Trumps &check;
