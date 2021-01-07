@@ -45,6 +45,7 @@ $('document').ready(function(){
         if(validateName(name)){
             storeName(name);
             chooseCardDisplayed(2);
+            $("#landing-card-name-input").val('');
             return;
         }
         if(!validateNameLength(name)) {
