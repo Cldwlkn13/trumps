@@ -765,5 +765,11 @@ footer {
 	}
 	#arrows {
 		display: none;
-	}
+    }
+    
+    @media only screen and (max-height: 800px) and (min-width: 1024px) {
+        .main{
+            min-height: 200vh;
+        }
+    }
 }
